@@ -13,9 +13,15 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # boundary="above_max" значит вернуть год больше максимума, например 2009.
     # boundary=None значит выбрать случайный год от min_year до max_year.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же год.
+    # Можно вызвать birth_year() и получить случайный год от 1950 до 2008.
+    # Можно вызвать birth_year(boundary="max") и получить стандартный максимум 2008.
+    # Можно вызвать birth_year(min_year=2000, max_year=2010) и получить год от 2000 до 2010.
+    # Можно вызвать birth_year(min_year=2000, max_year=2010, boundary="min") и получить 2000.
+    # Можно вызвать birth_year(seed=1) два раза и получить один и тот же год.
     # Пример вызова: birth_year(boundary="max") должен вернуть 2008.
     # Документация: docs/function_specifications.md, раздел birth_year.
-    # Команда для проверки: python check.py birth_year
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py birth_year
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
     # Что вернуть: целое число.

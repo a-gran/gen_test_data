@@ -11,9 +11,14 @@ def tags(count=None, unique=True, seed=None):
     # unique=True значит теги не должны повторяться.
     # unique=False значит повторы разрешены.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же список тегов.
+    # Можно вызвать tags() и получить от 1 до 3 разных тегов.
+    # Можно вызвать tags(count=5) и получить ровно 5 разных тегов.
+    # Можно вызвать tags(count=5, unique=False) и разрешить одинаковые теги.
+    # Можно вызвать tags(count=5, unique=True, seed=1) и сочетать настройки.
     # Пример вызова: tags(count=5, unique=True, seed=1) должен вернуть 5 разных тегов.
     # Документация: docs/function_specifications.md, раздел tags.
-    # Команда для проверки: python check.py tags
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py tags
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если count меньше 0, нужно вызвать ValueError.
     # Что вернуть: список строк.

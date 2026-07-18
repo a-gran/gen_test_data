@@ -8,9 +8,14 @@ def user_id(length=6, only_digits=True, seed=None):
     # only_digits=True значит ID состоит только из цифр, например "123456".
     # only_digits=False значит можно использовать цифры и английские буквы.
     # seed - число для random: с одним и тем же seed random собирает один и тот же ID.
+    # Можно вызвать user_id() и получить ID из 6 цифр.
+    # Можно вызвать user_id(length=8) и получить ID из 8 цифр.
+    # Можно вызвать user_id(only_digits=False) и разрешить английские буквы и цифры.
+    # Можно вызвать user_id(length=8, only_digits=False, seed=1) и сочетать настройки.
     # Пример вызова: user_id(length=8, only_digits=True, seed=1).
     # Документация: docs/function_specifications.md, раздел user_id.
-    # Команда для проверки: python check.py id
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py id
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.

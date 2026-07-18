@@ -12,9 +12,13 @@ def plan_example(allowed_plans=None, seed=None):
     # allowed_plans=["free", "premium"] значит выбрать только "free" или "premium".
     # allowed_plans=[] значит выбирать не из чего, поэтому нужна ошибка ValueError.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же план.
+    # Можно вызвать plan_example() и выбрать план из общего списка.
+    # Можно вызвать plan_example(allowed_plans=["free", "premium"]) и выбрать только из двух планов.
+    # Можно вызвать plan_example(allowed_plans=["free"], seed=1) и получить "free".
     # Пример вызова: plan_example(allowed_plans=["free", "premium"], seed=1).
     # Документация: docs/function_specifications.md, раздел plan.
-    # Команда для проверки: python check.py plan
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py plan
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: строку с одним планом подписки.
     # Проверка тестами: python check.py plan

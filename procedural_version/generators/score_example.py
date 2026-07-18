@@ -13,9 +13,14 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # boundary="above_max" значит вернуть число больше максимума, например 101.
     # boundary=None значит выбрать случайный балл от min_score до max_score.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же балл.
+    # Можно вызвать score_example() и получить случайный балл от 1 до 100.
+    # Можно вызвать score_example(boundary="min") и получить 1.
+    # Можно вызвать score_example(min_score=10, max_score=20) и получить балл от 10 до 20.
+    # Можно вызвать score_example(min_score=10, max_score=20, boundary="max") и получить 20.
     # Пример вызова: score_example(boundary="above_max") должен вернуть 101.
     # Документация: docs/function_specifications.md, раздел score.
-    # Команда для проверки: python check.py score
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py score
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: целое число.
     # Проверка тестами: python check.py score

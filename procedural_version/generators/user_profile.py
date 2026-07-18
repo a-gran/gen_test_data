@@ -36,9 +36,13 @@ def user_profile(valid=True, seed=None):
     # password должен быть строкой длиной 12.
     # tags должен быть списком из 3 уникальных тегов.
     # subscription_plan - это план подписки, например "free" или "premium".
+    # Можно вызвать user_profile() и получить профиль с правильным email.
+    # Можно вызвать user_profile(valid=False) и получить профиль с неправильным email.
+    # Можно вызвать user_profile(seed=1) два раза и получить одинаковые профили.
     # Пример вызова: user_profile(valid=False, seed=1) должен вернуть словарь с email без @.
     # Документация: docs/function_specifications.md, раздел user_profile.
-    # Команда для проверки: python check.py profile
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py profile
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.

@@ -13,9 +13,14 @@ def reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
     # boundary="above_max" значит вернуть дату после диапазона: "2027-01-01".
     # boundary=None значит выбрать случайную дату от start_year до end_year.
     # seed - число для random: с одним и тем же seed random выбирает одну и ту же дату.
+    # Можно вызвать reg_date_example() и получить случайную дату от 2020 до 2026 года.
+    # Можно вызвать reg_date_example(boundary="min") и получить "2020-01-01".
+    # Можно вызвать reg_date_example(start_year=2022, end_year=2024) и выбрать дату в этих годах.
+    # Можно вызвать reg_date_example(start_year=2022, end_year=2024, boundary="max") и получить "2024-12-28".
     # Пример вызова: reg_date_example(boundary="min") должен вернуть "2020-01-01".
     # Документация: docs/function_specifications.md, раздел reg_date.
-    # Команда для проверки: python check.py date
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py date
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: строку даты в формате год-месяц-день.
     # Проверка тестами: python check.py date
