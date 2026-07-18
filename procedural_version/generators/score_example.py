@@ -20,10 +20,10 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # Пример вызова: score_example(boundary="above_max") должен вернуть 101.
     # Документация: docs/function_specifications.md, раздел score.
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py score
+    # Затем запусти: python check.py score_example
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: целое число.
-    # Проверка тестами: python check.py score
+    # Проверка тестами: python check.py score_example
     # Проверяем, что нижняя граница не больше верхней.
     if min_score > max_score:
         # Сообщаем ошибку, если диапазон написан наоборот.

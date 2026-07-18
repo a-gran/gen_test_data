@@ -12,10 +12,10 @@ def active_example(seed=None):
     # Пример вызова: active_example(seed=1) должен вернуть булево значение.
     # Документация: docs/function_specifications.md, раздел active.
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py active
+    # Затем запусти: python check.py active_example
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: только True или False, не строку "True" и не число 1.
-    # Проверка тестами: python check.py active
+    # Проверка тестами: python check.py active_example
     # Создаем random с переданным seed.
     randomizer = create_random(seed)
     # Выбираем True или False и сразу возвращаем результат.

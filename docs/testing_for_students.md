@@ -124,7 +124,7 @@ python check.py oop
 ID точной длины:
 
 ```bash
-python check.py id
+python check.py user_id
 ```
 
 Возраст на минимуме, максимуме и за пределами диапазона:
@@ -136,13 +136,13 @@ python check.py age
 Функция-образец с баллом:
 
 ```bash
-python check.py score
+python check.py score_example
 ```
 
 Функция-образец с активностью:
 
 ```bash
-python check.py active
+python check.py active_example
 ```
 
 Email, пароль, теги и профиль:
@@ -151,14 +151,14 @@ Email, пароль, теги и профиль:
 python check.py email
 python check.py password
 python check.py tags
-python check.py profile
+python check.py user_profile
 ```
 
 Функции-образцы с планом подписки и датой:
 
 ```bash
-python check.py plan
-python check.py date
+python check.py plan_example
+python check.py reg_date_example
 ```
 
 ООП-профиль:

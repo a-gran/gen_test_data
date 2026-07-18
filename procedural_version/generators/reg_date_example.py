@@ -20,10 +20,10 @@ def reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
     # Пример вызова: reg_date_example(boundary="min") должен вернуть "2020-01-01".
     # Документация: docs/function_specifications.md, раздел reg_date.
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py date
+    # Затем запусти: python check.py reg_date_example
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: строку даты в формате год-месяц-день.
-    # Проверка тестами: python check.py date
+    # Проверка тестами: python check.py reg_date_example
     # Проверяем, что начальный год не больше конечного.
     if start_year > end_year:
         # Сообщаем ошибку, если годы написаны наоборот.

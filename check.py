@@ -6,7 +6,7 @@ import unittest
 # Создаем словарь: короткая команда ученика -> список настоящих unittest-тестов.
 TESTS = {
     # Проверки ID пользователя.
-    "id": [
+    "user_id": [
         # Тест ID из цифр и точной длины.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_id_digits",
         # Тест ID из букв и цифр.
@@ -137,7 +137,7 @@ TESTS = {
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_tags_seed",
     ],
     # Проверки профиля.
-    "profile": [
+    "user_profile": [
         # Тест богатого словаря профиля.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_user_profile_fields",
         # Тест профиля с неправильным email.
@@ -146,7 +146,7 @@ TESTS = {
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_user_profile_seed",
     ],
     # Проверки функции-образца балла.
-    "score": [
+    "score_example": [
         # Тест специальных значений балла.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_score_bounds",
         # Тест обычного балла внутри диапазона.
@@ -157,14 +157,14 @@ TESTS = {
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_score_bad_range",
     ],
     # Проверки функции-образца активности.
-    "active": [
+    "active_example": [
         # Тест булевого результата.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_active_bool",
         # Тест повторяемости активности при одинаковом seed.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_active_seed",
     ],
     # Проверки функции-образца плана подписки.
-    "plan": [
+    "plan_example": [
         # Тест выбора только из разрешенных планов.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_plan_allowed",
         # Тест выбора из общего списка планов.
@@ -175,7 +175,7 @@ TESTS = {
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_plan_empty",
     ],
     # Проверки функции-образца даты регистрации.
-    "date": [
+    "reg_date_example": [
         # Тест специальных значений даты.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_reg_date_bounds",
         # Тест обычной даты внутри диапазона.

@@ -42,7 +42,7 @@ def user_profile(valid=True, seed=None):
     # Пример вызова: user_profile(valid=False, seed=1) должен вернуть словарь с email без @.
     # Документация: docs/function_specifications.md, раздел user_profile.
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py profile
+    # Затем запусти: python check.py user_profile
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.

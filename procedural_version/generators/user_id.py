@@ -15,7 +15,7 @@ def user_id(length=6, only_digits=True, seed=None):
     # Пример вызова: user_id(length=8, only_digits=True, seed=1).
     # Документация: docs/function_specifications.md, раздел user_id.
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py id
+    # Затем запусти: python check.py user_id
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.
