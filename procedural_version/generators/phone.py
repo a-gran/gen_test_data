@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует номер телефона как словарь.
 def generate_phone(valid=True, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_phone.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_phone.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_phone.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_phone(seed=1) и еще раз generate_phone(seed=1) должны вернуть один и тот же телефон.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

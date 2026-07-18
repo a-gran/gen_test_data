@@ -7,6 +7,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует адрес электронной почты.
 def generate_email(valid=True, username_length=8, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_email.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_email.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_email.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_email(seed=1) и еще раз generate_email(seed=1) должны вернуть один и тот же email.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

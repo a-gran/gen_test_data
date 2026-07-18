@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует год рождения пользователя.
 def generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_birth_year.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_birth_year.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_birth_year.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_birth_year(seed=1) и еще раз generate_birth_year(seed=1) должны вернуть одно и то же число.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

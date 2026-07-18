@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Задание: реализуй генератор даты регистрации и проверь обычные и граничные даты тестами.
 def generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_registration_date.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_registration_date.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_registration_date.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_registration_date(seed=1) и еще раз generate_registration_date(seed=1) должны вернуть одну и ту же дату.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

@@ -9,6 +9,9 @@ from procedural_version.utils.random_utils import choose_item
 
 # Объявляем функцию, которая генерирует полное имя.
 def generate_full_name(max_total_length=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_full_name.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_full_name.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_full_name.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_full_name(seed=1) и еще раз generate_full_name(seed=1) должны вернуть одно и то же полное имя.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

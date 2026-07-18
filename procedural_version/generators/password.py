@@ -5,6 +5,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует учебный пароль.
 def generate_password(length=12, use_digits=True, use_symbols=True, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_password.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_password.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_password.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_password(seed=1) и еще раз generate_password(seed=1) должны вернуть один и тот же пароль.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

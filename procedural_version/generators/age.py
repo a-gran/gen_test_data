@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует возраст пользователя.
 def generate_age(min_age=18, max_age=80, boundary=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_age.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_age.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_age.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_age(seed=1) и еще раз generate_age(seed=1) должны вернуть одно и то же число.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

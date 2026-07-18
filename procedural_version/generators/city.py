@@ -5,6 +5,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует случайный город.
 def generate_city(starts_with=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_city.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_city.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_city.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_city(seed=1) и еще раз generate_city(seed=1) должны вернуть один и тот же город.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

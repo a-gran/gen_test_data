@@ -5,6 +5,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует случайную фамилию.
 def generate_last_name(min_length=None, max_length=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_last_name.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_last_name.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_last_name.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_last_name(seed=1) и еще раз generate_last_name(seed=1) должны вернуть одну и ту же фамилию.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

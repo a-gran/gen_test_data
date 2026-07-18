@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Задание: реализуй генератор признака активности пользователя и проверь тип результата тестом.
 def generate_is_active(seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_is_active.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_is_active.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_is_active.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_is_active(seed=1) и еще раз generate_is_active(seed=1) должны вернуть одно и то же значение.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

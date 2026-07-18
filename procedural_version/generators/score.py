@@ -3,6 +3,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Задание: реализуй генератор учебного балла и проверь его граничные значения тестами.
 def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_score.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_score.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_score.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_score(seed=1) и еще раз generate_score(seed=1) должны вернуть один и тот же балл.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

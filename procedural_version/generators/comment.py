@@ -5,6 +5,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует комментарий любой заданной длины.
 def generate_comment(length=100, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_comment.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_comment.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_comment.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_comment(seed=1) и еще раз generate_comment(seed=1) должны вернуть один и тот же текст.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

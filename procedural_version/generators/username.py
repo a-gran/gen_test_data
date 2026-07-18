@@ -5,6 +5,9 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует username пользователя.
 def generate_username(length=10, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_username.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_username.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_username.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_username(seed=1) и еще раз generate_username(seed=1) должны вернуть один и тот же username.
     # Это удобно для тестов: тест знает, какой результат должен получиться.

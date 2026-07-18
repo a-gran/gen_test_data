@@ -25,6 +25,9 @@ from procedural_version.utils.random_utils import choose_item
 
 # Объявляем функцию, которая генерирует словарь профиля пользователя.
 def generate_user_profile(valid=True, seed=None):
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_user_profile.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_user_profile.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_user_profile.
     # seed помогает получать одинаковый случайный результат.
     # Например, generate_user_profile(seed=1) и еще раз generate_user_profile(seed=1) должны вернуть один и тот же профиль.
     # Это удобно для тестов: тест знает, какой результат должен получиться.
