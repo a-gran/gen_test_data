@@ -3,13 +3,18 @@ from procedural_version.utils.random_utils import create_random
 
 # Задание: реализуй генератор учебного балла и проверь его граничные значения тестами.
 def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
-    # Что такое seed: это значение, которое делает случайный балл повторяемым для тестов.
-    # Если вызвать функцию два раза с одинаковым seed, случайный результат должен быть одинаковым.
+    # Что такое seed: это подсказка для random, чтобы случайный результат можно было повторить.
+    # Например, если два раза вызвать функцию с seed=1, результат должен получиться одинаковым.
+    # Входные данные - это значения в скобках функции.
     # Входные данные: min_score - самый маленький разрешенный балл.
     # Входные данные: max_score - самый большой разрешенный балл.
     # Входные данные: boundary - режим границы: "min", "max", "below_min", "above_max" или None.
     # Входные данные: seed - значение для повторяемой генерации.
+    # Переменные внутри функции можно называть по-своему.
+    # Тесты проверяют результат функции, а не названия переменных.
+    # Ниже перечислен пример понятного названия переменной.
     # Внутренние переменные: randomizer - генератор случайности, который создается через create_random(seed).
+    # Выходные данные - это значение, которое функция отдает с помощью return.
     # Выходные данные: функция должна вернуть целое число с баллом.
     # Шаг 1. Сначала проверь ошибочный случай: min_score не должен быть больше max_score.
     if min_score > max_score:
@@ -34,7 +39,7 @@ def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
     # Шаг 7. Если boundary не передан, создай генератор случайности.
     randomizer = create_random(seed)
     # Шаг 8. Верни случайный балл внутри диапазона; тест должен проверить, что min_score <= результат <= max_score.
-    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_returns_boundary_values
-    # Если все хорошо, в конце вывода unittest будет написано OK.
-    # Если тест упал, прочитай строку с AssertionError и проверь значения для boundary="min" и boundary="max".
+    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_returns_boundary_values
+    # Если все правильно, в самом конце появится слово OK.
+    # Если вместо OK появилась ошибка, проверь значения для boundary="min" и boundary="max".
     return randomizer.randint(min_score, max_score)
