@@ -21,12 +21,12 @@
 - `generate_subscription_plan_example(...)`
 - `generate_registration_date_example(...)`
 
-Старые имена без `_example` оставлены для тестов:
+У этих примеров `example` есть и в названии файла, и в названии функции:
 
-- `generate_score(...)`
-- `generate_is_active(...)`
-- `generate_subscription_plan(...)`
-- `generate_registration_date(...)`
+- `score_example.py`
+- `is_active_example.py`
+- `subscription_plan_example.py`
+- `registration_date_example.py`
 
 ---
 
@@ -197,7 +197,7 @@ generate_birth_year(min_year=1950, max_year=2008, boundary="min")
 
 Это пример готового решения для генератора с числами и границами.
 
-Старое имя `generate_score(...)` оставлено для тестов.
+Файл с примером: `procedural_version/generators/score_example.py`.
 
 Вход:
 
@@ -214,7 +214,7 @@ generate_birth_year(min_year=1950, max_year=2008, boundary="min")
 
 Это пример готового решения для генератора `True` или `False`.
 
-Старое имя `generate_is_active(...)` оставлено для тестов.
+Файл с примером: `procedural_version/generators/is_active_example.py`.
 
 Вход:
 
@@ -230,7 +230,7 @@ generate_birth_year(min_year=1950, max_year=2008, boundary="min")
 
 План подписки - это вариант аккаунта пользователя, например `"free"` или `"premium"`.
 
-Старое имя `generate_subscription_plan(...)` оставлено для тестов.
+Файл с примером: `procedural_version/generators/subscription_plan_example.py`.
 
 Вход:
 
@@ -245,7 +245,7 @@ generate_birth_year(min_year=1950, max_year=2008, boundary="min")
 
 Это пример готового решения для генератора даты с границами.
 
-Старое имя `generate_registration_date(...)` оставлено для тестов.
+Файл с примером: `procedural_version/generators/registration_date_example.py`.
 
 Вход:
 

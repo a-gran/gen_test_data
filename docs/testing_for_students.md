@@ -68,6 +68,18 @@ python -m unittest procedural_version.tests.test_generators.ProceduralGenerators
 python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_age_returns_boundary_values
 ```
 
+## Проверка примера с учебным баллом
+
+```bash
+python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_example_returns_boundary_values
+```
+
+## Проверка примера с активностью
+
+```bash
+python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_is_active_example_returns_boolean
+```
+
 ## Проверка комментария точной длины
 
 ```bash
@@ -90,6 +102,18 @@ python -m unittest procedural_version.tests.test_generators.ProceduralGenerators
 
 ```bash
 python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_tags_respects_count_and_unique
+```
+
+## Проверка примера с планом подписки
+
+```bash
+python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_subscription_plan_example_respects_allowed_plans
+```
+
+## Проверка примера с датой регистрации
+
+```bash
+python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_registration_date_example_returns_boundary_values
 ```
 
 ## Проверка профиля

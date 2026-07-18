@@ -3,11 +3,11 @@ from procedural_version.utils.random_utils import create_random
 
 # Пример готового решения: по нему можно понять, как делать похожие генераторы.
 def generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_registration_date.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_registration_date.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_registration_date.
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_registration_date_example.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_registration_date_example.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_registration_date_example.
     # seed помогает получать одинаковый случайный результат.
-    # Например, generate_registration_date(seed=1) и еще раз generate_registration_date(seed=1) должны вернуть одну и ту же дату.
+    # Например, generate_registration_date_example(seed=1) и еще раз generate_registration_date_example(seed=1) должны вернуть одну и ту же дату.
     # Это удобно для тестов: тест знает, какой результат должен получиться.
     # Если seed=None, результат может быть разным при каждом запуске.
     # Входные данные - это значения в скобках функции.
@@ -30,11 +30,11 @@ def generate_registration_date_example(start_year=2020, end_year=2026, boundary=
         raise ValueError("start_year не должен быть больше end_year")
     # Шаг 2. Проверь boundary="min": нужно вернуть первую дату начального года.
     if boundary == "min":
-        # Проверка тестом: generate_registration_date(boundary="min") должен вернуть YYYY-01-01.
+        # Проверка тестом: generate_registration_date_example(boundary="min") должен вернуть YYYY-01-01.
         return f"{start_year:04d}-01-01"
     # Шаг 3. Проверь boundary="max": нужно вернуть дату в конце конечного года.
     if boundary == "max":
-        # Проверка тестом: generate_registration_date(boundary="max") должен вернуть YYYY-12-28.
+        # Проверка тестом: generate_registration_date_example(boundary="max") должен вернуть YYYY-12-28.
         return f"{end_year:04d}-12-28"
     # Шаг 4. Проверь boundary="below_min": это дата раньше разрешенного диапазона.
     if boundary == "below_min":
@@ -54,10 +54,7 @@ def generate_registration_date_example(start_year=2020, end_year=2026, boundary=
     day = randomizer.randint(1, 28)
     # Шаг 10. Верни строку в формате YYYY-MM-DD.
     # Проверка тестом: строка должна иметь формат даты и год должен быть в разрешенном диапазоне.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_registration_date_returns_boundary_values
+    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_registration_date_example_returns_boundary_values
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь даты для boundary="min" и boundary="max".
     return f"{year:04d}-{month:02d}-{day:02d}"
-
-# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
-generate_registration_date = generate_registration_date_example

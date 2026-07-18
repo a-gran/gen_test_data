@@ -11,14 +11,14 @@
 - `generate_subscription_plan_example(allowed_plans=None, seed=None)`
 - `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
 
-В коде также оставлены старые имена без `_example`, чтобы тесты продолжали работать:
+У этих примеров `example` есть и в названии файла, и в названии функции.
 
-- `generate_score`
-- `generate_is_active`
-- `generate_subscription_plan`
-- `generate_registration_date`
+Смотрите эти 4 файла как образец готового решения:
 
-Смотрите эти 4 функции как образец готового решения.
+- `procedural_version/generators/score_example.py`
+- `procedural_version/generators/is_active_example.py`
+- `procedural_version/generators/subscription_plan_example.py`
+- `procedural_version/generators/registration_date_example.py`
 
 ---
 

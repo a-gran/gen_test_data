@@ -6,11 +6,11 @@ from procedural_version.utils.random_utils import create_random
 
 # Пример готового решения: по нему можно понять, как делать похожие генераторы.
 def generate_subscription_plan_example(allowed_plans=None, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_subscription_plan.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_subscription_plan.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_subscription_plan.
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_subscription_plan_example.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_subscription_plan_example.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_subscription_plan_example.
     # seed помогает получать одинаковый случайный результат.
-    # Например, generate_subscription_plan(seed=1) и еще раз generate_subscription_plan(seed=1) должны вернуть один и тот же план.
+    # Например, generate_subscription_plan_example(seed=1) и еще раз generate_subscription_plan_example(seed=1) должны вернуть один и тот же план.
     # Это удобно для тестов: тест знает, какой результат должен получиться.
     # Если seed=None, результат может быть разным при каждом запуске.
     # Входные данные - это значения в скобках функции.
@@ -34,10 +34,7 @@ def generate_subscription_plan_example(allowed_plans=None, seed=None):
         raise ValueError("Список планов подписки не должен быть пустым")
     # Шаг 5. Верни случайный план подписки из выбранного списка.
     # Проверка тестом: результат должен входить в allowed_plans или SUBSCRIPTION_PLANS.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_subscription_plan_respects_allowed_plans
+    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_subscription_plan_example_respects_allowed_plans
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь, что функция выбирает план подписки только из allowed_plans.
     return randomizer.choice(plans)
-
-# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
-generate_subscription_plan = generate_subscription_plan_example

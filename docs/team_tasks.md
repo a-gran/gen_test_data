@@ -66,7 +66,7 @@ python -m unittest discover -s oop_version/tests
 - `generate_subscription_plan_example(allowed_plans=None, seed=None)`
 - `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
 
-Старые имена `generate_score`, `generate_is_active`, `generate_subscription_plan`, `generate_registration_date` оставлены в коде для тестов.
+У этих примеров `example` есть и в названии файла, и в названии функции.
 
 ## Чему учится команда
 

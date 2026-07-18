@@ -3,11 +3,11 @@ from procedural_version.utils.random_utils import create_random
 
 # Пример готового решения: по нему можно понять, как делать похожие генераторы.
 def generate_is_active_example(seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_is_active.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_is_active.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_is_active.
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_is_active_example.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_is_active_example.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_is_active_example.
     # seed помогает получать одинаковый случайный результат.
-    # Например, generate_is_active(seed=1) и еще раз generate_is_active(seed=1) должны вернуть одно и то же значение.
+    # Например, generate_is_active_example(seed=1) и еще раз generate_is_active_example(seed=1) должны вернуть одно и то же значение.
     # Это удобно для тестов: тест знает, какой результат должен получиться.
     # Если seed=None, результат может быть разным при каждом запуске.
     # Входные данные - это значения в скобках функции.
@@ -24,10 +24,7 @@ def generate_is_active_example(seed=None):
     # Шаг 3. Верни выбранное значение.
     # Проверка тестом: результат должен иметь тип bool.
     # Дополнительная проверка: при одинаковом seed результат должен повторяться.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_is_active_returns_boolean
+    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_is_active_example_returns_boolean
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь, что функция возвращает True или False, а не строку и не число.
     return randomizer.choice([True, False])
-
-# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
-generate_is_active = generate_is_active_example

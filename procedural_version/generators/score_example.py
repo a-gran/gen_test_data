@@ -3,11 +3,11 @@ from procedural_version.utils.random_utils import create_random
 
 # Пример готового решения: по нему можно понять, как делать похожие генераторы.
 def generate_score_example(min_score=1, max_score=100, boundary=None, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_score.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_score.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_score.
+    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_score_example.
+    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_score_example.
+    # Где посмотреть пример использования: открой docs/usage.md и найди generate_score_example.
     # seed помогает получать одинаковый случайный результат.
-    # Например, generate_score(seed=1) и еще раз generate_score(seed=1) должны вернуть один и тот же балл.
+    # Например, generate_score_example(seed=1) и еще раз generate_score_example(seed=1) должны вернуть один и тот же балл.
     # Это удобно для тестов: тест знает, какой результат должен получиться.
     # Если seed=None, результат может быть разным при каждом запуске.
     # Входные данные - это значения в скобках функции.
@@ -27,11 +27,11 @@ def generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)
         raise ValueError("min_score не должен быть больше max_score")
     # Шаг 3. Проверь boundary="min": функция должна вернуть нижнюю границу.
     if boundary == "min":
-        # Проверка тестом: generate_score(boundary="min") должен вернуть min_score.
+        # Проверка тестом: generate_score_example(boundary="min") должен вернуть min_score.
         return min_score
     # Шаг 4. Проверь boundary="max": функция должна вернуть верхнюю границу.
     if boundary == "max":
-        # Проверка тестом: generate_score(boundary="max") должен вернуть max_score.
+        # Проверка тестом: generate_score_example(boundary="max") должен вернуть max_score.
         return max_score
     # Шаг 5. Проверь boundary="below_min": это значение нужно для негативного теста.
     if boundary == "below_min":
@@ -44,10 +44,7 @@ def generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)
     # Шаг 7. Если boundary не передан, создай генератор случайности.
     randomizer = create_random(seed)
     # Шаг 8. Верни случайный балл внутри диапазона; тест должен проверить, что min_score <= результат <= max_score.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_returns_boundary_values
+    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_example_returns_boundary_values
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь значения для boundary="min" и boundary="max".
     return randomizer.randint(min_score, max_score)
-
-# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
-generate_score = generate_score_example

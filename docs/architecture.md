@@ -33,13 +33,13 @@ gen_test_data/
 │   │   ├── email.py
 │   │   ├── first_name.py
 │   │   ├── full_name.py
-│   │   ├── is_active.py
+│   │   ├── is_active_example.py
 │   │   ├── last_name.py
 │   │   ├── password.py
 │   │   ├── phone.py
-│   │   ├── registration_date.py
-│   │   ├── score.py
-│   │   ├── subscription_plan.py
+│   │   ├── registration_date_example.py
+│   │   ├── score_example.py
+│   │   ├── subscription_plan_example.py
 │   │   ├── tags.py
 │   │   ├── username.py
 │   │   ├── user_id.py
@@ -76,11 +76,11 @@ gen_test_data/
 - `generators/phone.py` — `generate_phone()`;
 - `generators/email.py` — `generate_email()`;
 - `generators/city.py` — `generate_city()`;
-- `generators/score.py` — `generate_score_example()`, пример готового решения; `generate_score()` оставлен для тестов;
-- `generators/is_active.py` — `generate_is_active_example()`, пример готового решения; `generate_is_active()` оставлен для тестов;
+- `generators/score_example.py` — `generate_score_example()`, пример готового решения;
+- `generators/is_active_example.py` — `generate_is_active_example()`, пример готового решения;
 - `generators/tags.py` — `generate_tags()`;
-- `generators/subscription_plan.py` — `generate_subscription_plan_example()`, пример готового решения; `generate_subscription_plan()` оставлен для тестов;
-- `generators/registration_date.py` — `generate_registration_date_example()`, пример готового решения; `generate_registration_date()` оставлен для тестов;
+- `generators/subscription_plan_example.py` — `generate_subscription_plan_example()`, пример готового решения;
+- `generators/registration_date_example.py` — `generate_registration_date_example()`, пример готового решения;
 - `generators/user_profile.py` — `generate_user_profile()`;
 - `generators/first_name.py` — `generate_first_name()`;
 - `generators/last_name.py` — `generate_last_name()`;
@@ -100,8 +100,8 @@ gen_test_data/
 - `generate_age()`;
 - `generate_birth_year()`;
 - `generate_city()`;
-- `generate_score()`;
-- `generate_is_active()`;
+- `generate_score_example()`;
+- `generate_is_active_example()`;
 - `generate_first_name()`;
 - `generate_last_name()`;
 - `generate_full_name()`;
@@ -117,8 +117,8 @@ gen_test_data/
 - `generate_tags()`.
 `ProfileGenerator` отвечает за генерацию профиля пользователя.
 Методы:
-- `generate_registration_date()`;
-- `generate_subscription_plan()`;
+- `generate_registration_date_example()`;
+- `generate_subscription_plan_example()`;
 - `generate_user_profile()`.
 `DataProvider` отвечает за хранение и выдачу исходных списков данных.
 ## Соответствие между версиями
@@ -133,11 +133,11 @@ gen_test_data/
 | Телефон | `generate_phone()` | `contact_generator.generate_phone()` |
 | Email | `generate_email()` | `contact_generator.generate_email()` |
 | Город | `generate_city()` | `person_generator.generate_city()` |
-| Балл | `generate_score_example()`, а `generate_score()` оставлен для тестов | `person_generator.generate_score()` |
-| Активность | `generate_is_active_example()`, а `generate_is_active()` оставлен для тестов | `person_generator.generate_is_active()` |
+| Балл | `generate_score_example()` | `person_generator.generate_score()` |
+| Активность | `generate_is_active_example()` | `person_generator.generate_is_active()` |
 | Теги | `generate_tags()` | `text_generator.generate_tags()` |
-| План подписки | `generate_subscription_plan_example()`, а `generate_subscription_plan()` оставлен для тестов | `profile_generator.generate_subscription_plan()` |
-| Дата регистрации | `generate_registration_date_example()`, а `generate_registration_date()` оставлен для тестов | `profile_generator.generate_registration_date()` |
+| План подписки | `generate_subscription_plan_example()` | `profile_generator.generate_subscription_plan()` |
+| Дата регистрации | `generate_registration_date_example()` | `profile_generator.generate_registration_date()` |
 | Профиль пользователя | `generate_user_profile()` | `profile_generator.generate_user_profile()` |
 | Имя | `generate_first_name()` | `person_generator.generate_first_name()` |
 | Фамилия | `generate_last_name()` | `person_generator.generate_last_name()` |

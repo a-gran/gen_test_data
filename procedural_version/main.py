@@ -16,14 +16,14 @@ from procedural_version.generators.phone import generate_phone
 from procedural_version.generators.password import generate_password
 # Импортируем функцию генерации города.
 from procedural_version.generators.city import generate_city
-# Импортируем функцию генерации даты регистрации пользователя.
-from procedural_version.generators.registration_date import generate_registration_date
-# Импортируем функцию генерации учебного балла.
-from procedural_version.generators.score import generate_score
-# Импортируем функцию генерации признака активности.
-from procedural_version.generators.is_active import generate_is_active
-# Импортируем функцию генерации тарифа пользователя.
-from procedural_version.generators.subscription_plan import generate_subscription_plan
+# Импортируем пример готовой функции генерации даты регистрации пользователя.
+from procedural_version.generators.registration_date_example import generate_registration_date_example
+# Импортируем пример готовой функции генерации учебного балла.
+from procedural_version.generators.score_example import generate_score_example
+# Импортируем пример готовой функции генерации признака активности.
+from procedural_version.generators.is_active_example import generate_is_active_example
+# Импортируем пример готовой функции генерации плана подписки пользователя.
+from procedural_version.generators.subscription_plan_example import generate_subscription_plan_example
 # Импортируем функцию генерации списка тегов.
 from procedural_version.generators.tags import generate_tags
 # Импортируем функцию генерации username пользователя.
@@ -50,13 +50,13 @@ if __name__ == "__main__":
     # Печатаем пример города.
     print(generate_city(seed=1))
     # Печатаем пример даты регистрации пользователя.
-    print(generate_registration_date(seed=1))
+    print(generate_registration_date_example(seed=1))
     # Печатаем пример учебного балла.
-    print(generate_score(seed=1))
+    print(generate_score_example(seed=1))
     # Печатаем пример признака активности.
-    print(generate_is_active(seed=1))
-    # Печатаем пример тарифа пользователя.
-    print(generate_subscription_plan(seed=1))
+    print(generate_is_active_example(seed=1))
+    # Печатаем пример плана подписки пользователя.
+    print(generate_subscription_plan_example(seed=1))
     # Печатаем пример списка тегов.
     print(generate_tags(seed=1))
     # Печатаем пример username пользователя.

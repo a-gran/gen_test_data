@@ -6,8 +6,8 @@ from procedural_version.data.names_data import LAST_NAMES
 from procedural_version.data.names_data import CITY_NAMES
 # Импортируем список планов подписки для генерации варианта аккаунта пользователя.
 from procedural_version.data.names_data import SUBSCRIPTION_PLANS
-# Импортируем функцию генерации даты регистрации.
-from procedural_version.generators.registration_date import generate_registration_date
+# Импортируем пример готовой функции генерации даты регистрации.
+from procedural_version.generators.registration_date_example import generate_registration_date_example
 # Импортируем функцию генерации email.
 from procedural_version.generators.email import generate_email
 # Импортируем функцию генерации пароля.

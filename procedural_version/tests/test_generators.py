@@ -22,20 +22,20 @@ from procedural_version.generators.email import generate_email
 from procedural_version.generators.first_name import generate_first_name
 # Импортируем функцию генерации полного имени.
 from procedural_version.generators.full_name import generate_full_name
-# Импортируем функцию генерации активности.
-from procedural_version.generators.is_active import generate_is_active
+# Импортируем пример готовой функции генерации активности.
+from procedural_version.generators.is_active_example import generate_is_active_example
 # Импортируем функцию генерации фамилии.
 from procedural_version.generators.last_name import generate_last_name
 # Импортируем функцию генерации пароля.
 from procedural_version.generators.password import generate_password
 # Импортируем функцию генерации телефона.
 from procedural_version.generators.phone import generate_phone
-# Импортируем функцию генерации даты регистрации.
-from procedural_version.generators.registration_date import generate_registration_date
-# Импортируем функцию генерации балла.
-from procedural_version.generators.score import generate_score
-# Импортируем функцию генерации тарифа.
-from procedural_version.generators.subscription_plan import generate_subscription_plan
+# Импортируем пример готовой функции генерации даты регистрации.
+from procedural_version.generators.registration_date_example import generate_registration_date_example
+# Импортируем пример готовой функции генерации балла.
+from procedural_version.generators.score_example import generate_score_example
+# Импортируем пример готовой функции генерации плана подписки.
+from procedural_version.generators.subscription_plan_example import generate_subscription_plan_example
 # Импортируем функцию генерации тегов.
 from procedural_version.generators.tags import generate_tags
 # Импортируем функцию генерации ID.
@@ -184,23 +184,23 @@ class ProceduralGeneratorsTest(unittest.TestCase):
         self.assertLess(invalid_phone["number"], 1000000)
 
     # Объявляем тест даты регистрации на границах.
-    def test_generate_registration_date_returns_boundary_values(self):
+    def test_generate_registration_date_example_returns_boundary_values(self):
         # Проверяем нижнюю границу даты.
-        self.assertEqual(generate_registration_date(start_year=2020, end_year=2026, boundary="min"), "2020-01-01")
+        self.assertEqual(generate_registration_date_example(start_year=2020, end_year=2026, boundary="min"), "2020-01-01")
         # Проверяем верхнюю границу даты.
-        self.assertEqual(generate_registration_date(start_year=2020, end_year=2026, boundary="max"), "2026-12-28")
+        self.assertEqual(generate_registration_date_example(start_year=2020, end_year=2026, boundary="max"), "2026-12-28")
 
     # Объявляем тест учебного балла на границах.
-    def test_generate_score_returns_boundary_values(self):
+    def test_generate_score_example_returns_boundary_values(self):
         # Проверяем нижнюю границу балла.
-        self.assertEqual(generate_score(min_score=1, max_score=100, boundary="min"), 1)
+        self.assertEqual(generate_score_example(min_score=1, max_score=100, boundary="min"), 1)
         # Проверяем верхнюю границу балла.
-        self.assertEqual(generate_score(min_score=1, max_score=100, boundary="max"), 100)
+        self.assertEqual(generate_score_example(min_score=1, max_score=100, boundary="max"), 100)
 
     # Объявляем тест признака активности.
-    def test_generate_is_active_returns_boolean(self):
+    def test_generate_is_active_example_returns_boolean(self):
         # Генерируем признак активности.
-        is_active = generate_is_active(seed=1)
+        is_active = generate_is_active_example(seed=1)
         # Проверяем, что результат является булевым значением.
         self.assertIsInstance(is_active, bool)
 
@@ -217,11 +217,11 @@ class ProceduralGeneratorsTest(unittest.TestCase):
             # Проверяем, что тег взят из учебного списка.
             self.assertIn(tag, TAGS)
 
-    # Объявляем тест тарифа из разрешенного списка.
-    def test_generate_subscription_plan_respects_allowed_plans(self):
-        # Генерируем тариф только из двух разрешенных вариантов.
-        plan = generate_subscription_plan(allowed_plans=["free", "premium"], seed=1)
-        # Проверяем, что тариф входит в разрешенный список.
+    # Объявляем тест плана подписки из разрешенного списка.
+    def test_generate_subscription_plan_example_respects_allowed_plans(self):
+        # Генерируем план подписки только из двух разрешенных вариантов.
+        plan = generate_subscription_plan_example(allowed_plans=["free", "premium"], seed=1)
+        # Проверяем, что план подписки входит в разрешенный список.
         self.assertIn(plan, ["free", "premium"])
 
     # Объявляем тест профиля пользователя.
