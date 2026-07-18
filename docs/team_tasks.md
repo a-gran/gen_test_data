@@ -1,10 +1,18 @@
 # Инструкции для команд
 
-В команде 9 учеников.
+В проекте 7 учеников.
 
-Ученики делятся на 3 команды по 3 человека.
+Ученики делятся на 2 команды.
 
-Каждая команда получает 6 генераторов.
+В первой команде 3 человека.
+
+Во второй команде 4 человека.
+
+Базовое распределение: по 2 функции на одного ученика.
+
+Команда 1 получает 6 основных функций и 4 оставшиеся функции.
+
+Команда 2 получает 8 функций.
 
 Каждый генератор должен быть не просто случайным выбором, а маленькой учебной задачей про тестовые данные.
 
@@ -48,6 +56,10 @@ python -m unittest discover -s oop_version/tests
 - `generate_full_name(max_total_length=None, seed=None)`
 - `generate_age(min_age=18, max_age=80, boundary=None, seed=None)`
 - `generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
+- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
+- `generate_is_active(seed=None)`
+- `generate_subscription_plan(allowed_plans=None, seed=None)`
+- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
 
 ## Чему учится команда
 
@@ -55,7 +67,9 @@ python -m unittest discover -s oop_version/tests
 - проверять минимальную и максимальную длину;
 - работать с диапазонами чисел;
 - генерировать значения на границах;
-- генерировать значения за границами для негативных тестов.
+- генерировать значения за границами для негативных тестов;
+- ограничивать выбор разрешенными значениями;
+- генерировать даты на границах диапазона.
 
 ## Примеры требований
 
@@ -63,10 +77,12 @@ python -m unittest discover -s oop_version/tests
 - `generate_age(boundary="min")` должен вернуть нижнюю границу.
 - `generate_age(boundary="above_max")` должен вернуть значение выше верхней границы.
 - `generate_full_name(max_total_length=10)` не должен вернуть строку длиннее 10 символов.
+- `generate_subscription_plan(allowed_plans=["free", "premium"])` должен выбрать только из этих тарифов.
+- `generate_registration_date(boundary="min")` должен вернуть дату на нижней границе.
 
 ---
 
-# Команда 2. Строки, контакты и форматы
+# Команда 2. Строки, контакты, списки и профиль
 
 ## Функции
 
@@ -76,6 +92,8 @@ python -m unittest discover -s oop_version/tests
 - `generate_username(length=10, seed=None)`
 - `generate_comment(length=100, seed=None)`
 - `generate_password(length=12, use_digits=True, use_symbols=True, seed=None)`
+- `generate_tags(count=None, unique=True, seed=None)`
+- `generate_user_profile(valid=True, seed=None)`
 
 ## Чему учится команда
 
@@ -83,7 +101,10 @@ python -m unittest discover -s oop_version/tests
 - делать валидные и невалидные данные;
 - проверять формат email;
 - проверять формат телефона;
-- гарантировать наличие цифр и специальных символов в пароле.
+- гарантировать наличие цифр и специальных символов в пароле;
+- генерировать списки нужного размера;
+- делать элементы списка уникальными;
+- собирать сложный словарь из нескольких генераторов.
 
 ## Примеры требований
 
@@ -93,31 +114,5 @@ python -m unittest discover -s oop_version/tests
 - `generate_email(valid=True)` должен вернуть строку со знаком `@`.
 - `generate_email(valid=False)` должен вернуть намеренно неправильный email.
 - `generate_password(length=16, use_digits=True, use_symbols=True)` должен вернуть пароль длиной 16 символов с цифрой и спецсимволом.
-
----
-
-# Команда 3. Списки, даты, тарифы и профиль
-
-## Функции
-
-- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
-- `generate_is_active(seed=None)`
-- `generate_tags(count=None, unique=True, seed=None)`
-- `generate_subscription_plan(allowed_plans=None, seed=None)`
-- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
-- `generate_user_profile(valid=True, seed=None)`
-
-## Чему учится команда
-
-- генерировать списки нужного размера;
-- делать элементы списка уникальными;
-- ограничивать выбор разрешенными значениями;
-- генерировать даты на границах диапазона;
-- собирать сложный словарь из нескольких генераторов.
-
-## Примеры требований
-
 - `generate_tags(count=5, unique=True)` должен вернуть 5 уникальных тегов.
-- `generate_subscription_plan(allowed_plans=["free", "premium"])` должен выбрать только из этих тарифов.
-- `generate_registration_date(boundary="min")` должен вернуть дату на нижней границе.
 - `generate_user_profile(valid=False)` должен вернуть профиль с намеренно невалидным email.

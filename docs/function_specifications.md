@@ -170,9 +170,115 @@ generate_age(min_age=18, max_age=80, boundary="above_max")
 generate_birth_year(min_year=1950, max_year=2008, boundary="min")
 ```
 
+<<<<<<< HEAD
 ---
 
 # Команда 2. Строки, контакты и форматы
+=======
+## `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
+
+Вход:
+
+- `min_score` - нижняя граница балла.
+- `max_score` - верхняя граница балла.
+- `boundary` - режим граничного значения.
+- `seed` - значение для повторяемой генерации.
+
+Выход:
+
+- целое число.
+
+Критерии:
+
+- обычный режим возвращает число от `min_score` до `max_score`;
+- `boundary="min"` возвращает `min_score`;
+- `boundary="max"` возвращает `max_score`;
+- `boundary="below_min"` возвращает `min_score - 1`;
+- `boundary="above_max"` возвращает `max_score + 1`;
+- если `min_score > max_score`, должна быть ошибка.
+
+Пример:
+
+```python
+generate_score(min_score=1, max_score=100, boundary="max")
+```
+
+## `generate_is_active(seed=None)`
+
+Вход:
+
+- `seed` - значение для повторяемой генерации.
+
+Выход:
+
+- `True` или `False`.
+
+Критерии:
+
+- результат должен быть булевым значением;
+- при одинаковом `seed` результат должен повторяться.
+
+Пример:
+
+```python
+generate_is_active(seed=1)
+```
+
+## `generate_subscription_plan(allowed_plans=None, seed=None)`
+
+Вход:
+
+- `allowed_plans` - список разрешенных тарифов.
+- `seed` - значение для повторяемой генерации.
+
+Выход:
+
+- строка с названием тарифа.
+
+Критерии:
+
+- если `allowed_plans` передан, тариф должен быть только из этого списка;
+- если `allowed_plans` не передан, тариф берется из общего списка;
+- если список тарифов пустой, должна быть ошибка.
+
+Пример:
+
+```python
+generate_subscription_plan(allowed_plans=["free", "premium"], seed=1)
+```
+
+## `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
+
+Вход:
+
+- `start_year` - нижняя граница года.
+- `end_year` - верхняя граница года.
+- `boundary` - режим граничного значения.
+- `seed` - значение для повторяемой генерации.
+
+Выход:
+
+- строка даты в формате `YYYY-MM-DD`.
+
+Критерии:
+
+- обычный режим возвращает дату внутри диапазона;
+- `boundary="min"` возвращает дату в начале диапазона;
+- `boundary="max"` возвращает дату в конце диапазона;
+- `boundary="below_min"` возвращает дату раньше диапазона;
+- `boundary="above_max"` возвращает дату позже диапазона;
+- если `start_year > end_year`, должна быть ошибка.
+
+Пример:
+
+```python
+generate_registration_date(start_year=2020, end_year=2026, boundary="max")
+```
+
+---
+
+# Команда 2. Строки, контакты, списки и профиль
+>>>>>>> b9c35ad (ref: change structure)
 
 ## `generate_city(starts_with=None, seed=None)`
 
@@ -326,6 +432,7 @@ generate_comment(length=255, seed=1)
 generate_password(length=16, use_digits=True, use_symbols=True, seed=1)
 ```
 
+<<<<<<< HEAD
 ---
 
 # Команда 3. Списки, даты, тарифы и профиль
@@ -379,6 +486,8 @@ generate_score(min_score=1, max_score=100, boundary="max")
 generate_is_active(seed=1)
 ```
 
+=======
+>>>>>>> b9c35ad (ref: change structure)
 ## `generate_tags(count=None, unique=True, seed=None)`
 
 Вход:
@@ -405,6 +514,7 @@ generate_is_active(seed=1)
 generate_tags(count=5, unique=True, seed=1)
 ```
 
+<<<<<<< HEAD
 ## `generate_subscription_plan(allowed_plans=None, seed=None)`
 
 Вход:
@@ -456,6 +566,8 @@ generate_subscription_plan(allowed_plans=["free", "premium"], seed=1)
 generate_registration_date(start_year=2020, end_year=2026, boundary="max")
 ```
 
+=======
+>>>>>>> b9c35ad (ref: change structure)
 ## `generate_user_profile(valid=True, seed=None)`
 
 Вход:

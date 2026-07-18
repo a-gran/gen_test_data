@@ -29,10 +29,21 @@
 - `generate_full_name(max_total_length=None, seed=None)`
 - `generate_age(min_age=18, max_age=80, boundary=None, seed=None)`
 - `generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
+<<<<<<< HEAD
 
 ## Команда 2. Строки, контакты и форматы
 
 Команда отвечает за строки точной длины и валидные/невалидные форматы.
+=======
+- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
+- `generate_is_active(seed=None)`
+- `generate_subscription_plan(allowed_plans=None, seed=None)`
+- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
+
+## Команда 2. Строки, контакты, списки и профиль
+
+Команда отвечает за строки точной длины, валидные/невалидные форматы, списки и общий профиль пользователя.
+>>>>>>> b9c35ad (ref: change structure)
 
 Нужно реализовать:
 
@@ -42,6 +53,7 @@
 - `generate_username(length=10, seed=None)`
 - `generate_comment(length=100, seed=None)`
 - `generate_password(length=12, use_digits=True, use_symbols=True, seed=None)`
+<<<<<<< HEAD
 
 ## Команда 3. Списки, даты, тарифы и профиль
 
@@ -54,6 +66,9 @@
 - `generate_tags(count=None, unique=True, seed=None)`
 - `generate_subscription_plan(allowed_plans=None, seed=None)`
 - `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
+=======
+- `generate_tags(count=None, unique=True, seed=None)`
+>>>>>>> b9c35ad (ref: change structure)
 - `generate_user_profile(valid=True, seed=None)`
 
 ---
