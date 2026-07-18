@@ -1,41 +1,23 @@
-# Импортируем список доменов для генерации адреса электронной почты.
+# Импортируем домены, которые можно ставить после знака @.
 from procedural_version.data.names_data import EMAIL_DOMAINS
-# Импортируем список слов для генерации имени почтового ящика.
+# Импортируем слова, из которых можно начать имя почтового ящика.
 from procedural_version.data.names_data import USERNAME_WORDS
-# Импортируем функцию создания генератора случайности.
+# Импортируем функцию, которая создает random с нужным seed.
 from procedural_version.utils.random_utils import create_random
 
-# Объявляем функцию, которая генерирует адрес электронной почты.
-def generate_email(valid=True, username_length=8, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_email.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_email.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_email.
-    # seed помогает получать одинаковый случайный результат.
-    # Например, generate_email(seed=1) и еще раз generate_email(seed=1) должны вернуть один и тот же email.
-    # Это удобно для тестов: тест знает, какой результат должен получиться.
-    # Если seed=None, результат может быть разным при каждом запуске.
-    # Входные данные - это значения в скобках функции.
-    # Входные данные: valid - если True, email должен быть правильным; если False, email должен быть с ошибкой.
-    # Входные данные: username_length - точная длина части email до знака @.
-    # Входные данные: seed - число для повторения случайного результата или None.
-    # Переменные внутри функции можно называть по-своему.
-    # Тесты проверяют результат функции, а не названия переменных.
-    # Ниже перечислены примеры понятных названий переменных.
-    # Внутренние переменные: randomizer - генератор случайности, который создается через create_random(seed).
-    # Внутренние переменные: username_word - учебное слово для начала username.
-    # Внутренние переменные: alphabet - строка разрешенных символов для username.
-    # Внутренние переменные: username - готовая часть email до знака @.
-    # Внутренние переменные: domain - домен email из EMAIL_DOMAINS.
-    # Выходные данные - это значение, которое функция отдает с помощью return.
-    # Выходные данные: функция должна вернуть строку с email.
-    # Шаг 1. Проверь, что username_length больше 0, потому что имя почтового ящика должно иметь длину.
-    # Шаг 2. Создай randomizer через create_random(seed), чтобы email можно было повторить.
-    # Шаг 3. Выбери учебное слово из USERNAME_WORDS для начала username.
-    # Шаг 4. Добавляй разрешенные символы, пока username не станет нужной длины.
-    # Шаг 5. Выбери домен из EMAIL_DOMAINS.
-    # Шаг 6. Если valid равен False, верни email с намеренной ошибкой без знака @.
-    # Шаг 7. Если valid равен True, верни email в формате username@domain.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_email_can_return_valid_and_invalid_values
-    # Если все правильно, в самом конце появится слово OK.
-    # Если вместо OK появилась ошибка, проверь знак @: он нужен при valid=True и не нужен при valid=False.
+# Объявляем функцию, которая должна вернуть email.
+def email(valid=True, username_length=8, seed=None):
+    # Что делает функция: возвращает строку email.
+    # valid=True значит email должен быть правильным и содержать знак @.
+    # valid=False значит email должен быть специально неправильным, например без @.
+    # username_length=8 значит часть до @ должна быть ровно 8 символов.
+    # seed - число для random: с одним и тем же seed random собирает один и тот же email.
+    # Пример вызова: email(valid=True, username_length=8, seed=1) должен вернуть строку с @.
+    # Пример вызова: email(valid=False, username_length=8, seed=1) должен вернуть строку без @.
+    # Документация: docs/function_specifications.md, раздел email.
+    # Команда для проверки: python check.py email
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если username_length меньше или равен 0, нужно вызвать ValueError.
+    # Что вернуть: строку.
+    # Тесты: test_email_validity, test_email_bad_len.
     pass

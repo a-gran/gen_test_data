@@ -1,50 +1,45 @@
-# Подсказка ученику: create_random(seed) нужен, чтобы случайный результат можно было повторить в тестах.
+# Импортируем функцию, которая создает random с нужным seed.
 from procedural_version.utils.random_utils import create_random
 
-# Пример готового решения: по нему можно понять, как делать похожие генераторы.
-def generate_score_example(min_score=1, max_score=100, boundary=None, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_score_example.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_score_example.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_score_example.
-    # seed помогает получать одинаковый случайный результат.
-    # Например, generate_score_example(seed=1) и еще раз generate_score_example(seed=1) должны вернуть один и тот же балл.
-    # Это удобно для тестов: тест знает, какой результат должен получиться.
-    # Если seed=None, результат может быть разным при каждом запуске.
-    # Входные данные - это значения в скобках функции.
-    # Входные данные: min_score - самый маленький разрешенный балл.
-    # Входные данные: max_score - самый большой разрешенный балл.
-    # Входные данные: boundary - режим границы: "min", "max", "below_min", "above_max" или None.
-    # Входные данные: seed - число для повторения случайного результата или None.
-    # Переменные внутри функции можно называть по-своему.
-    # Тесты проверяют результат функции, а не названия переменных.
-    # Ниже перечислен пример понятного названия переменной.
-    # Внутренние переменные: randomizer - генератор случайности, который создается через create_random(seed).
-    # Выходные данные - это значение, которое функция отдает с помощью return.
-    # Выходные данные: функция должна вернуть целое число с баллом.
-    # Шаг 1. Сначала проверь ошибочный случай: min_score не должен быть больше max_score.
+# Объявляем готовый пример функции учебного балла.
+def score_example(min_score=1, max_score=100, boundary=None, seed=None):
+    # Что делает функция: возвращает число-балл.
+    # min_score - самый маленький балл, например 1.
+    # max_score - самый большой балл, например 100.
+    # boundary - это режим для специальных проверок в тестах.
+    # boundary="min" значит вернуть min_score, например 1.
+    # boundary="max" значит вернуть max_score, например 100.
+    # boundary="below_min" значит вернуть число меньше минимума, например 0.
+    # boundary="above_max" значит вернуть число больше максимума, например 101.
+    # boundary=None значит выбрать случайный балл от min_score до max_score.
+    # seed - число для random: с одним и тем же seed random выбирает один и тот же балл.
+    # Пример вызова: score_example(boundary="above_max") должен вернуть 101.
+    # Документация: docs/function_specifications.md, раздел score.
+    # Команда для проверки: python check.py score
+    # Если в конце написано OK, этот тест прошел.
+    # Что вернуть: целое число.
+    # Проверка тестами: python check.py score
+    # Проверяем, что нижняя граница не больше верхней.
     if min_score > max_score:
-        # Шаг 2. Если границы перепутаны, выброси ValueError, чтобы тест мог проверить ошибку.
+        # Сообщаем ошибку, если диапазон написан наоборот.
         raise ValueError("min_score не должен быть больше max_score")
-    # Шаг 3. Проверь boundary="min": функция должна вернуть нижнюю границу.
+    # Возвращаем нижнюю границу.
     if boundary == "min":
-        # Проверка тестом: generate_score_example(boundary="min") должен вернуть min_score.
+        # Возвращаем min_score.
         return min_score
-    # Шаг 4. Проверь boundary="max": функция должна вернуть верхнюю границу.
+    # Возвращаем верхнюю границу.
     if boundary == "max":
-        # Проверка тестом: generate_score_example(boundary="max") должен вернуть max_score.
+        # Возвращаем max_score.
         return max_score
-    # Шаг 5. Проверь boundary="below_min": это значение нужно для негативного теста.
+    # Возвращаем число ниже нижней границы.
     if boundary == "below_min":
-        # Проверка тестом: результат должен быть на 1 меньше min_score.
+        # Возвращаем min_score минус 1.
         return min_score - 1
-    # Шаг 6. Проверь boundary="above_max": это значение тоже нужно для негативного теста.
+    # Возвращаем число выше верхней границы.
     if boundary == "above_max":
-        # Проверка тестом: результат должен быть на 1 больше max_score.
+        # Возвращаем max_score плюс 1.
         return max_score + 1
-    # Шаг 7. Если boundary не передан, создай генератор случайности.
+    # Создаем random с переданным seed.
     randomizer = create_random(seed)
-    # Шаг 8. Верни случайный балл внутри диапазона; тест должен проверить, что min_score <= результат <= max_score.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_example_returns_boundary_values
-    # Если все правильно, в самом конце появится слово OK.
-    # Если вместо OK появилась ошибка, проверь значения для boundary="min" и boundary="max".
+    # Возвращаем случайный балл внутри диапазона.
     return randomizer.randint(min_score, max_score)

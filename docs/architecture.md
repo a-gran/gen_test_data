@@ -33,13 +33,13 @@ gen_test_data/
 │   │   ├── email.py
 │   │   ├── first_name.py
 │   │   ├── full_name.py
-│   │   ├── is_active_example.py
+│   │   ├── active_example.py
 │   │   ├── last_name.py
 │   │   ├── password.py
 │   │   ├── phone.py
-│   │   ├── registration_date_example.py
+│   │   ├── reg_date_example.py
 │   │   ├── score_example.py
-│   │   ├── subscription_plan_example.py
+│   │   ├── plan_example.py
 │   │   ├── tags.py
 │   │   ├── username.py
 │   │   ├── user_id.py
@@ -68,24 +68,24 @@ gen_test_data/
 ### Модули процедурной версии
 В процедурной версии каждый генератор находится в отдельном файле.
 Файлы генераторов:
-- `generators/user_id.py` — `generate_user_id()`;
-- `generators/age.py` — `generate_age()`;
-- `generators/birth_year.py` — `generate_birth_year()`;
-- `generators/comment.py` — `generate_comment()`;
-- `generators/password.py` — `generate_password()`;
-- `generators/phone.py` — `generate_phone()`;
-- `generators/email.py` — `generate_email()`;
-- `generators/city.py` — `generate_city()`;
-- `generators/score_example.py` — `generate_score_example()`, пример готового решения;
-- `generators/is_active_example.py` — `generate_is_active_example()`, пример готового решения;
-- `generators/tags.py` — `generate_tags()`;
-- `generators/subscription_plan_example.py` — `generate_subscription_plan_example()`, пример готового решения;
-- `generators/registration_date_example.py` — `generate_registration_date_example()`, пример готового решения;
-- `generators/user_profile.py` — `generate_user_profile()`;
-- `generators/first_name.py` — `generate_first_name()`;
-- `generators/last_name.py` — `generate_last_name()`;
-- `generators/full_name.py` — `generate_full_name()`;
-- `generators/username.py` — `generate_username()`.
+- `generators/user_id.py` — `user_id()`;
+- `generators/age.py` — `age()`;
+- `generators/birth_year.py` — `birth_year()`;
+- `generators/comment.py` — `comment()`;
+- `generators/password.py` — `password()`;
+- `generators/phone.py` — `phone()`;
+- `generators/email.py` — `email()`;
+- `generators/city.py` — `city()`;
+- `generators/score_example.py` — короткое имя `score_example()`, функция-образец;
+- `generators/active_example.py` — короткое имя `active_example()`, функция-образец;
+- `generators/tags.py` — `tags()`;
+- `generators/plan_example.py` — короткое имя `plan_example()`, функция-образец;
+- `generators/reg_date_example.py` — короткое имя `reg_date_example()`, функция-образец;
+- `generators/user_profile.py` — `user_profile()`;
+- `generators/first_name.py` — `first_name()`;
+- `generators/last_name.py` — `last_name()`;
+- `generators/full_name.py` — `full_name()`;
+- `generators/username.py` — `username()`.
 `data/` содержит исходные списки данных.
 `utils/` содержит общие вспомогательные функции.
 ## ООП-версия
@@ -96,53 +96,53 @@ gen_test_data/
 `BaseGenerator` содержит общую логику, которая нужна разным генераторам.
 `PersonGenerator` отвечает за генерацию основных данных человека.
 Методы:
-- `generate_user_id()`;
-- `generate_age()`;
-- `generate_birth_year()`;
-- `generate_city()`;
-- `generate_score_example()`;
-- `generate_is_active_example()`;
-- `generate_first_name()`;
-- `generate_last_name()`;
-- `generate_full_name()`;
-- `generate_username()`.
+- `user_id()`;
+- `age()`;
+- `birth_year()`;
+- `city()`;
+- `score_example()`;
+- `active_example()`;
+- `first_name()`;
+- `last_name()`;
+- `full_name()`;
+- `username()`.
 `ContactGenerator` отвечает за генерацию контактных данных.
 Методы:
-- `generate_phone()`;
-- `generate_email()`.
+- `phone()`;
+- `email()`.
 `TextGenerator` отвечает за генерацию текстовых данных.
 Методы:
-- `generate_comment()`;
-- `generate_password()`;
-- `generate_tags()`.
+- `comment()`;
+- `password()`;
+- `tags()`.
 `ProfileGenerator` отвечает за генерацию профиля пользователя.
 Методы:
-- `generate_registration_date_example()`;
-- `generate_subscription_plan_example()`;
-- `generate_user_profile()`.
+- `reg_date_example()`;
+- `plan_example()`;
+- `user_profile()`.
 `DataProvider` отвечает за хранение и выдачу исходных списков данных.
 ## Соответствие между версиями
 Каждая публичная функция процедурной версии должна иметь аналогичный публичный метод в ООП-версии.
 | Возможность | Процедурная версия | ООП-версия |
 | --- | --- | --- |
-| ID пользователя | `generate_user_id()` | `person_generator.generate_user_id()` |
-| Возраст | `generate_age()` | `person_generator.generate_age()` |
-| Год рождения | `generate_birth_year()` | `person_generator.generate_birth_year()` |
-| Комментарий | `generate_comment()` | `text_generator.generate_comment()` |
-| Пароль | `generate_password()` | `text_generator.generate_password()` |
-| Телефон | `generate_phone()` | `contact_generator.generate_phone()` |
-| Email | `generate_email()` | `contact_generator.generate_email()` |
-| Город | `generate_city()` | `person_generator.generate_city()` |
-| Балл | `generate_score_example()` | `person_generator.generate_score()` |
-| Активность | `generate_is_active_example()` | `person_generator.generate_is_active()` |
-| Теги | `generate_tags()` | `text_generator.generate_tags()` |
-| План подписки | `generate_subscription_plan_example()` | `profile_generator.generate_subscription_plan()` |
-| Дата регистрации | `generate_registration_date_example()` | `profile_generator.generate_registration_date()` |
-| Профиль пользователя | `generate_user_profile()` | `profile_generator.generate_user_profile()` |
-| Имя | `generate_first_name()` | `person_generator.generate_first_name()` |
-| Фамилия | `generate_last_name()` | `person_generator.generate_last_name()` |
-| Полное имя | `generate_full_name()` | `person_generator.generate_full_name()` |
-| Username | `generate_username()` | `person_generator.generate_username()` |
+| ID пользователя | `user_id()` | `person_generator.user_id()` |
+| Возраст | `age()` | `person_generator.age()` |
+| Год рождения | `birth_year()` | `person_generator.birth_year()` |
+| Комментарий | `comment()` | `text_generator.comment()` |
+| Пароль | `password()` | `text_generator.password()` |
+| Телефон | `phone()` | `contact_generator.phone()` |
+| Email | `email()` | `contact_generator.email()` |
+| Город | `city()` | `person_generator.city()` |
+| Балл | `score_example()` | `person_generator.score()` |
+| Активность | `active_example()` | `person_generator.active()` |
+| Теги | `tags()` | `text_generator.tags()` |
+| План подписки | `plan_example()` | `profile_generator.plan()` |
+| Дата регистрации | `reg_date_example()` | `profile_generator.reg_date()` |
+| Профиль пользователя | `user_profile()` | `profile_generator.user_profile()` |
+| Имя | `first_name()` | `person_generator.first_name()` |
+| Фамилия | `last_name()` | `person_generator.last_name()` |
+| Полное имя | `full_name()` | `person_generator.full_name()` |
+| Username | `username()` | `person_generator.username()` |
 ## Правило одинакового поведения
 Обе версии должны генерировать данные по одинаковым правилам.
 Например:
@@ -223,7 +223,7 @@ gen_test_data/
 Автотесты показывают, какой результат ожидается от генератора данных.
 Если реализация написана неправильно, тест помогает быстро найти проблемную функцию или метод.
 Так ученики учатся воспринимать тесты не как наказание за ошибку, а как инструмент обратной связи.
-В проекте автотесты также помогают сравнить процедурную и ООП-версию.
+В проекте автотесты помогают проверить процедурную версию и ООП-версию.
 Это показывает важную идею: код может быть организован по-разному, но внешнее поведение должно оставаться одинаковым.
 Благодаря этому ученики постепенно привыкают к рабочему процессу, который используется в реальной разработке:
 - написать или изменить код;

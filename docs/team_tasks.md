@@ -1,125 +1,79 @@
 # Инструкции для команд
 
-В проекте 7 учеников.
+В проекте 7 учеников: первая команда - 3 человека, вторая команда - 4 человека. Базовое распределение - по 2 функции на одного ученика. Команда 1 получает 6 основных функций и 4 функции-образца для изучения. Команда 2 получает 8 функций. Каждый генератор - это маленькая учебная задача про тестовые данные, а не просто случайный выбор.
 
-Ученики делятся на 2 команды.
+## Общий порядок работы
 
-В первой команде 3 человека.
+1. Реализуйте функции своей команды в процедурной версии.
+2. Запустите тесты процедурной версии.
+3. Исправьте ошибки, если тесты упали.
+4. Реализуйте такие же возможности в ООП-версии.
+5. Запустите тесты ООП-версии.
+6. Исправьте ошибки, если тесты упали.
+7. Проверьте вручную, что обе версии работают по одинаковым правилам.
 
-Во второй команде 4 человека.
-
-Базовое распределение: по 2 функции на одного ученика.
-
-Команда 1 получает 6 основных функций и 4 оставшиеся функции.
-
-Команда 2 получает 8 функций.
-
-Каждый генератор должен быть не просто случайным выбором, а маленькой учебной задачей про тестовые данные.
-
----
-
-# Общий порядок работы
-
-1. Сначала реализуйте все функции своей команды в процедурной версии.
-2. Запустите автотесты процедурной версии.
-3. Исправьте процедурную версию, если тесты показали ошибки.
-4. Только после этого реализуйте такие же возможности в ООП-версии.
-5. Запустите автотесты ООП-версии.
-6. Исправьте ООП-версию, если тесты показали ошибки.
-7. После этого проверьте, что процедурная и ООП-версия работают одинаково.
-
-Команды для проверки:
-
-Сначала процедурная версия:
+Команды запускаются из корня проекта:
 
 ```bash
-python -m unittest discover -s procedural_version/tests
+python check.py all
+python check.py oop
 ```
 
-Потом ООП-версия:
+Тесты ООП-версии проверяют методы ООП напрямую. Они не зависят от процедурных функций, потому что в процедурной версии часть функций пока является заданием и внутри них стоит `pass`.
 
-```bash
-python -m unittest discover -s oop_version/tests
-```
+`seed` - это число для `random`. С одинаковым `seed` случайный выбор повторяется. Это нужно для тестов: они заранее знают, какой результат ждать.
 
-Тесты ООП-версии дополнительно сравнивают результаты методов с процедурными функциями при одинаковых параметрах и `seed`.
+## Команда 1. Числа и данные человека
 
-`seed` помогает получать одинаковый случайный результат. Например, два запуска с `seed=1` должны вернуть одно и то же значение. Это удобно для тестов.
+Реализовать:
 
----
+- `user_id(length=6, only_digits=True, seed=None)`
+- `first_name(min_length=None, max_length=None, seed=None)`
+- `last_name(min_length=None, max_length=None, seed=None)`
+- `full_name(max_total_length=None, seed=None)`
+- `age(min_age=18, max_age=80, boundary=None, seed=None)`
+- `birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
 
-# Команда 1. Числа, границы и данные человека
+Функции-образцы, которые уже написаны полностью:
 
-## Функции
+- `score_example(min_score=1, max_score=100, boundary=None, seed=None)` -> `procedural_version/generators/score_example.py`
+- `active_example(seed=None)` -> `procedural_version/generators/active_example.py`
+- `plan_example(allowed_plans=None, seed=None)` -> `procedural_version/generators/plan_example.py`
+- `reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)` -> `procedural_version/generators/reg_date_example.py`
 
-- `generate_user_id(length=6, only_digits=True, seed=None)`
-- `generate_first_name(min_length=None, max_length=None, seed=None)`
-- `generate_last_name(min_length=None, max_length=None, seed=None)`
-- `generate_full_name(max_total_length=None, seed=None)`
-- `generate_age(min_age=18, max_age=80, boundary=None, seed=None)`
-- `generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
+Эти файлы уже работают, поэтому их можно открыть и изучить как примеры решения.
 
-Готовые примеры:
+Команда учится задавать длину строки, проверять минимальную и максимальную длину, работать с диапазонами чисел, возвращать значения на минимуме, максимуме и за пределами диапазона, ограничивать выбор разрешенными значениями и генерировать даты.
 
-- `generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)`
-- `generate_is_active_example(seed=None)`
-- `generate_subscription_plan_example(allowed_plans=None, seed=None)`
-- `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
+Примеры требований:
 
-У этих примеров `example` есть и в названии файла, и в названии функции.
+- `user_id(length=8)` возвращает строку ровно из 8 символов.
+- `age(boundary="min")` возвращает нижнее значение.
+- `age(boundary="above_max")` возвращает значение выше максимума.
+- `full_name(max_total_length=10)` не возвращает строку длиннее 10 символов.
+- `plan_example(allowed_plans=["free", "premium"])` выбирает только из этих планов подписки.
+- `reg_date_example(boundary="min")` возвращает первую разрешенную дату.
 
-## Чему учится команда
+## Команда 2. Строки, контакты, списки и профиль
 
-- задавать длину строки;
-- проверять минимальную и максимальную длину;
-- работать с диапазонами чисел;
-- генерировать значения на границах;
-- генерировать значения за границами для негативных тестов;
-- ограничивать выбор разрешенными значениями;
-- генерировать даты на границах диапазона.
+Реализовать:
 
-## Примеры требований
+- `city(starts_with=None, seed=None)`
+- `phone(valid=True, seed=None)`
+- `email(valid=True, username_length=8, seed=None)`
+- `username(length=10, seed=None)`
+- `comment(length=100, seed=None)`
+- `password(length=12, use_digits=True, use_symbols=True, seed=None)`
+- `tags(count=None, unique=True, seed=None)`
+- `user_profile(valid=True, seed=None)`
 
-- `generate_user_id(length=8)` должен вернуть строку ровно из 8 символов.
-- `generate_age(boundary="min")` должен вернуть нижнюю границу.
-- `generate_age(boundary="above_max")` должен вернуть значение выше верхней границы.
-- `generate_full_name(max_total_length=10)` не должен вернуть строку длиннее 10 символов.
-- `generate_subscription_plan_example(allowed_plans=["free", "premium"])` должен выбрать только из этих планов подписки.
-- `generate_registration_date_example(boundary="min")` должен вернуть дату на нижней границе.
+Команда учится генерировать строки точной длины, делать валидные и невалидные данные, проверять формат email и телефона, добавлять цифры и спецсимволы в пароль, создавать списки нужного размера, делать элементы уникальными и собирать большой словарь профиля.
 
----
+Примеры требований:
 
-# Команда 2. Строки, контакты, списки и профиль
-
-## Функции
-
-- `generate_city(starts_with=None, seed=None)`
-- `generate_phone(valid=True, seed=None)`
-- `generate_email(valid=True, username_length=8, seed=None)`
-- `generate_username(length=10, seed=None)`
-- `generate_comment(length=100, seed=None)`
-- `generate_password(length=12, use_digits=True, use_symbols=True, seed=None)`
-- `generate_tags(count=None, unique=True, seed=None)`
-- `generate_user_profile(valid=True, seed=None)`
-
-## Чему учится команда
-
-- генерировать строки точной длины;
-- делать валидные и невалидные данные;
-- проверять формат email;
-- проверять формат телефона;
-- гарантировать наличие цифр и специальных символов в пароле;
-- генерировать списки нужного размера;
-- делать элементы списка уникальными;
-- собирать сложный словарь из нескольких генераторов.
-
-## Примеры требований
-
-- `generate_comment(length=255)` должен вернуть строку ровно 255 символов.
-- `generate_comment(length=1)` должен вернуть строку ровно 1 символ.
-- `generate_comment(length=1000)` должен вернуть строку ровно 1000 символов.
-- `generate_email(valid=True)` должен вернуть строку со знаком `@`.
-- `generate_email(valid=False)` должен вернуть намеренно неправильный email.
-- `generate_password(length=16, use_digits=True, use_symbols=True)` должен вернуть пароль длиной 16 символов с цифрой и спецсимволом.
-- `generate_tags(count=5, unique=True)` должен вернуть 5 уникальных тегов.
-- `generate_user_profile(valid=False)` должен вернуть профиль с намеренно невалидным email.
+- `comment(length=255)` возвращает строку ровно 255 символов.
+- `email(valid=True)` возвращает строку со знаком `@`.
+- `email(valid=False)` возвращает намеренно неправильный email.
+- `password(length=16, use_digits=True, use_symbols=True)` возвращает пароль длиной 16 символов с цифрой и спецсимволом.
+- `tags(count=5, unique=True)` возвращает 5 уникальных тегов.
+- `user_profile(valid=False)` возвращает профиль с намеренно неправильным email.

@@ -1,67 +1,45 @@
-# Импортируем список имен для генерации случайного имени.
+# Импортируем список имен.
 from procedural_version.data.names_data import FIRST_NAMES
-# Импортируем список фамилий для генерации случайной фамилии.
+# Импортируем список фамилий.
 from procedural_version.data.names_data import LAST_NAMES
-# Импортируем список городов для генерации случайного города.
+# Импортируем список городов.
 from procedural_version.data.names_data import CITY_NAMES
-# Импортируем список планов подписки для генерации варианта аккаунта пользователя.
+# Импортируем список планов подписки.
 from procedural_version.data.names_data import SUBSCRIPTION_PLANS
-# Импортируем пример готовой функции генерации даты регистрации.
-from procedural_version.generators.registration_date_example import generate_registration_date_example
-# Импортируем функцию генерации email.
-from procedural_version.generators.email import generate_email
-# Импортируем функцию генерации пароля.
-from procedural_version.generators.password import generate_password
-# Импортируем функцию генерации тегов.
-from procedural_version.generators.tags import generate_tags
-# Импортируем функцию генерации username.
-from procedural_version.generators.username import generate_username
-# Импортируем функцию генерации user_id.
-from procedural_version.generators.user_id import generate_user_id
-# Импортируем функцию создания генератора случайности.
+# Импортируем пример готовой функции даты регистрации.
+from procedural_version.generators.reg_date_example import reg_date_example
+# Импортируем функцию email.
+from procedural_version.generators.email import email
+# Импортируем функцию пароля.
+from procedural_version.generators.password import password
+# Импортируем функцию тегов.
+from procedural_version.generators.tags import tags
+# Импортируем функцию username.
+from procedural_version.generators.username import username
+# Импортируем функцию ID.
+from procedural_version.generators.user_id import user_id
+# Импортируем функцию, которая создает random с нужным seed.
 from procedural_version.utils.random_utils import create_random
-# Импортируем функцию выбора случайного элемента.
+# Импортируем помощник для выбора случайного элемента.
 from procedural_version.utils.random_utils import choose_item
 
-# Объявляем функцию, которая генерирует словарь профиля пользователя.
-def generate_user_profile(valid=True, seed=None):
-    # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_user_profile.
-    # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_user_profile.
-    # Где посмотреть пример использования: открой docs/usage.md и найди generate_user_profile.
-    # seed помогает получать одинаковый случайный результат.
-    # Например, generate_user_profile(seed=1) и еще раз generate_user_profile(seed=1) должны вернуть один и тот же профиль.
-    # Это удобно для тестов: тест знает, какой результат должен получиться.
-    # Если seed=None, результат может быть разным при каждом запуске.
-    # Входные данные - это значения в скобках функции.
-    # Входные данные: valid - если True, email в профиле должен быть правильным; если False, email должен быть с ошибкой.
-    # Входные данные: seed - число для повторения случайного результата или None.
-    # Переменные внутри функции можно называть по-своему.
-    # Тесты проверяют результат функции, а не названия переменных.
-    # Ниже перечислены примеры понятных названий переменных.
-    # Внутренние переменные: randomizer - генератор случайности, который создается через create_random(seed).
-    # Внутренние переменные: user_id - ID пользователя.
-    # Внутренние переменные: first_name - имя пользователя.
-    # Внутренние переменные: last_name - фамилия пользователя.
-    # Внутренние переменные: age - возраст пользователя.
-    # Внутренние переменные: city - город пользователя.
-    # Внутренние переменные: is_active - признак активности пользователя.
-    # Внутренние переменные: username - username пользователя.
-    # Внутренние переменные: email - email пользователя.
-    # Внутренние переменные: password - пароль пользователя.
-    # Внутренние переменные: tags - список тегов пользователя.
-    # Внутренние переменные: registration_date - дата регистрации пользователя.
-    # Внутренние переменные: subscription_plan - план подписки пользователя, то есть вариант его аккаунта.
-    # Выходные данные - это значение, которое функция отдает с помощью return.
-    # Выходные данные: функция должна вернуть словарь с полным профилем пользователя.
-    # Шаг 1. Создай randomizer через create_random(seed), чтобы профиль можно было повторить.
-    # Шаг 2. Сгенерируй или выбери user_id, first_name, last_name, age и city.
-    # Шаг 3. Сгенерируй is_active, username, email и password.
-    # Шаг 4. Для email передай параметр valid, чтобы профиль мог быть валидным или невалидным.
-    # Шаг 5. Сгенерируй tags, registration_date и subscription_plan.
-    # Шаг 6. Собери все поля в один словарь с понятными ключами.
-    # Шаг 7. Верни готовый словарь профиля пользователя.
-    # Как проверить работу: запусти в терминале python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_profile_returns_rich_dictionary
-    # Дополнительная проверка: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_profile_can_return_invalid_email
-    # Если все правильно, в самом конце появится слово OK.
-    # Если вместо OK появилась ошибка, проверь ключи словаря и email для valid=True или valid=False.
+# Объявляем функцию, которая должна вернуть полный профиль пользователя.
+def user_profile(valid=True, seed=None):
+    # Что делает функция: собирает один большой словарь с данными пользователя.
+    # valid=True значит email внутри профиля должен быть правильным и содержать @.
+    # valid=False значит email внутри профиля должен быть специально неправильным.
+    # seed - число для random: с одним и тем же seed random собирает один и тот же профиль.
+    # В словаре должны быть ключи: user_id, first_name, last_name, age, city, is_active.
+    # В словаре также должны быть ключи: username, email, password, tags, registration_date, subscription_plan.
+    # user_id должен быть строкой длиной 6.
+    # username должен быть строкой длиной 10.
+    # password должен быть строкой длиной 12.
+    # tags должен быть списком из 3 уникальных тегов.
+    # subscription_plan - это план подписки, например "free" или "premium".
+    # Пример вызова: user_profile(valid=False, seed=1) должен вернуть словарь с email без @.
+    # Документация: docs/function_specifications.md, раздел user_profile.
+    # Команда для проверки: python check.py profile
+    # Если в конце написано OK, этот тест прошел.
+    # Что вернуть: словарь dict.
+    # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
     pass

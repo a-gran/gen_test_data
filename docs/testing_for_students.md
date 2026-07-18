@@ -1,146 +1,127 @@
-# Как ученикам пользоваться тестами
+# Как проверить функции
 
-## Зачем нужны тесты
+Есть два способа проверки: вручную через `print` и автоматически через `unittest`. Ручная проверка проще для начала, автотесты строже и проверяют больше случаев.
 
-Тесты помогают проверить, что генераторы создают данные по правилам.
+## Ручная проверка без автотестов
 
-Если тест прошел, в конце вывода будет `OK`.
+Запускай команды из корня проекта. Корень проекта - это папка, внутри которой лежат `procedural_version`, `oop_version` и `docs`.
 
-Если тест упал, нужно посмотреть, что ожидал тест и что вернула функция.
+Пример:
 
-`seed` помогает тестам получать одинаковый случайный результат при одинаковом запуске.
-
-В этом проекте тесты проверяют:
-
-- точную длину строк;
-- граничные значения;
-- значения за границами;
-- валидные и невалидные форматы;
-- состав словарей;
-- размер списков;
-- совпадение процедурной и ООП-версии.
-
----
-
-# Как запустить все тесты
-
-Тесты нужно запускать по этапам.
-
-Сначала ученики реализуют процедурную версию и проверяют только ее.
-
-## Процедурная версия
-
-```bash
-python -m unittest discover -s procedural_version/tests
+```text
+gen_test_data/
+  procedural_version/
+  oop_version/
+  docs/
 ```
 
-Если процедурные тесты прошли успешно, можно переходить к ООП-версии.
-
-## ООП-версия
+На Linux и macOS сначала перейди в папку проекта командой `cd`. Пример:
 
 ```bash
-python -m unittest discover -s oop_version/tests
+cd ~/projects/gen_test_data
 ```
 
-Эти тесты проверяют, что методы ООП-версии дают такие же результаты, как процедурные функции.
+На Windows в PowerShell команда тоже `cd`. Пример:
 
-Поэтому порядок важен:
+```powershell
+cd C:\Users\Student\Projects\gen_test_data
+```
 
-1. Сначала процедурная версия.
-2. Потом тесты процедурной версии.
-3. Потом ООП-версия.
-4. Потом тесты ООП-версии.
-5. Потом сравнение поведения двух версий.
+Путь у каждого ученика будет свой. Главное - оказаться в папке, где видны `procedural_version`, `oop_version` и `docs`.
 
----
+Создай файл `manual_check.py` и импортируй нужную функцию. Для учеников есть короткие имена генераторов. Пример для даты регистрации:
 
-# Примеры отдельных тестов
+```python
+from procedural_version.generators import reg_date_example
 
-## Проверка ID точной длины
+print(reg_date_example(boundary="min"))
+print(reg_date_example(boundary="max"))
+print(reg_date_example(seed=1))
+print(reg_date_example(seed=1))
+```
+
+Запусти файл:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_id_returns_digits_with_exact_length
+python manual_check.py
 ```
 
-## Проверка возраста на границах
+Все нормально, если программа не падает с ошибкой, `boundary="min"` возвращает самое маленькое разрешенное значение, `boundary="max"` возвращает самое большое разрешенное значение, два одинаковых вызова с `seed=1` возвращают одинаковый результат, а тип результата правильный: строка, число, список или словарь.
+
+Если вместо результата напечаталось `None`, внутри функции скорее всего все еще стоит `pass`: такую функцию нужно дописать.
+
+## Автоматическая проверка через unittest
+
+Тесты проверяют, что генераторы создают данные по правилам. Если тест прошел, в конце вывода будет `OK`. Если тест упал, посмотри, что ожидал тест и что вернула функция.
+
+`seed` - это число для `random`. С одинаковым `seed` случайный выбор повторяется, поэтому тест может заранее знать результат.
+
+Тесты проверяют точную длину строк, значения внутри диапазона и за его пределами, валидные и невалидные форматы, состав словарей, размер списков, процедурную версию и ООП-версию.
+
+## Как запустить все автотесты
+
+Процедурная версия целиком:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_age_returns_boundary_values
+python check.py all
 ```
 
-## Проверка примера с учебным баллом
+ООП-версия целиком:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_example_returns_boundary_values
+python check.py oop
 ```
 
-## Проверка примера с активностью
+Полный набор процедурных тестов будет проходить только после реализации функций, где сейчас стоит `pass`. ООП-тесты проверяют методы ООП напрямую.
+
+## Примеры отдельных тестов
+
+ID точной длины:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_is_active_example_returns_boolean
+python check.py id
 ```
 
-## Проверка комментария точной длины
+Возраст на минимуме, максимуме и за пределами диапазона:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_comment_returns_exact_length
+python check.py age
 ```
 
-## Проверка валидного и невалидного email
+Функция-образец с баллом:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_email_can_return_valid_and_invalid_values
+python check.py score
 ```
 
-## Проверка пароля
+Функция-образец с активностью:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_password_respects_required_parts
+python check.py active
 ```
 
-## Проверка тегов
+Email, пароль, теги и профиль:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_tags_respects_count_and_unique
+python check.py email
+python check.py password
+python check.py tags
+python check.py profile
 ```
 
-## Проверка примера с планом подписки
+Функции-образцы с планом подписки и датой:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_subscription_plan_example_respects_allowed_plans
+python check.py plan
+python check.py date
 ```
 
-## Проверка примера с датой регистрации
+ООП-профиль:
 
 ```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_registration_date_example_returns_boundary_values
+python check.py oop
 ```
 
-## Проверка профиля
+## Если тесты упали
 
-```bash
-python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_profile_returns_rich_dictionary
-```
-
-## Проверка совпадения ООП и процедурной версии
-
-```bash
-python -m unittest oop_version.tests.test_generators.OopGeneratorsTest.test_generate_user_profile_matches_procedural_version
-```
-
----
-
-# Что делать, если тесты упали
-
-Ошибка теста — это подсказка.
-
-Нужно посмотреть:
-
-- какой тест упал;
-- какую функцию или метод он проверял;
-- какое значение ожидалось;
-- какое значение получилось.
-
-После исправления кода тесты нужно запустить снова.
-
-Главное правило: менять нужно реализацию генератора, а не смысл теста.
+Ошибка теста - это подсказка. Посмотри, какой тест упал, какую функцию он проверял, какое значение ожидалось и какое получилось. После исправления запусти тест снова. Менять нужно реализацию генератора, а не смысл теста.
