@@ -19,6 +19,17 @@
 - списки нужного размера;
 - сложные профили пользователей.
 
+`seed` помогает получать одинаковый случайный результат. Например, два запуска с `seed=1` должны вернуть одно и то же значение.
+
+4 процедурные функции уже сделаны как примеры готового решения:
+
+- `generate_score_example`
+- `generate_is_active_example`
+- `generate_subscription_plan_example`
+- `generate_registration_date_example`
+
+Старые имена без `_example` оставлены для тестов.
+
 ---
 
 # Процедурная версия
@@ -34,9 +45,9 @@ print(generate_age(min_age=18, max_age=80, boundary="above_max"))
 ```
 
 ```python
-from procedural_version.generators.score import generate_score
+from procedural_version.generators.score import generate_score_example
 
-print(generate_score(min_score=1, max_score=100, boundary="below_min"))
+print(generate_score_example(min_score=1, max_score=100, boundary="below_min"))
 ```
 
 ## Строки точной длины

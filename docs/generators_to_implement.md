@@ -2,24 +2,51 @@
 
 В проекте 18 генераторов.
 
-Главная идея теперь не в том, чтобы просто выбрать случайное значение из списка.
+Часть функций ученики реализуют сами.
 
-Главная идея — научиться генерировать тестовые данные по правилам:
+4 функции уже сделаны как примеры:
 
-- значения внутри допустимого диапазона;
-- значения на границах диапазона;
-- значения за границами диапазона для негативных тестов;
-- строки точной длины;
-- валидные и невалидные форматы;
-- сложные словари и списки.
+- `generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)`
+- `generate_is_active_example(seed=None)`
+- `generate_subscription_plan_example(allowed_plans=None, seed=None)`
+- `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
+
+В коде также оставлены старые имена без `_example`, чтобы тесты продолжали работать:
+
+- `generate_score`
+- `generate_is_active`
+- `generate_subscription_plan`
+- `generate_registration_date`
+
+Смотрите эти 4 функции как образец готового решения.
 
 ---
 
-# Распределение по командам
+# Что такое seed
 
-## Команда 1. Числа, границы и данные человека
+`seed` помогает получать одинаковый случайный результат.
 
-Команда отвечает за генераторы, где важно работать с диапазонами, длинами и базовыми данными человека.
+Например, если два раза вызвать функцию с `seed=1`, результат должен повториться.
+
+Это удобно для тестов: тест знает, какой результат должен получиться.
+
+Если `seed=None`, результат может быть разным при каждом запуске.
+
+---
+
+# Что нужно научиться делать
+
+- создавать строки точной длины;
+- выбирать случайные значения из списков;
+- возвращать числа внутри диапазона;
+- возвращать числа на границах диапазона;
+- возвращать значения за границами для негативных тестов;
+- делать валидные и невалидные email и телефоны;
+- собирать списки и словари.
+
+---
+
+# Команда 1. Числа, границы и данные человека
 
 Нужно реализовать:
 
@@ -29,21 +56,17 @@
 - `generate_full_name(max_total_length=None, seed=None)`
 - `generate_age(min_age=18, max_age=80, boundary=None, seed=None)`
 - `generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
-<<<<<<< HEAD
 
-## Команда 2. Строки, контакты и форматы
+Готовые примеры для изучения:
 
-Команда отвечает за строки точной длины и валидные/невалидные форматы.
-=======
-- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
-- `generate_is_active(seed=None)`
-- `generate_subscription_plan(allowed_plans=None, seed=None)`
-- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
+- `generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)`
+- `generate_is_active_example(seed=None)`
+- `generate_subscription_plan_example(allowed_plans=None, seed=None)`
+- `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
 
-## Команда 2. Строки, контакты, списки и профиль
+---
 
-Команда отвечает за строки точной длины, валидные/невалидные форматы, списки и общий профиль пользователя.
->>>>>>> b9c35ad (ref: change structure)
+# Команда 2. Строки, контакты, списки и профиль
 
 Нужно реализовать:
 
@@ -53,22 +76,7 @@
 - `generate_username(length=10, seed=None)`
 - `generate_comment(length=100, seed=None)`
 - `generate_password(length=12, use_digits=True, use_symbols=True, seed=None)`
-<<<<<<< HEAD
-
-## Команда 3. Списки, даты, тарифы и профиль
-
-Команда отвечает за составные данные и общий профиль пользователя.
-
-Нужно реализовать:
-
-- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
-- `generate_is_active(seed=None)`
 - `generate_tags(count=None, unique=True, seed=None)`
-- `generate_subscription_plan(allowed_plans=None, seed=None)`
-- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
-=======
-- `generate_tags(count=None, unique=True, seed=None)`
->>>>>>> b9c35ad (ref: change structure)
 - `generate_user_profile(valid=True, seed=None)`
 
 ---
@@ -107,8 +115,10 @@
 
 ---
 
-# Правило
+# Как понять, что все нормально
 
-Процедурная и ООП-версия должны работать одинаково.
+Запустите нужный тест.
 
-Разница должна быть только в стиле программирования.
+Если в конце вывода есть `OK`, значит тест прошел.
+
+Если появилась ошибка, прочитайте, что ожидал тест и что вернула функция.

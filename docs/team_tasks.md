@@ -44,6 +44,8 @@ python -m unittest discover -s oop_version/tests
 
 Тесты ООП-версии дополнительно сравнивают результаты методов с процедурными функциями при одинаковых параметрах и `seed`.
 
+`seed` помогает получать одинаковый случайный результат. Например, два запуска с `seed=1` должны вернуть одно и то же значение. Это удобно для тестов.
+
 ---
 
 # Команда 1. Числа, границы и данные человека
@@ -56,10 +58,15 @@ python -m unittest discover -s oop_version/tests
 - `generate_full_name(max_total_length=None, seed=None)`
 - `generate_age(min_age=18, max_age=80, boundary=None, seed=None)`
 - `generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None)`
-- `generate_score(min_score=1, max_score=100, boundary=None, seed=None)`
-- `generate_is_active(seed=None)`
-- `generate_subscription_plan(allowed_plans=None, seed=None)`
-- `generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None)`
+
+Готовые примеры:
+
+- `generate_score_example(min_score=1, max_score=100, boundary=None, seed=None)`
+- `generate_is_active_example(seed=None)`
+- `generate_subscription_plan_example(allowed_plans=None, seed=None)`
+- `generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
+
+Старые имена `generate_score`, `generate_is_active`, `generate_subscription_plan`, `generate_registration_date` оставлены в коде для тестов.
 
 ## Чему учится команда
 
@@ -77,8 +84,8 @@ python -m unittest discover -s oop_version/tests
 - `generate_age(boundary="min")` должен вернуть нижнюю границу.
 - `generate_age(boundary="above_max")` должен вернуть значение выше верхней границы.
 - `generate_full_name(max_total_length=10)` не должен вернуть строку длиннее 10 символов.
-- `generate_subscription_plan(allowed_plans=["free", "premium"])` должен выбрать только из этих тарифов.
-- `generate_registration_date(boundary="min")` должен вернуть дату на нижней границе.
+- `generate_subscription_plan_example(allowed_plans=["free", "premium"])` должен выбрать только из этих планов подписки.
+- `generate_registration_date_example(boundary="min")` должен вернуть дату на нижней границе.
 
 ---
 

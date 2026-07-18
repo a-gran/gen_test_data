@@ -76,11 +76,11 @@ gen_test_data/
 - `generators/phone.py` — `generate_phone()`;
 - `generators/email.py` — `generate_email()`;
 - `generators/city.py` — `generate_city()`;
-- `generators/score.py` — `generate_score()`;
-- `generators/is_active.py` — `generate_is_active()`;
+- `generators/score.py` — `generate_score_example()`, пример готового решения; `generate_score()` оставлен для тестов;
+- `generators/is_active.py` — `generate_is_active_example()`, пример готового решения; `generate_is_active()` оставлен для тестов;
 - `generators/tags.py` — `generate_tags()`;
-- `generators/subscription_plan.py` — `generate_subscription_plan()`;
-- `generators/registration_date.py` — `generate_registration_date()`;
+- `generators/subscription_plan.py` — `generate_subscription_plan_example()`, пример готового решения; `generate_subscription_plan()` оставлен для тестов;
+- `generators/registration_date.py` — `generate_registration_date_example()`, пример готового решения; `generate_registration_date()` оставлен для тестов;
 - `generators/user_profile.py` — `generate_user_profile()`;
 - `generators/first_name.py` — `generate_first_name()`;
 - `generators/last_name.py` — `generate_last_name()`;
@@ -133,11 +133,11 @@ gen_test_data/
 | Телефон | `generate_phone()` | `contact_generator.generate_phone()` |
 | Email | `generate_email()` | `contact_generator.generate_email()` |
 | Город | `generate_city()` | `person_generator.generate_city()` |
-| Балл | `generate_score()` | `person_generator.generate_score()` |
-| Активность | `generate_is_active()` | `person_generator.generate_is_active()` |
+| Балл | `generate_score_example()`, а `generate_score()` оставлен для тестов | `person_generator.generate_score()` |
+| Активность | `generate_is_active_example()`, а `generate_is_active()` оставлен для тестов | `person_generator.generate_is_active()` |
 | Теги | `generate_tags()` | `text_generator.generate_tags()` |
-| Тариф | `generate_subscription_plan()` | `profile_generator.generate_subscription_plan()` |
-| Дата регистрации | `generate_registration_date()` | `profile_generator.generate_registration_date()` |
+| План подписки | `generate_subscription_plan_example()`, а `generate_subscription_plan()` оставлен для тестов | `profile_generator.generate_subscription_plan()` |
+| Дата регистрации | `generate_registration_date_example()`, а `generate_registration_date()` оставлен для тестов | `profile_generator.generate_registration_date()` |
 | Профиль пользователя | `generate_user_profile()` | `profile_generator.generate_user_profile()` |
 | Имя | `generate_first_name()` | `person_generator.generate_first_name()` |
 | Фамилия | `generate_last_name()` | `person_generator.generate_last_name()` |
@@ -157,14 +157,14 @@ gen_test_data/
 - балл должен быть целым числом в одинаковом диапазоне;
 - активность должна быть булевым значением;
 - теги должны быть списком строк;
-- тариф должен выбираться из одного и того же списка;
+- план подписки должен выбираться из одного и того же списка;
 - дата регистрации должна быть строкой в одинаковом формате;
 - профиль пользователя должен быть словарем;
 - имя должно выбираться из одного и того же списка;
 - фамилия должна выбираться из одного и того же списка;
 - полное имя должно собираться по одному и тому же принципу;
 - username должен быть строкой в одинаковом формате;
-Если в проекте используется `seed` для повторяемой генерации, то при одинаковом `seed` обе версии должны давать предсказуемое и сопоставимое поведение.
+`seed` помогает получать одинаковый случайный результат. Если вызвать генератор два раза с одинаковым `seed`, результат должен повториться. Если `seed=None`, результат может быть разным при каждом запуске.
 ## Учебная логика проекта
 Проект должен идти по этапам.
 1. Ученики создают процедурную версию библиотеки.
@@ -251,7 +251,7 @@ gen_test_data/
 - попадание балла в заданный диапазон;
 - булевый тип активности;
 - структуру списка тегов;
-- попадание тарифа в список тарифов;
+- попадание плана подписки в список планов подписки;
 - формат даты регистрации;
 - структуру словаря профиля пользователя;
 - формат полного имени;
