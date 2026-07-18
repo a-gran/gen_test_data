@@ -9,17 +9,10 @@ from procedural_version.utils.random_utils import choose_item
 
 # Объявляем функцию, которая генерирует полное имя.
 def generate_full_name(max_total_length=None, seed=None):
-    # Создаем один генератор случайности, чтобы имя и фамилия выбирались в одной последовательности.
-    randomizer = create_random(seed)
-    # Выбираем случайное имя с помощью общего генератора случайности.
-    first_name = choose_item(FIRST_NAMES, randomizer=randomizer)
-    # Выбираем случайную фамилию с помощью того же генератора случайности.
-    last_name = choose_item(LAST_NAMES, randomizer=randomizer)
-    # Склеиваем имя и фамилию через пробел и возвращаем результат.
-    full_name = f"{first_name} {last_name}"
-    # Проверяем, задана ли максимальная общая длина.
-    if max_total_length is not None and len(full_name) > max_total_length:
-        # Обрезаем полное имя до максимальной длины для проверки ограничений интерфейса.
-        return full_name[:max_total_length]
-    # Возвращаем полное имя без обрезки.
-    return full_name
+    # Шаг 1. Создай randomizer через create_random(seed), чтобы имя и фамилия выбирались повторяемо.
+    # Шаг 2. Выбери случайное имя из FIRST_NAMES.
+    # Шаг 3. Выбери случайную фамилию из LAST_NAMES.
+    # Шаг 4. Склей имя и фамилию через пробел.
+    # Шаг 5. Если max_total_length передан и строка слишком длинная, обрежь ее до нужной длины.
+    # Шаг 6. Верни готовое полное имя.
+    pass

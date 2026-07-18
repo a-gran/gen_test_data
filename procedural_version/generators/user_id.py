@@ -3,19 +3,10 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует цифровой ID пользователя.
 def generate_user_id(length=6, only_digits=True, seed=None):
-    # Проверяем, что длина ID положительная.
-    if length <= 0:
-        # Сообщаем понятную ошибку, если длина меньше или равна нулю.
-        raise ValueError("length должен быть больше 0")
-    # Создаем генератор случайности для ID пользователя.
-    randomizer = create_random(seed)
-    # Создаем алфавит только из цифр.
-    alphabet = "0123456789"
-    # Проверяем, можно ли использовать не только цифры.
-    if not only_digits:
-        # Добавляем английские буквы для буквенно-цифрового ID.
-        alphabet += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    # Собираем ID из нужного количества случайных символов.
-    user_id = "".join(randomizer.choice(alphabet) for _ in range(length))
-    # Возвращаем ID ровно нужной длины.
-    return user_id
+    # Шаг 1. Проверь, что length больше 0, потому что ID должен содержать хотя бы один символ.
+    # Шаг 2. Создай randomizer через create_random(seed), чтобы ID можно было повторить.
+    # Шаг 3. Подготовь строку с цифрами, которые можно использовать в ID.
+    # Шаг 4. Если only_digits равен False, добавь к цифрам английские буквы.
+    # Шаг 5. Собери строку из length случайных символов.
+    # Шаг 6. Верни готовый ID.
+    pass

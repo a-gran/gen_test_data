@@ -25,32 +25,11 @@ from procedural_version.utils.random_utils import choose_item
 
 # Объявляем функцию, которая генерирует словарь профиля пользователя.
 def generate_user_profile(valid=True, seed=None):
-    # Создаем один генератор случайности для всех полей профиля.
-    randomizer = create_random(seed)
-    # Возвращаем профиль пользователя в виде словаря.
-    return {
-        # Добавляем цифровой ID пользователя.
-        "user_id": generate_user_id(length=6, seed=seed),
-        # Добавляем случайное имя пользователя.
-        "first_name": choose_item(FIRST_NAMES, randomizer=randomizer),
-        # Добавляем случайную фамилию пользователя.
-        "last_name": choose_item(LAST_NAMES, randomizer=randomizer),
-        # Добавляем случайный возраст пользователя.
-        "age": randomizer.randint(18, 80),
-        # Добавляем случайный город пользователя.
-        "city": choose_item(CITY_NAMES, randomizer=randomizer),
-        # Добавляем случайный признак активности пользователя.
-        "is_active": randomizer.choice([True, False]),
-        # Добавляем username пользователя заданной длины.
-        "username": generate_username(length=10, seed=seed),
-        # Добавляем email, который может быть валидным или невалидным.
-        "email": generate_email(valid=valid, username_length=8, seed=seed),
-        # Добавляем учебный пароль заданной длины.
-        "password": generate_password(length=12, seed=seed),
-        # Добавляем список из трех уникальных тегов.
-        "tags": generate_tags(count=3, unique=True, seed=seed),
-        # Добавляем случайную дату регистрации пользователя.
-        "registration_date": generate_registration_date(seed=seed),
-        # Добавляем случайный тариф пользователя.
-        "subscription_plan": choose_item(SUBSCRIPTION_PLANS, randomizer=randomizer),
-    }
+    # Шаг 1. Создай randomizer через create_random(seed), чтобы профиль можно было повторить.
+    # Шаг 2. Сгенерируй или выбери user_id, first_name, last_name, age и city.
+    # Шаг 3. Сгенерируй is_active, username, email и password.
+    # Шаг 4. Для email передай параметр valid, чтобы профиль мог быть валидным или невалидным.
+    # Шаг 5. Сгенерируй tags, registration_date и subscription_plan.
+    # Шаг 6. Собери все поля в один словарь с понятными ключами.
+    # Шаг 7. Верни готовый словарь профиля пользователя.
+    pass

@@ -5,21 +5,11 @@ from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая генерирует username пользователя.
 def generate_username(length=10, seed=None):
-    # Проверяем, что длина username положительная.
-    if length <= 0:
-        # Сообщаем понятную ошибку, если длина меньше или равна нулю.
-        raise ValueError("length должен быть больше 0")
-    # Создаем один генератор случайности для всех частей username.
-    randomizer = create_random(seed)
-    # Выбираем слово для начала username.
-    username_word = randomizer.choice(USERNAME_WORDS)
-    # Создаем алфавит из маленьких букв, цифр и нижнего подчеркивания.
-    alphabet = "abcdefghijklmnopqrstuvwxyz0123456789_"
-    # Берем начало username из слова и нижнего подчеркивания.
-    username = f"{username_word}_"
-    # Добавляем случайные символы, пока username короче нужной длины.
-    while len(username) < length:
-        # Добавляем один случайный символ из разрешенного алфавита.
-        username += randomizer.choice(alphabet)
-    # Возвращаем username ровно нужной длины.
-    return username[:length]
+    # Шаг 1. Проверь, что length больше 0, потому что username должен содержать хотя бы один символ.
+    # Шаг 2. Создай randomizer через create_random(seed), чтобы username можно было повторить.
+    # Шаг 3. Выбери учебное слово из USERNAME_WORDS для начала username.
+    # Шаг 4. Подготовь разрешенные символы: маленькие буквы, цифры и нижнее подчеркивание.
+    # Шаг 5. Добавляй случайные символы, пока username не станет нужной длины.
+    # Шаг 6. Обрежь username ровно до length символов.
+    # Шаг 7. Верни готовый username.
+    pass
