@@ -11,4 +11,7 @@ def generate_last_name(min_length=None, max_length=None, seed=None):
     # Шаг 4. Если max_length передан, оставь только фамилии не длиннее этого значения.
     # Шаг 5. Если после фильтрации список пустой, вызови понятную ошибку ValueError.
     # Шаг 6. Верни случайную фамилию из подходящего списка.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_last_name_respects_length_filter
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что фамилия взята из LAST_NAMES и подходит под ограничения длины.
     pass

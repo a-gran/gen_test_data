@@ -11,4 +11,8 @@ def generate_comment(length=100, seed=None):
     # Шаг 4. Повтори базовый текст несколько раз, чтобы символов точно хватило.
     # Шаг 5. Обрежь получившуюся строку ровно до length символов.
     # Шаг 6. Верни готовый комментарий.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_comment_returns_exact_length
+    # Дополнительная проверка: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_comment_returns_any_requested_length
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что длина возвращаемой строки всегда ровно равна length.
     pass

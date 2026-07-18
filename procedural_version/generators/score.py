@@ -26,4 +26,7 @@ def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
     # Шаг 7. Если boundary не передан, создай генератор случайности.
     randomizer = create_random(seed)
     # Шаг 8. Верни случайный балл внутри диапазона; тест должен проверить, что min_score <= результат <= max_score.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_score_returns_boundary_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, прочитай строку с AssertionError и проверь значения для boundary="min" и boundary="max".
     return randomizer.randint(min_score, max_score)

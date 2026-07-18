@@ -14,4 +14,7 @@ def generate_email(valid=True, username_length=8, seed=None):
     # Шаг 5. Выбери домен из EMAIL_DOMAINS.
     # Шаг 6. Если valid равен False, верни email с намеренной ошибкой без знака @.
     # Шаг 7. Если valid равен True, верни email в формате username@domain.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_email_can_return_valid_and_invalid_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь наличие знака @ в valid=True и его отсутствие в valid=False.
     pass

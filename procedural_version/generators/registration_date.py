@@ -33,4 +33,7 @@ def generate_registration_date(start_year=2020, end_year=2026, boundary=None, se
     day = randomizer.randint(1, 28)
     # Шаг 10. Верни строку в формате YYYY-MM-DD.
     # Проверка тестом: строка должна иметь формат даты и год должен быть в разрешенном диапазоне.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_registration_date_returns_boundary_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь даты для boundary="min" и boundary="max".
     return f"{year:04d}-{month:02d}-{day:02d}"

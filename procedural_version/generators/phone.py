@@ -10,4 +10,7 @@ def generate_phone(valid=True, seed=None):
     # Шаг 5. Для правильного телефона сгенерируй operator_code из трех цифр.
     # Шаг 6. Для правильного телефона сгенерируй number из семи цифр.
     # Шаг 7. Верни готовый словарь телефона.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_phone_can_return_valid_and_invalid_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь country_code и длину основной части номера для valid=True и valid=False.
     pass

@@ -32,4 +32,8 @@ def generate_user_profile(valid=True, seed=None):
     # Шаг 5. Сгенерируй tags, registration_date и subscription_plan.
     # Шаг 6. Собери все поля в один словарь с понятными ключами.
     # Шаг 7. Верни готовый словарь профиля пользователя.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_profile_returns_rich_dictionary
+    # Дополнительная проверка: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_user_profile_can_return_invalid_email
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь обязательные ключи словаря и email для valid=True или valid=False.
     pass

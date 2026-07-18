@@ -10,4 +10,7 @@ def generate_birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Шаг 5. Если boundary равен "above_max", верни год на 1 больше максимума для негативного теста.
     # Шаг 6. Если boundary не передан, создай randomizer через create_random(seed).
     # Шаг 7. Верни случайный год от min_year до max_year включительно.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_birth_year_returns_boundary_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, прочитай строку с AssertionError и проверь значения для boundary="min" и boundary="max".
     pass

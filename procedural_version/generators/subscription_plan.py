@@ -16,4 +16,7 @@ def generate_subscription_plan(allowed_plans=None, seed=None):
         raise ValueError("Список тарифов не должен быть пустым")
     # Шаг 5. Верни случайный тариф из выбранного списка.
     # Проверка тестом: результат должен входить в allowed_plans или SUBSCRIPTION_PLANS.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_subscription_plan_respects_allowed_plans
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что функция выбирает тариф только из переданного allowed_plans.
     return randomizer.choice(plans)

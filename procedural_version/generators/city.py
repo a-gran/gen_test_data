@@ -10,4 +10,7 @@ def generate_city(starts_with=None, seed=None):
     # Шаг 3. Если starts_with передан, оставь только города, которые начинаются с этого текста.
     # Шаг 4. Если после фильтрации список пустой, вызови понятную ошибку ValueError.
     # Шаг 5. Верни случайный город из подходящего списка.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_city_respects_starts_with_filter
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что город есть в CITY_NAMES и начинается с переданного starts_with.
     pass

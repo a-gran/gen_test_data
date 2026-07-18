@@ -11,4 +11,7 @@ def generate_tags(count=None, unique=True, seed=None):
     # Шаг 4. Если unique равен True, выбери теги без повторов из списка TAGS.
     # Шаг 5. Если unique равен False, выбери теги из TAGS с возможными повторами.
     # Шаг 6. Верни готовый список тегов.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_tags_respects_count_and_unique
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь количество тегов, уникальность и то, что каждый тег есть в TAGS.
     pass

@@ -12,4 +12,7 @@ def generate_username(length=10, seed=None):
     # Шаг 5. Добавляй случайные символы, пока username не станет нужной длины.
     # Шаг 6. Обрежь username ровно до length символов.
     # Шаг 7. Верни готовый username.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_username_returns_exact_length
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что длина username ровно равна length.
     pass

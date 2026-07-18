@@ -13,4 +13,7 @@ def generate_password(length=12, use_digits=True, use_symbols=True, seed=None):
     # Шаг 6. Если use_symbols равен True, добавь в пароль хотя бы один специальный символ.
     # Шаг 7. Добери пароль случайными разрешенными символами до нужной длины.
     # Шаг 8. Верни пароль ровно length символов.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_password_respects_required_parts
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь длину пароля, наличие цифры и наличие специального символа.
     pass

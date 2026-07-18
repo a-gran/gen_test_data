@@ -15,4 +15,7 @@ def generate_full_name(max_total_length=None, seed=None):
     # Шаг 4. Склей имя и фамилию через пробел.
     # Шаг 5. Если max_total_length передан и строка слишком длинная, обрежь ее до нужной длины.
     # Шаг 6. Верни готовое полное имя.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_full_name_respects_max_total_length
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, проверь, что полное имя не длиннее max_total_length.
     pass

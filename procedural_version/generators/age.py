@@ -10,4 +10,7 @@ def generate_age(min_age=18, max_age=80, boundary=None, seed=None):
     # Шаг 5. Если boundary равен "above_max", верни возраст на 1 больше максимума для негативного теста.
     # Шаг 6. Если boundary не передан, создай randomizer через create_random(seed).
     # Шаг 7. Верни случайный возраст от min_age до max_age включительно.
+    # Проверка после реализации: запусти python -m unittest procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_generate_age_returns_boundary_values
+    # Если все хорошо, в конце вывода unittest будет написано OK.
+    # Если тест упал, прочитай строку с AssertionError и проверь, какое значение ожидалось для каждого boundary.
     pass
