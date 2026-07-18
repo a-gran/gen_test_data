@@ -1,8 +1,8 @@
 # Подсказка ученику: create_random(seed) нужен, чтобы дата повторялась при одинаковом seed.
 from procedural_version.utils.random_utils import create_random
 
-# Задание: реализуй генератор даты регистрации и проверь обычные и граничные даты тестами.
-def generate_registration_date(start_year=2020, end_year=2026, boundary=None, seed=None):
+# Пример готового решения: по нему можно понять, как делать похожие генераторы.
+def generate_registration_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
     # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_registration_date.
     # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_registration_date.
     # Где посмотреть пример использования: открой docs/usage.md и найди generate_registration_date.
@@ -58,3 +58,6 @@ def generate_registration_date(start_year=2020, end_year=2026, boundary=None, se
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь даты для boundary="min" и boundary="max".
     return f"{year:04d}-{month:02d}-{day:02d}"
+
+# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
+generate_registration_date = generate_registration_date_example

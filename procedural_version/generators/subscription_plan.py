@@ -4,8 +4,8 @@ from procedural_version.data.names_data import SUBSCRIPTION_PLANS
 # Подсказка ученику: create_random(seed) нужен для повторяемого выбора плана подписки в тестах.
 from procedural_version.utils.random_utils import create_random
 
-# Задание: реализуй генератор плана подписки и проверь, что он выбирает только разрешенные значения.
-def generate_subscription_plan(allowed_plans=None, seed=None):
+# Пример готового решения: по нему можно понять, как делать похожие генераторы.
+def generate_subscription_plan_example(allowed_plans=None, seed=None):
     # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_subscription_plan.
     # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_subscription_plan.
     # Где посмотреть пример использования: открой docs/usage.md и найди generate_subscription_plan.
@@ -38,3 +38,6 @@ def generate_subscription_plan(allowed_plans=None, seed=None):
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь, что функция выбирает план подписки только из allowed_plans.
     return randomizer.choice(plans)
+
+# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
+generate_subscription_plan = generate_subscription_plan_example

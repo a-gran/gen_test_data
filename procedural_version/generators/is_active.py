@@ -1,8 +1,8 @@
 # Подсказка ученику: create_random(seed) помогает получить одинаковый True или False при одинаковом seed.
 from procedural_version.utils.random_utils import create_random
 
-# Задание: реализуй генератор признака активности пользователя и проверь тип результата тестом.
-def generate_is_active(seed=None):
+# Пример готового решения: по нему можно понять, как делать похожие генераторы.
+def generate_is_active_example(seed=None):
     # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_is_active.
     # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_is_active.
     # Где посмотреть пример использования: открой docs/usage.md и найди generate_is_active.
@@ -28,3 +28,6 @@ def generate_is_active(seed=None):
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь, что функция возвращает True или False, а не строку и не число.
     return randomizer.choice([True, False])
+
+# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
+generate_is_active = generate_is_active_example

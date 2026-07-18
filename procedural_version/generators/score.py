@@ -1,8 +1,8 @@
 # Подсказка ученику: create_random(seed) нужен, чтобы случайный результат можно было повторить в тестах.
 from procedural_version.utils.random_utils import create_random
 
-# Задание: реализуй генератор учебного балла и проверь его граничные значения тестами.
-def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
+# Пример готового решения: по нему можно понять, как делать похожие генераторы.
+def generate_score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # Где почитать про эту функцию: открой docs/function_specifications.md и найди раздел generate_score.
     # Где посмотреть задание команды: открой docs/team_tasks.md и найди generate_score.
     # Где посмотреть пример использования: открой docs/usage.md и найди generate_score.
@@ -48,3 +48,6 @@ def generate_score(min_score=1, max_score=100, boundary=None, seed=None):
     # Если все правильно, в самом конце появится слово OK.
     # Если вместо OK появилась ошибка, проверь значения для boundary="min" и boundary="max".
     return randomizer.randint(min_score, max_score)
+
+# Оставляем старое имя функции, чтобы импорты и тесты продолжали работать как раньше.
+generate_score = generate_score_example
