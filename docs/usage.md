@@ -1,333 +1,249 @@
-# Инструкция по использованию библиотеки
+# Как использовать генераторы тестовых данных
 
-## Общая идея
+## Что это за проект
 
-Проект содержит две версии одной библиотеки генерации тестовых данных:
+Этот проект помогает быстро создавать тестовые данные.
 
-1. `procedural_version` — процедурная версия.
-2. `oop_version` — объектно-ориентированная версия.
+Тестовые данные - это ненастоящие данные, которые нужны для проверки программы.
 
-Библиотека нужна не только для случайного выбора данных.
+Например, программа просит заполнить анкету пользователя:
 
-Она помогает создавать тестовые данные под конкретные проверки:
+- имя;
+- фамилию;
+- email;
+- пароль;
+- город;
+- возраст.
 
-- строки точной длины;
-- числа на границах диапазона;
-- числа за границами диапазона;
-- валидные форматы;
-- невалидные форматы;
-- списки нужного размера;
-- сложные профили пользователей.
+Чтобы не придумывать эти данные руками каждый раз, можно использовать готовые функции.
 
-`seed` - это число для `random`.
-Если два раза запустить функцию с одинаковым `seed`, случайный выбор должен повториться.
-Например, два запуска с `seed=1` должны вернуть одно и то же значение.
+## Простой пример
 
-В процедурной версии часть функций пока является заданием для учеников.
-В таких функциях внутри стоит `pass`.
-
-А 4 функции уже написаны полностью.
-Они нужны не для задания, а как образец: ученик может открыть файл, посмотреть готовый код и понять, как писать похожие функции.
-
-Эти функции-образцы находятся в папке:
-
-```text
-procedural_version/generators/
-```
-
-Файлы-образцы:
-
-- `score_example.py`
-- `active_example.py`
-- `plan_example.py`
-- `reg_date_example.py`
-
-Функции внутри этих файлов:
-
-- `score_example(min_score=1, max_score=100, boundary=None, seed=None)`
-- `active_example(seed=None)`
-- `plan_example(allowed_plans=None, seed=None)`
-- `reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None)`
-
-Например, короткая функция `score` связана с файлом:
-
-```text
-procedural_version/generators/score_example.py
-```
-
-Запускать команды нужно из корня проекта. Это папка, где лежат `procedural_version`, `oop_version` и `docs`.
-
-Пример структуры:
-
-```text
-gen_test_data/
-  procedural_version/
-  oop_version/
-  docs/
-```
-
-Linux/macOS:
-
-```bash
-cd ~/projects/gen_test_data
-```
-
-Windows PowerShell:
-
-```powershell
-cd C:\Users\Student\Projects\gen_test_data
-```
-
-Путь может быть другим. Важно запускать команды из папки проекта.
-
----
-
-# Как проверить функцию руками без автотестов
+Допустим, нам нужен email для теста.
 
 Создай файл `manual_check.py` в корне проекта.
 
-Пример проверки готовой функции с баллом:
+Корень проекта - это папка, где лежит файл `check.py`.
+
+Напиши в файл:
+
+```python
+from procedural_version.generators import email
+
+test_email = email(valid=True, username_length=8, seed=1)
+
+print(test_email)
+```
+
+Запусти:
+
+```bash
+python manual_check.py
+```
+
+Если на Windows команда `python` не работает, попробуй:
+
+```bash
+py manual_check.py
+```
+
+## Что происходит в примере
+
+```python
+from procedural_version.generators import email
+```
+
+Эта строка берет функцию `email` из проекта.
+
+```python
+test_email = email(valid=True, username_length=8, seed=1)
+```
+
+Эта строка создает email.
+
+```python
+print(test_email)
+```
+
+Эта строка показывает email на экране.
+
+## Где это может пригодиться в реальной работе
+
+Представь, что тестировщик проверяет сайт.
+
+На сайте есть форма регистрации:
+
+```text
+Имя:
+Email:
+Пароль:
+Город:
+```
+
+Тестировщику нужно много раз вводить разные данные.
+
+Вместо того чтобы каждый раз писать данные руками, можно создать их кодом.
+
+Пример:
+
+```python
+from procedural_version.generators import email
+from procedural_version.generators import plan_example
+from procedural_version.generators import reg_date_example
+
+user = {
+    "email": email(valid=True, username_length=8, seed=1),
+    "plan": plan_example(seed=1),
+    "registration_date": reg_date_example(seed=1),
+}
+
+print(user)
+```
+
+Так получается словарь с тестовым пользователем.
+
+Его можно использовать для проверки сайта, формы или API.
+
+## Правильные и неправильные данные
+
+Программа должна уметь принимать правильные данные и не принимать неправильные.
+
+Например, правильный email содержит знак `@`.
+
+```python
+from procedural_version.generators import email
+
+good_email = email(valid=True, username_length=8, seed=1)
+
+print(good_email)
+```
+
+А неправильный email можно создать так:
+
+```python
+from procedural_version.generators import email
+
+bad_email = email(valid=False, username_length=8, seed=1)
+
+print(bad_email)
+```
+
+Так можно проверить, что сайт показывает ошибку, если email неправильный.
+
+## Что такое seed
+
+`seed` - это число, которое помогает получать одинаковый случайный результат.
+
+Пример:
+
+```python
+from procedural_version.generators import email
+
+first_email = email(seed=1)
+second_email = email(seed=1)
+
+print(first_email)
+print(second_email)
+```
+
+Если `seed` одинаковый, email тоже будет одинаковый.
+
+Это удобно в тестах, потому что тест не должен каждый раз получать совсем другие данные.
+
+## Пример: создать несколько пользователей
+
+Иногда нужно проверить не одного пользователя, а сразу несколько.
+
+```python
+from procedural_version.generators import email
+from procedural_version.generators import plan_example
+
+users = []
+
+for number in range(1, 4):
+    user = {
+        "email": email(seed=number),
+        "plan": plan_example(seed=number),
+    }
+
+    users.append(user)
+
+print(users)
+```
+
+Этот код создаст список из трех пользователей.
+
+Так можно проверять таблицу пользователей или список клиентов.
+
+## Пример: проверка граничных значений
+
+Граница - это самое маленькое или самое большое разрешенное значение.
+
+Например, балл может быть от 1 до 100.
 
 ```python
 from procedural_version.generators import score_example
 
 print(score_example(min_score=1, max_score=100, boundary="min"))
 print(score_example(min_score=1, max_score=100, boundary="max"))
-print(score_example(min_score=1, max_score=100, seed=1))
-print(score_example(min_score=1, max_score=100, seed=1))
+print(score_example(min_score=1, max_score=100, boundary="below_min"))
+print(score_example(min_score=1, max_score=100, boundary="above_max"))
 ```
 
-Запусти файл:
+Этот код проверяет:
+
+- минимальное значение;
+- максимальное значение;
+- значение меньше минимума;
+- значение больше максимума.
+
+Так тестировщики ищут ошибки в программах.
+
+## Какие функции есть в проекте
+
+Готовые функции-примеры:
+
+- `active_example()` - активен пользователь или нет;
+- `score_example()` - учебный балл;
+- `plan_example()` - тариф пользователя;
+- `reg_date_example()` - дата регистрации.
+
+Функция `email()` тоже уже реализована.
+
+Остальные функции пока оставлены для самостоятельной работы. Внутри них стоит `pass`.
+
+`pass` значит: здесь пока пусто, ученик должен написать код сам.
+
+## Как запускать проверки
+
+Проверить email:
 
 ```bash
-python manual_check.py
+python check.py email
 ```
 
-Как понять, что все нормально:
+Проверить готовый пример с баллами:
 
-- программа не упала с ошибкой;
-- `boundary="min"` напечатал `1`;
-- `boundary="max"` напечатал `100`;
-- два одинаковых вызова с `seed=1` напечатали одинаковые числа.
-
-Пример проверки готовой функции с датой:
-
-```python
-from procedural_version.generators import reg_date_example
-
-print(reg_date_example(boundary="min"))
-print(reg_date_example(boundary="max"))
-print(reg_date_example(seed=1))
-print(reg_date_example(seed=1))
+```bash
+python check.py score_example
 ```
 
-Как понять, что все нормально:
+Проверить готовый пример с датой:
 
-- первая строка должна быть `2020-01-01`;
-- вторая строка должна быть `2026-12-28`;
-- две строки с `seed=1` должны быть одинаковыми;
-- дата должна выглядеть так: `год-месяц-день`, например `2021-10-28`.
-
-Пример проверки своей функции после реализации:
-
-```python
-from procedural_version.generators import age
-
-print(age(min_age=18, max_age=80, boundary="min"))
-print(age(min_age=18, max_age=80, boundary="max"))
-print(age(min_age=18, max_age=80, seed=1))
+```bash
+python check.py reg_date_example
 ```
 
-Если функция еще не реализована и внутри стоит `pass`, на экране появится `None`: значит, функцию еще нужно написать.
-
----
-
-# Как подключить библиотеку к другому проекту
-
-Самый простой учебный способ - положить папку библиотеки рядом со своим файлом Python.
-
-Пример для процедурной версии:
-
-```text
-my_project/
-  main.py
-  procedural_version/
-```
-
-Пример файла `main.py`:
-
-```python
-from procedural_version.generators import score_example
-
-result = score_example(seed=1)
-print(result)
-```
-
-Пример для ООП-версии:
-
-```text
-my_project/
-  main.py
-  oop_version/
-```
-
-Пример файла `main.py`:
-
-```python
-from oop_version.generators.profile_generator import ProfileGenerator
-
-generator = ProfileGenerator(seed=1)
-profile = generator.user_profile(valid=True)
-print(profile)
-```
-
-Если папка библиотеки лежит не рядом с `main.py`, Python может не найти импорт. Тогда проще всего запускать код из корня проекта или перенести папку библиотеки рядом с файлом, который ее использует.
-
----
-
-# Процедурная версия
-
-## Числа и границы
-
-```python
-from procedural_version.generators import age
-
-print(age(min_age=18, max_age=80, boundary="min"))
-print(age(min_age=18, max_age=80, boundary="max"))
-print(age(min_age=18, max_age=80, boundary="above_max"))
-```
-
-```python
-from procedural_version.generators import score_example
-
-print(score_example(min_score=1, max_score=100, boundary="below_min"))
-```
-
-## Строки точной длины
-
-```python
-from procedural_version.generators import comment
-
-text = comment(length=255, seed=1)
-print(len(text))
-```
-
-```python
-from procedural_version.generators import username
-
-name = username(length=12, seed=1)
-print(name)
-print(len(name))
-```
-
-## Валидные и невалидные форматы
-
-```python
-from procedural_version.generators import email
-
-print(email(valid=True, username_length=8, seed=1))
-print(email(valid=False, username_length=8, seed=1))
-```
-
-```python
-from procedural_version.generators import phone
-
-print(phone(valid=True, seed=1))
-print(phone(valid=False, seed=1))
-```
-
-## Пароль с требованиями
-
-```python
-from procedural_version.generators import password
-
-result = password(length=16, use_digits=True, use_symbols=True, seed=1)
-print(result)
-print(len(result))
-```
-
-## Списки и профиль
-
-```python
-from procedural_version.generators import tags
-
-result = tags(count=5, unique=True, seed=1)
-print(result)
-```
-
-```python
-from procedural_version.generators import user_profile
-
-print(user_profile(valid=True, seed=1))
-print(user_profile(valid=False, seed=1))
-```
-
----
-
-# ООП-версия
-
-## Числа и границы
-
-```python
-from oop_version.generators.person_generator import PersonGenerator
-
-person_generator = PersonGenerator(seed=1)
-print(person_generator.age(min_age=18, max_age=80, boundary="min"))
-```
-
-```python
-from oop_version.generators.person_generator import PersonGenerator
-
-person_generator = PersonGenerator(seed=1)
-print(person_generator.score(min_score=1, max_score=100, boundary="max"))
-```
-
-## Строки точной длины
-
-```python
-from oop_version.generators.text_generator import TextGenerator
-
-text_generator = TextGenerator(seed=1)
-comment = text_generator.comment(length=255)
-print(len(comment))
-```
-
-```python
-from oop_version.generators.person_generator import PersonGenerator
-
-person_generator = PersonGenerator(seed=1)
-username = person_generator.username(length=12)
-print(username)
-print(len(username))
-```
-
-## Валидные и невалидные форматы
-
-```python
-from oop_version.generators.contact_generator import ContactGenerator
-
-contact_generator = ContactGenerator(seed=1)
-print(contact_generator.email(valid=True, username_length=8))
-print(contact_generator.email(valid=False, username_length=8))
-```
-
-## Сложный профиль
-
-```python
-from oop_version.generators.profile_generator import ProfileGenerator
-
-profile_generator = ProfileGenerator(seed=1)
-print(profile_generator.user_profile(valid=True))
-print(profile_generator.user_profile(valid=False))
-```
-
----
-
-# Как запустить тесты
+Проверить все функции:
 
 ```bash
 python check.py all
-python check.py oop
 ```
 
-Если тесты завершились со статусом `OK`, значит проверяемая часть работает правильно.
+Если функция еще не написана и внутри стоит `pass`, тесты будут падать. Это нормально.
+
+## Важно
+
+Перед каждым запуском `check.py` проект очищает кэш Python.
+
+Это нужно, чтобы тесты проверяли новый код, который ученик только что написал.
