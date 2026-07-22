@@ -23,21 +23,5 @@ def first_name(min_length=None, max_length=None, seed=None):
     # Что проверить в коде: если подходящих имен нет, нужно вызвать ValueError.
     # Что вернуть: строку с именем.
     # Тесты: test_first_name_min_len, test_first_name_max_len.
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Начинаем со всего списка имен.
-    available_names = FIRST_NAMES
-    # Проверяем, есть ли ограничение минимальной длины.
-    if min_length is not None:
-        # Оставляем только имена не короче min_length.
-        available_names = [name for name in available_names if len(name) >= min_length]
-    # Проверяем, есть ли ограничение максимальной длины.
-    if max_length is not None:
-        # Оставляем только имена не длиннее max_length.
-        available_names = [name for name in available_names if len(name) <= max_length]
-    # Проверяем, что после фильтров осталось хотя бы одно имя.
-    if not available_names:
-        # Сообщаем ошибку, если подходящих имен нет.
-        raise ValueError("Нет имен с такой длиной")
-    # Возвращаем случайное имя из подходящего списка.
-    return randomizer.choice(available_names)
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

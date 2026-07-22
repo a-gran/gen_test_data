@@ -20,17 +20,5 @@ def city(starts_with=None, seed=None):
     # Что проверить в коде: если подходящих городов нет, нужно вызвать ValueError.
     # Что вернуть: строку с названием города.
     # Тесты: test_city_prefix, test_city_list.
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Берем все города, если начало города не передали.
-    available_cities = CITY_NAMES
-    # Проверяем, нужно ли оставить только города с нужным началом.
-    if starts_with is not None:
-        # Собираем список городов, которые начинаются с переданного текста.
-        available_cities = [city_name for city_name in CITY_NAMES if city_name.startswith(starts_with)]
-    # Проверяем, что после фильтра остался хотя бы один город.
-    if not available_cities:
-        # Сообщаем ошибку, если подходящих городов нет.
-        raise ValueError("Нет городов с таким началом")
-    # Возвращаем случайный город из подходящего списка.
-    return randomizer.choice(available_cities)
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

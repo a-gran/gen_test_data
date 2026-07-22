@@ -21,19 +21,5 @@ def comment(length=100, seed=None):
     # Что проверить в коде: если length меньше 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_comment_lengths, test_comment_bad_len.
-    # Проверяем, что длина комментария не отрицательная.
-    if length < 0:
-        # Сообщаем ошибку, если длина меньше нуля.
-        raise ValueError("length не должен быть меньше 0")
-    # Сразу возвращаем пустую строку для нулевой длины.
-    if length == 0:
-        # Возвращаем пустой комментарий.
-        return ""
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Выбираем учебную фразу из списка комментариев.
-    base_comment = randomizer.choice(COMMENTS)
-    # Повторяем фразу так, чтобы текста точно хватило до нужной длины.
-    long_comment = (base_comment + " ") * (length // (len(base_comment) + 1) + 1)
-    # Обрезаем строку ровно до нужной длины и возвращаем ее.
-    return long_comment[:length]
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

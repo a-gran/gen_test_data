@@ -26,27 +26,5 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_birth_year_bounds, test_birth_year_range.
-    # Проверяем, что минимальный год не больше максимального.
-    if min_year > max_year:
-        # Сообщаем ошибку, если диапазон годов написан наоборот.
-        raise ValueError("min_year не должен быть больше max_year")
-    # Возвращаем нижнюю границу года рождения.
-    if boundary == "min":
-        # Возвращаем min_year.
-        return min_year
-    # Возвращаем верхнюю границу года рождения.
-    if boundary == "max":
-        # Возвращаем max_year.
-        return max_year
-    # Возвращаем год меньше нижней границы.
-    if boundary == "below_min":
-        # Возвращаем min_year минус 1.
-        return min_year - 1
-    # Возвращаем год больше верхней границы.
-    if boundary == "above_max":
-        # Возвращаем max_year плюс 1.
-        return max_year + 1
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Возвращаем случайный год внутри диапазона.
-    return randomizer.randint(min_year, max_year)
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

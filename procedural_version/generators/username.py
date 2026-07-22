@@ -20,17 +20,5 @@ def username(length=10, seed=None):
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_username_len, test_username_bad_len.
-    # Проверяем, что длина username больше нуля.
-    if length <= 0:
-        # Сообщаем ошибку, если длина неправильная.
-        raise ValueError("length должен быть больше 0")
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Выбираем слово, с которого начнется username.
-    base_word = randomizer.choice(USERNAME_WORDS)
-    # Задаем символы, которыми можно дополнить username.
-    alphabet = "abcdefghijklmnopqrstuvwxyz0123456789_"
-    # Добавляем случайные символы, чтобы строки точно хватило.
-    extra_symbols = "".join(randomizer.choice(alphabet) for _ in range(length))
-    # Возвращаем username ровно нужной длины.
-    return (base_word + extra_symbols)[:length]
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

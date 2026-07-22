@@ -20,17 +20,5 @@ def user_id(length=6, only_digits=True, seed=None):
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_id_digits, test_id_alnum.
-    # Проверяем, что длина ID больше нуля.
-    if length <= 0:
-        # Сообщаем ошибку, если длина неправильная.
-        raise ValueError("length должен быть больше 0")
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Задаем набор только из цифр.
-    digits = "0123456789"
-    # Задаем набор из цифр и английских букв.
-    letters_and_digits = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    # Выбираем набор символов по параметру only_digits.
-    alphabet = digits if only_digits else letters_and_digits
-    # Собираем ID из случайных символов выбранного набора.
-    return "".join(randomizer.choice(alphabet) for _ in range(length))
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

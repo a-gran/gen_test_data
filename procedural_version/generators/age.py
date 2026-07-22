@@ -27,27 +27,5 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_age_bounds, test_age_range.
-    # Проверяем, что минимальный возраст не больше максимального.
-    if min_age > max_age:
-        # Сообщаем ошибку, если диапазон возраста написан наоборот.
-        raise ValueError("min_age не должен быть больше max_age")
-    # Возвращаем нижнюю границу возраста.
-    if boundary == "min":
-        # Возвращаем min_age.
-        return min_age
-    # Возвращаем верхнюю границу возраста.
-    if boundary == "max":
-        # Возвращаем max_age.
-        return max_age
-    # Возвращаем возраст меньше нижней границы.
-    if boundary == "below_min":
-        # Возвращаем min_age минус 1.
-        return min_age - 1
-    # Возвращаем возраст больше верхней границы.
-    if boundary == "above_max":
-        # Возвращаем max_age плюс 1.
-        return max_age + 1
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Возвращаем случайный возраст внутри диапазона.
-    return randomizer.randint(min_age, max_age)
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass

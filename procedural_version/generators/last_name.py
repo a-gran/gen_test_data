@@ -23,21 +23,5 @@ def last_name(min_length=None, max_length=None, seed=None):
     # Что проверить в коде: если подходящих фамилий нет, нужно вызвать ValueError.
     # Что вернуть: строку с фамилией.
     # Тесты: test_last_name_max_len, test_last_name_min_len.
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Начинаем со всего списка фамилий.
-    available_names = LAST_NAMES
-    # Проверяем, есть ли ограничение минимальной длины.
-    if min_length is not None:
-        # Оставляем только фамилии не короче min_length.
-        available_names = [name for name in available_names if len(name) >= min_length]
-    # Проверяем, есть ли ограничение максимальной длины.
-    if max_length is not None:
-        # Оставляем только фамилии не длиннее max_length.
-        available_names = [name for name in available_names if len(name) <= max_length]
-    # Проверяем, что после фильтров осталась хотя бы одна фамилия.
-    if not available_names:
-        # Сообщаем ошибку, если подходящих фамилий нет.
-        raise ValueError("Нет фамилий с такой длиной")
-    # Возвращаем случайную фамилию из подходящего списка.
-    return randomizer.choice(available_names)
+    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    pass
