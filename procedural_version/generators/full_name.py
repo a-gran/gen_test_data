@@ -24,4 +24,21 @@ def full_name(max_total_length=None, seed=None):
     # Что проверить в коде: без ограничения в строке должен быть пробел между именем и фамилией.
     # Что вернуть: строку с именем, пробелом и фамилией.
     # Тесты: test_full_name_max_len, test_full_name_basic.
-    pass
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Проверяем, передано ли ограничение общей длины.
+    if max_total_length is not None:
+        # Собираем все пары имени и фамилии, которые помещаются в ограничение.
+        available_full_names = [f"{name} {surname}" for name in FIRST_NAMES for surname in LAST_NAMES if len(f"{name} {surname}") <= max_total_length]
+        # Проверяем, что подходящая пара нашлась.
+        if not available_full_names:
+            # Сообщаем ошибку, если полное имя не помещается в ограничение.
+            raise ValueError("Нет полного имени с такой общей длиной")
+        # Возвращаем случайное полное имя из подходящего списка.
+        return randomizer.choice(available_full_names)
+    # Выбираем случайное имя из общего списка.
+    name = choose_item(FIRST_NAMES, randomizer=randomizer)
+    # Выбираем случайную фамилию из общего списка.
+    surname = choose_item(LAST_NAMES, randomizer=randomizer)
+    # Возвращаем имя и фамилию через пробел.
+    return f"{name} {surname}"

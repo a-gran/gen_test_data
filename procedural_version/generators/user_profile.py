@@ -46,4 +46,32 @@ def user_profile(valid=True, seed=None):
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
-    pass
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Собираем и возвращаем словарь профиля пользователя.
+    return {
+        # Генерируем ID пользователя длиной 6 символов.
+        "user_id": user_id(length=6, seed=randomizer.randint(1, 1000000)),
+        # Выбираем имя из учебного списка.
+        "first_name": choose_item(FIRST_NAMES, randomizer=randomizer),
+        # Выбираем фамилию из учебного списка.
+        "last_name": choose_item(LAST_NAMES, randomizer=randomizer),
+        # Выбираем возраст пользователя.
+        "age": randomizer.randint(18, 80),
+        # Выбираем город из учебного списка.
+        "city": choose_item(CITY_NAMES, randomizer=randomizer),
+        # Выбираем признак активности.
+        "is_active": randomizer.choice([True, False]),
+        # Генерируем username длиной 10 символов.
+        "username": username(length=10, seed=randomizer.randint(1, 1000000)),
+        # Генерируем правильный или неправильный email.
+        "email": email(valid=valid, username_length=8, seed=randomizer.randint(1, 1000000)),
+        # Генерируем пароль длиной 12 символов.
+        "password": password(length=12, seed=randomizer.randint(1, 1000000)),
+        # Генерируем 3 уникальных тега.
+        "tags": tags(count=3, unique=True, seed=randomizer.randint(1, 1000000)),
+        # Генерируем дату регистрации.
+        "registration_date": reg_date_example(seed=randomizer.randint(1, 1000000)),
+        # Выбираем план подписки из учебного списка.
+        "subscription_plan": choose_item(SUBSCRIPTION_PLANS, randomizer=randomizer),
+    }

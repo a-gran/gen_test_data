@@ -23,4 +23,23 @@ def tags(count=None, unique=True, seed=None):
     # Что проверить в коде: если count меньше 0, нужно вызвать ValueError.
     # Что вернуть: список строк.
     # Тесты: test_tags_unique, test_tags_dupes.
-    pass
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Проверяем, нужно ли выбрать случайное количество тегов.
+    if count is None:
+        # Выбираем количество тегов от 1 до 3.
+        count = randomizer.randint(1, 3)
+    # Проверяем, что количество тегов не отрицательное.
+    if count < 0:
+        # Сообщаем ошибку, если количество меньше нуля.
+        raise ValueError("count не должен быть меньше 0")
+    # Проверяем, нужны ли уникальные теги.
+    if unique:
+        # Проверяем, что уникальных тегов хватит.
+        if count > len(TAGS):
+            # Сообщаем ошибку, если запросили слишком много уникальных тегов.
+            raise ValueError("count больше количества доступных тегов")
+        # Возвращаем список уникальных тегов.
+        return randomizer.sample(TAGS, count)
+    # Возвращаем список тегов, где повторы разрешены.
+    return [randomizer.choice(TAGS) for _ in range(count)]
