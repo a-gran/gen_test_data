@@ -1,10 +1,20 @@
 # Импортируем sys, чтобы прочитать короткое имя проверки из команды.
 import sys
+<<<<<<< HEAD
 # Импортируем importlib, чтобы попросить Python заново проверить файлы модулей.
 import importlib
 # Импортируем shutil, чтобы удалить папки с кешем Python.
 import shutil
 # Импортируем Path, чтобы аккуратно искать папки внутри проекта.
+=======
+# Запрещаем Python создавать файлы .pyc, чтобы проверки всегда брали свежий код.
+sys.dont_write_bytecode = True
+# Импортируем importlib, чтобы сбросить внутренний кэш поиска Python-модулей.
+import importlib
+# Импортируем shutil, чтобы удалить папки __pycache__ перед запуском тестов.
+import shutil
+# Импортируем Path, чтобы удобно обходить папки проекта.
+>>>>>>> 387e21d (ref: change structure)
 from pathlib import Path
 # Импортируем unittest, чтобы запускать уже готовые автотесты.
 import unittest
@@ -37,6 +47,17 @@ def color_text(text, color):
         return text
     # Добавляем выбранный цвет перед текстом и сбрасываем цвет после текста.
     return f"{color}{text}{RESET}"
+
+# Объявляем функцию, которая очищает Python-кэш перед запуском тестов.
+def clear_python_cache():
+    # Находим папку проекта, где лежит файл check.py.
+    project_root = Path(__file__).resolve().parent
+    # Ищем все папки __pycache__ внутри проекта.
+    for cache_dir in project_root.rglob("__pycache__"):
+        # Удаляем найденную папку кэша вместе со всеми файлами внутри.
+        shutil.rmtree(cache_dir, ignore_errors=True)
+    # Сбрасываем внутренний кэш importlib, чтобы Python заново проверил файлы на диске.
+    importlib.invalidate_caches()
 
 # Создаем словарь: короткая команда ученика -> список настоящих unittest-тестов.
 TESTS = {
@@ -418,8 +439,13 @@ def main():
         show_help()
         # Возвращаем код ошибки.
         return 1
+<<<<<<< HEAD
     # Очищаем кеш проекта перед загрузкой тестов.
     clear_test_cache()
+=======
+    # Очищаем Python-кэш перед загрузкой тестов и файлов с решениями.
+    clear_python_cache()
+>>>>>>> 387e21d (ref: change structure)
     # Создаем загрузчик тестов unittest.
     loader = unittest.defaultTestLoader
     # Создаем пустой набор тестов.
