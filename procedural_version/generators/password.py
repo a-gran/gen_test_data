@@ -53,4 +53,47 @@ def password(length=12, use_digits=True, use_symbols=True, seed=None):
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку с паролем.
     # Тесты: test_password_parts, test_password_bad_len.
-    pass
+    # Проверяем, что длина пароля больше нуля.
+    if length <= 0:
+        # Сообщаем ошибку, если длина неправильная.
+        raise ValueError("length должен быть больше 0")
+    # Считаем, сколько обязательных символов нужно добавить.
+    required_count = int(use_digits) + int(use_symbols)
+    # Проверяем, что обязательные символы помещаются в пароль.
+    if required_count > length:
+        # Сообщаем ошибку, если длина слишком маленькая для правил пароля.
+        raise ValueError("length слишком маленький для выбранных правил пароля")
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Подготавливаем английские буквы для обычных символов пароля.
+    letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    # Подготавливаем цифры для пароля.
+    digits = "0123456789"
+    # Подготавливаем спецсимволы для пароля.
+    symbols = "!@#$%^&*"
+    # Начинаем общий набор символов с букв.
+    characters = letters
+    # Создаем пустой список символов будущего пароля.
+    result_characters = []
+    # Проверяем, нужно ли использовать цифры.
+    if use_digits:
+        # Добавляем цифры в общий набор символов.
+        characters = characters + digits
+        # Добавляем одну обязательную случайную цифру в пароль.
+        result_characters.append(randomizer.choice(digits))
+    # Проверяем, нужно ли использовать спецсимволы.
+    if use_symbols:
+        # Добавляем спецсимволы в общий набор символов.
+        characters = characters + symbols
+        # Добавляем один обязательный случайный спецсимвол в пароль.
+        result_characters.append(randomizer.choice(symbols))
+    # Дополняем пароль случайными символами до нужной длины.
+    while len(result_characters) < length:
+        # Добавляем один случайный символ из общего набора.
+        result_characters.append(randomizer.choice(characters))
+    # Перемешиваем символы, чтобы обязательные символы не стояли всегда в начале.
+    randomizer.shuffle(result_characters)
+    # Склеиваем символы в одну строку.
+    result = "".join(result_characters)
+    # Возвращаем готовый пароль.
+    return result

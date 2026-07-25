@@ -50,4 +50,21 @@ def user_id(length=6, only_digits=True, seed=None):
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_id_digits, test_id_alnum.
-    pass
+    # Проверяем, что длина ID больше нуля.
+    if length <= 0:
+        # Сообщаем ошибку, если длина неправильная.
+        raise ValueError("length должен быть больше 0")
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Подготавливаем строку с цифрами для цифрового ID.
+    digits = "0123456789"
+    # Подготавливаем строку с английскими буквами и цифрами для смешанного ID.
+    letters_and_digits = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    # Выбираем набор символов по параметру only_digits.
+    characters = digits if only_digits else letters_and_digits
+    # Собираем список случайных символов нужной длины.
+    result_characters = [randomizer.choice(characters) for _ in range(length)]
+    # Склеиваем выбранные символы в одну строку.
+    result = "".join(result_characters)
+    # Возвращаем готовый ID.
+    return result

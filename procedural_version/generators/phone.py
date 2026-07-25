@@ -49,4 +49,33 @@ def phone(valid=True, seed=None):
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь с ключами country_code, operator_code и number.
     # Тесты: test_phone_validity, test_phone_code.
-    pass
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Проверяем, нужен ли правильный телефон.
+    if valid:
+        # Выбираем правильный код оператора.
+        operator_code = randomizer.randint(900, 999)
+        # Выбираем правильную основную часть номера.
+        number = randomizer.randint(1000000, 9999999)
+        # Возвращаем словарь с правильными телефонными данными.
+        return {
+            # Записываем правильный код страны.
+            "country_code": "+7",
+            # Записываем код оператора.
+            "operator_code": operator_code,
+            # Записываем основную часть номера.
+            "number": number,
+        }
+    # Выбираем неправильный код оператора ниже разрешенного диапазона.
+    operator_code = randomizer.randint(100, 899)
+    # Выбираем слишком короткую основную часть номера.
+    number = randomizer.randint(1, 999999)
+    # Возвращаем словарь со специально неправильными телефонными данными.
+    return {
+        # Записываем неправильный код страны.
+        "country_code": "+1",
+        # Записываем неправильный код оператора.
+        "operator_code": operator_code,
+        # Записываем слишком короткую основную часть номера.
+        "number": number,
+    }

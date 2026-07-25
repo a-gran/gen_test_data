@@ -79,4 +79,70 @@ def user_profile(valid=True, seed=None):
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
-    pass
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Создаем отдельный seed для ID пользователя.
+    user_id_seed = randomizer.randint(0, 1000000000)
+    # Создаем отдельный seed для username.
+    username_seed = randomizer.randint(0, 1000000000)
+    # Создаем отдельный seed для email.
+    email_seed = randomizer.randint(0, 1000000000)
+    # Создаем отдельный seed для пароля.
+    password_seed = randomizer.randint(0, 1000000000)
+    # Создаем отдельный seed для тегов.
+    tags_seed = randomizer.randint(0, 1000000000)
+    # Создаем отдельный seed для даты регистрации.
+    registration_date_seed = randomizer.randint(0, 1000000000)
+    # Генерируем ID пользователя длиной 6.
+    profile_user_id = user_id(length=6, only_digits=True, seed=user_id_seed)
+    # Выбираем имя из учебного списка.
+    profile_first_name = choose_item(FIRST_NAMES, randomizer=randomizer)
+    # Выбираем фамилию из учебного списка.
+    profile_last_name = choose_item(LAST_NAMES, randomizer=randomizer)
+    # Выбираем возраст пользователя.
+    profile_age = randomizer.randint(18, 80)
+    # Выбираем город из учебного списка.
+    profile_city = choose_item(CITY_NAMES, randomizer=randomizer)
+    # Выбираем признак активности.
+    profile_is_active = randomizer.choice([True, False])
+    # Генерируем username длиной 10.
+    profile_username = username(length=10, seed=username_seed)
+    # Генерируем email с учетом параметра valid.
+    profile_email = generate_email(valid=valid, username_length=8, seed=email_seed)
+    # Генерируем пароль длиной 12.
+    profile_password = password(length=12, seed=password_seed)
+    # Генерируем 3 уникальных тега.
+    profile_tags = tags(count=3, unique=True, seed=tags_seed)
+    # Генерируем дату регистрации.
+    profile_registration_date = reg_date_example(seed=registration_date_seed)
+    # Выбираем план подписки из учебного списка.
+    profile_subscription_plan = choose_item(SUBSCRIPTION_PLANS, randomizer=randomizer)
+    # Собираем словарь профиля пользователя.
+    profile = {
+        # Записываем ID пользователя.
+        "user_id": profile_user_id,
+        # Записываем имя пользователя.
+        "first_name": profile_first_name,
+        # Записываем фамилию пользователя.
+        "last_name": profile_last_name,
+        # Записываем возраст пользователя.
+        "age": profile_age,
+        # Записываем город пользователя.
+        "city": profile_city,
+        # Записываем признак активности пользователя.
+        "is_active": profile_is_active,
+        # Записываем username пользователя.
+        "username": profile_username,
+        # Записываем email пользователя.
+        "email": profile_email,
+        # Записываем пароль пользователя.
+        "password": profile_password,
+        # Записываем теги пользователя.
+        "tags": profile_tags,
+        # Записываем дату регистрации пользователя.
+        "registration_date": profile_registration_date,
+        # Записываем план подписки пользователя.
+        "subscription_plan": profile_subscription_plan,
+    }
+    # Возвращаем готовый профиль пользователя.
+    return profile

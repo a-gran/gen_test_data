@@ -51,4 +51,25 @@ def comment(length=100, seed=None):
     # Что проверить в коде: если length меньше 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_comment_lengths, test_comment_bad_len.
-    pass
+    # Проверяем, что длина комментария не отрицательная.
+    if length < 0:
+        # Сообщаем ошибку, если длина неправильная.
+        raise ValueError("length не должен быть меньше 0")
+    # Проверяем, нужен ли пустой комментарий.
+    if length == 0:
+        # Возвращаем пустую строку.
+        return ""
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Создаем пустой список для частей комментария.
+    comment_parts = []
+    # Собираем текст, пока его длина меньше нужной.
+    while len(" ".join(comment_parts)) < length:
+        # Добавляем случайную фразу из учебного списка.
+        comment_parts.append(randomizer.choice(COMMENTS))
+    # Склеиваем выбранные фразы через пробел.
+    result = " ".join(comment_parts)
+    # Обрезаем текст до точной нужной длины.
+    result = result[:length]
+    # Возвращаем готовый комментарий.
+    return result

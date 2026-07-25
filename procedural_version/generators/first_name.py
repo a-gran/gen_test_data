@@ -52,4 +52,21 @@ def first_name(min_length=None, max_length=None, seed=None):
     # Что проверить в коде: если подходящих имен нет, нужно вызвать ValueError.
     # Что вернуть: строку с именем.
     # Тесты: test_first_name_min_len, test_first_name_max_len.
-    pass
+    # Начинаем со всего списка имен.
+    filtered_names = FIRST_NAMES
+    # Проверяем, передана ли минимальная длина.
+    if min_length is not None:
+        # Оставляем только имена не короче минимальной длины.
+        filtered_names = [name for name in filtered_names if len(name) >= min_length]
+    # Проверяем, передана ли максимальная длина.
+    if max_length is not None:
+        # Оставляем только имена не длиннее максимальной длины.
+        filtered_names = [name for name in filtered_names if len(name) <= max_length]
+    # Проверяем, что после фильтрации остались подходящие имена.
+    if not filtered_names:
+        # Сообщаем ошибку, если подходящих имен нет.
+        raise ValueError("Нет имен, которые подходят под ограничения длины")
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Возвращаем случайное имя из подходящего списка.
+    return randomizer.choice(filtered_names)

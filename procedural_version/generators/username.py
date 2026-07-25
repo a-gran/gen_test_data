@@ -49,4 +49,17 @@ def username(length=10, seed=None):
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.
     # Тесты: test_username_len, test_username_bad_len.
-    pass
+    # Проверяем, что длина username больше нуля.
+    if length <= 0:
+        # Сообщаем ошибку, если длина неправильная.
+        raise ValueError("length должен быть больше 0")
+    # Создаем random с переданным seed.
+    randomizer = create_random(seed)
+    # Подготавливаем символы, из которых можно собирать username.
+    characters = "abcdefghijklmnopqrstuvwxyz0123456789_"
+    # Собираем список случайных символов нужной длины.
+    result_characters = [randomizer.choice(characters) for _ in range(length)]
+    # Склеиваем выбранные символы в одну строку.
+    result = "".join(result_characters)
+    # Возвращаем готовый username.
+    return result
