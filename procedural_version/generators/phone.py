@@ -24,5 +24,11 @@ def phone(valid=True, seed=None):
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь с ключами country_code, operator_code и number.
     # Тесты: test_phone_validity, test_phone_code.
-    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    # Шаги реализации:
+    # 1. Создать random через create_random(seed).
+    # 2. Если valid=True, выбрать operator_code от 900 до 999.
+    # 3. Если valid=True, выбрать number от 1000000 до 9999999.
+    # 4. Если valid=True, вернуть словарь с country_code "+7".
+    # 5. Если valid=False, специально собрать словарь с неправильными телефонными данными.
+    # 6. Вернуть словарь с ключами country_code, operator_code и number.
     pass

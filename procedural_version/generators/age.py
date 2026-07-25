@@ -31,5 +31,12 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_age_bounds, test_age_range.
-    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    # Шаги реализации:
+    # 1. Проверить, что min_age не больше max_age.
+    # 2. Если boundary равен "min", вернуть min_age.
+    # 3. Если boundary равен "max", вернуть max_age.
+    # 4. Если boundary равен "below_min", вернуть min_age - 1.
+    # 5. Если boundary равен "above_max", вернуть max_age + 1.
+    # 6. Создать random через create_random(seed).
+    # 7. Вернуть случайное целое число от min_age до max_age.
     pass

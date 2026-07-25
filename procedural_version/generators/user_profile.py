@@ -50,5 +50,15 @@ def user_profile(valid=True, seed=None):
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
-    # Пока оставляем пустую заготовку, чтобы ученик написал решение сам.
+    # Шаги реализации:
+    # 1. Создать random через create_random(seed).
+    # 2. Сгенерировать user_id длиной 6.
+    # 3. Выбрать first_name, last_name, age, city и is_active.
+    # 4. Сгенерировать username длиной 10.
+    # 5. Сгенерировать email с учетом параметра valid.
+    # 6. Сгенерировать password длиной 12.
+    # 7. Сгенерировать 3 уникальных тега.
+    # 8. Сгенерировать дату регистрации.
+    # 9. Выбрать subscription_plan из SUBSCRIPTION_PLANS.
+    # 10. Собрать все значения в один словарь и вернуть его.
     pass
