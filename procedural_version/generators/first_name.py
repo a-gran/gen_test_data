@@ -21,12 +21,6 @@ def first_name(min_length=None, max_length=None, seed=None):
     # Можно вызвать first_name(min_length=4, max_length=6, seed=1) и сочетать ограничения.
     # Пример вызова: first_name(min_length=5, seed=1) должен вернуть имя длиной 5 или больше.
     # Документация: docs/function_specifications.md, раздел first_name.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py first_name
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если подходящих имен нет, нужно вызвать ValueError.
-    # Что вернуть: строку с именем.
-    # Тесты: test_first_name_min_len, test_first_name_max_len.
     # Шаги реализации:
     # 1. Начать со всего списка FIRST_NAMES.
     # 2. Если min_length передан, оставить только имена не короче min_length.
@@ -34,4 +28,10 @@ def first_name(min_length=None, max_length=None, seed=None):
     # 4. Проверить, что после фильтрации список не пустой.
     # 5. Создать random через create_random(seed).
     # 6. Вернуть случайное имя из подходящего списка.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py first_name
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если подходящих имен нет, нужно вызвать ValueError.
+    # Что вернуть: строку с именем.
+    # Тесты: test_first_name_min_len, test_first_name_max_len.
     pass

@@ -18,12 +18,6 @@ def user_id(length=6, only_digits=True, seed=None):
     # Можно вызвать user_id(length=8, only_digits=False, seed=1) и сочетать настройки.
     # Пример вызова: user_id(length=8, only_digits=True, seed=1).
     # Документация: docs/function_specifications.md, раздел user_id.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py user_id
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
-    # Что вернуть: строку.
-    # Тесты: test_id_digits, test_id_alnum.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
     # 2. Создать random через create_random(seed).
@@ -32,4 +26,10 @@ def user_id(length=6, only_digits=True, seed=None):
     # 5. Выбрать length случайных символов из подготовленного набора.
     # 6. Склеить выбранные символы в одну строку.
     # 7. Вернуть готовый ID.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py user_id
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
+    # Что вернуть: строку.
+    # Тесты: test_id_digits, test_id_alnum.
     pass

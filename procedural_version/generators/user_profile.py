@@ -45,11 +45,6 @@ def user_profile(valid=True, seed=None):
     # Можно вызвать user_profile(seed=1) два раза и получить одинаковые профили.
     # Пример вызова: user_profile(valid=False, seed=1) должен вернуть словарь с email без @.
     # Документация: docs/function_specifications.md, раздел user_profile.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py user_profile
-    # Если в конце написано OK, этот тест прошел.
-    # Что вернуть: словарь dict.
-    # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
     # 2. Сгенерировать user_id длиной 6.
@@ -61,4 +56,9 @@ def user_profile(valid=True, seed=None):
     # 8. Сгенерировать дату регистрации.
     # 9. Выбрать subscription_plan из SUBSCRIPTION_PLANS.
     # 10. Собрать все значения в один словарь и вернуть его.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py user_profile
+    # Если в конце написано OK, этот тест прошел.
+    # Что вернуть: словарь dict.
+    # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
     pass

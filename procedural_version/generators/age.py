@@ -25,12 +25,6 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Пример вызова: age(min_age=18, max_age=80, boundary="min") должен вернуть 18.
     # Пример вызова: age(min_age=18, max_age=80, seed=1) должен вернуть число от 18 до 80.
     # Документация: docs/function_specifications.md, раздел age.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py age
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
-    # Что вернуть: целое число.
-    # Тесты: test_age_bounds, test_age_range.
     # Шаги реализации:
     # 1. Проверить, что min_age не больше max_age.
     # 2. Если boundary равен "min", вернуть min_age.
@@ -39,4 +33,10 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # 5. Если boundary равен "above_max", вернуть max_age + 1.
     # 6. Создать random через create_random(seed).
     # 7. Вернуть случайное целое число от min_age до max_age.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py age
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
+    # Что вернуть: целое число.
+    # Тесты: test_age_bounds, test_age_range.
     pass

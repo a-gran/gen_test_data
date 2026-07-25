@@ -18,12 +18,6 @@ def username(length=10, seed=None):
     # Можно вызвать username(length=12, seed=1) два раза и получить одинаковый username.
     # Пример вызова: username(length=12, seed=1) должен вернуть строку длиной 12.
     # Документация: docs/function_specifications.md, раздел username.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py username
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
-    # Что вернуть: строку.
-    # Тесты: test_username_len, test_username_bad_len.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
     # 2. Создать random через create_random(seed).
@@ -31,4 +25,10 @@ def username(length=10, seed=None):
     # 4. Выбрать length случайных символов.
     # 5. Склеить выбранные символы в одну строку.
     # 6. Вернуть username ровно нужной длины.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py username
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
+    # Что вернуть: строку.
+    # Тесты: test_username_len, test_username_bad_len.
     pass

@@ -21,12 +21,6 @@ def tags(count=None, unique=True, seed=None):
     # Можно вызвать tags(count=5, unique=True, seed=1) и сочетать настройки.
     # Пример вызова: tags(count=5, unique=True, seed=1) должен вернуть 5 разных тегов.
     # Документация: docs/function_specifications.md, раздел tags.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py tags
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если count меньше 0, нужно вызвать ValueError.
-    # Что вернуть: список строк.
-    # Тесты: test_tags_unique, test_tags_dupes.
     # Шаги реализации:
     # 1. Проверить, что count не меньше 0, если count передан.
     # 2. Создать random через create_random(seed).
@@ -34,4 +28,10 @@ def tags(count=None, unique=True, seed=None):
     # 4. Если unique=True, выбрать теги без повторов.
     # 5. Если unique=False, выбрать теги с возможными повторами.
     # 6. Вернуть список выбранных тегов.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py tags
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если count меньше 0, нужно вызвать ValueError.
+    # Что вернуть: список строк.
+    # Тесты: test_tags_unique, test_tags_dupes.
     pass

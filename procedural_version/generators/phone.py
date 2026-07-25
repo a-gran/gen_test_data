@@ -19,11 +19,6 @@ def phone(valid=True, seed=None):
     # Можно вызвать phone(seed=1) два раза и получить одинаковый телефон.
     # Пример вызова: phone(valid=True, seed=1) должен вернуть словарь.
     # Документация: docs/function_specifications.md, раздел phone.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py phone
-    # Если в конце написано OK, этот тест прошел.
-    # Что вернуть: словарь с ключами country_code, operator_code и number.
-    # Тесты: test_phone_validity, test_phone_code.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
     # 2. Если valid=True, выбрать operator_code от 900 до 999.
@@ -31,4 +26,9 @@ def phone(valid=True, seed=None):
     # 4. Если valid=True, вернуть словарь с country_code "+7".
     # 5. Если valid=False, специально собрать словарь с неправильными телефонными данными.
     # 6. Вернуть словарь с ключами country_code, operator_code и number.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py phone
+    # Если в конце написано OK, этот тест прошел.
+    # Что вернуть: словарь с ключами country_code, operator_code и number.
+    # Тесты: test_phone_validity, test_phone_code.
     pass

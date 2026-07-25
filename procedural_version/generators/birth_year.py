@@ -24,12 +24,6 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Можно вызвать birth_year(seed=1) два раза и получить один и тот же год.
     # Пример вызова: birth_year(boundary="max") должен вернуть 2008.
     # Документация: docs/function_specifications.md, раздел birth_year.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py birth_year
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
-    # Что вернуть: целое число.
-    # Тесты: test_birth_year_bounds, test_birth_year_range.
     # Шаги реализации:
     # 1. Проверить, что min_year не больше max_year.
     # 2. Если boundary равен "min", вернуть min_year.
@@ -38,4 +32,10 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # 5. Если boundary равен "above_max", вернуть max_year + 1.
     # 6. Создать random через create_random(seed).
     # 7. Вернуть случайный год от min_year до max_year.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py birth_year
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
+    # Что вернуть: целое число.
+    # Тесты: test_birth_year_bounds, test_birth_year_range.
     pass

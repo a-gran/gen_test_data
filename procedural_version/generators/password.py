@@ -20,12 +20,6 @@ def password(length=12, use_digits=True, use_symbols=True, seed=None):
     # Можно вызвать password(length=16, use_digits=True, use_symbols=True, seed=1) и сочетать настройки.
     # Пример вызова: password(length=16, use_digits=True, use_symbols=True, seed=1).
     # Документация: docs/function_specifications.md, раздел password.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py password
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
-    # Что вернуть: строку с паролем.
-    # Тесты: test_password_parts, test_password_bad_len.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
     # 2. Создать random через create_random(seed).
@@ -35,4 +29,10 @@ def password(length=12, use_digits=True, use_symbols=True, seed=None):
     # 6. Дополнить пароль случайными символами до длины length.
     # 7. Перемешать символы, чтобы обязательные символы не всегда стояли на одном месте.
     # 8. Вернуть пароль строкой ровно из length символов.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py password
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
+    # Что вернуть: строку с паролем.
+    # Тесты: test_password_parts, test_password_bad_len.
     pass

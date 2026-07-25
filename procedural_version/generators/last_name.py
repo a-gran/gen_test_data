@@ -21,12 +21,6 @@ def last_name(min_length=None, max_length=None, seed=None):
     # Можно вызвать last_name(min_length=5, max_length=8, seed=1) и сочетать ограничения.
     # Пример вызова: last_name(max_length=7, seed=1) должен вернуть фамилию длиной 7 или меньше.
     # Документация: docs/function_specifications.md, раздел last_name.
-    # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py last_name
-    # Если в конце написано OK, этот тест прошел.
-    # Что проверить в коде: если подходящих фамилий нет, нужно вызвать ValueError.
-    # Что вернуть: строку с фамилией.
-    # Тесты: test_last_name_max_len, test_last_name_min_len.
     # Шаги реализации:
     # 1. Начать со всего списка LAST_NAMES.
     # 2. Если min_length передан, оставить только фамилии не короче min_length.
@@ -34,4 +28,10 @@ def last_name(min_length=None, max_length=None, seed=None):
     # 4. Проверить, что после фильтрации список не пустой.
     # 5. Создать random через create_random(seed).
     # 6. Вернуть случайную фамилию из подходящего списка.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py last_name
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если подходящих фамилий нет, нужно вызвать ValueError.
+    # Что вернуть: строку с фамилией.
+    # Тесты: test_last_name_max_len, test_last_name_min_len.
     pass
