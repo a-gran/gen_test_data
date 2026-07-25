@@ -13,10 +13,27 @@ def city(starts_with=None, seed=None):
     # starts_with=None значит можно выбрать любой город.
     # starts_with="М" значит можно выбрать только город, который начинается с буквы "М".
     # seed - число для random: с одним и тем же seed random выбирает один и тот же город.
-    # Можно вызвать city() и получить любой город из списка.
-    # Можно вызвать city(starts_with="М") и получить только город на букву "М".
-    # Можно вызвать city(seed=1) два раза и получить один и тот же город.
-    # Пример вызова: city(starts_with="М", seed=1) должен вернуть город на "М".
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.city import city
+    # from procedural_version.generators.age import age
+    #
+    # city_result = city(starts_with="М", seed=1)
+    # print(city_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = city()
+    # Вызов с фильтром: result = city(starts_with="М")
+    # Вызов с seed: result = city(seed=1)
+    # Пример результата: город должен начинаться на "М".
     # Документация: docs/function_specifications.md, раздел city.
     # Шаги реализации:
     # 1. Начать со всего списка CITY_NAMES.
@@ -24,6 +41,7 @@ def city(starts_with=None, seed=None):
     # 3. Проверить, что после фильтрации список не пустой.
     # 4. Создать random через create_random(seed).
     # 5. Вернуть случайный город из подходящего списка.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py city
     # Если в конце написано OK, этот тест прошел.

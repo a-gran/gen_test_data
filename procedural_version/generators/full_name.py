@@ -17,10 +17,27 @@ def full_name(max_total_length=None, seed=None):
     # max_total_length=None значит полное имя можно не обрезать.
     # max_total_length=10 значит результат должен быть не длиннее 10 символов.
     # seed - число для random: с одним и тем же seed random выбирает одно и то же имя и фамилию.
-    # Можно вызвать full_name() и получить имя и фамилию через пробел.
-    # Можно вызвать full_name(max_total_length=10) и получить результат до 10 символов.
-    # Можно вызвать full_name(seed=1) два раза и получить один и тот же результат.
-    # Пример вызова: full_name(max_total_length=10, seed=1) должен вернуть строку длиной 10 или меньше.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.full_name import full_name
+    # from procedural_version.generators.age import age
+    #
+    # full_name_result = full_name(max_total_length=10, seed=1)
+    # print(full_name_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = full_name()
+    # Вызов с ограничением длины: result = full_name(max_total_length=10)
+    # Вызов с seed: result = full_name(seed=1)
+    # Пример результата: полное имя должно быть строкой длиной 10 или меньше.
     # Документация: docs/function_specifications.md, раздел full_name.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
@@ -29,6 +46,7 @@ def full_name(max_total_length=None, seed=None):
     # 4. Собрать строку в формате "Имя Фамилия".
     # 5. Если max_total_length передан, подобрать или обрезать результат до нужной длины.
     # 6. Вернуть готовое полное имя.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py full_name
     # Если в конце написано OK, этот тест прошел.

@@ -40,10 +40,27 @@ def user_profile(valid=True, seed=None):
     # password должен быть строкой длиной 12.
     # tags должен быть списком из 3 уникальных тегов.
     # subscription_plan - это план подписки, например "free" или "premium".
-    # Можно вызвать user_profile() и получить профиль с правильным email.
-    # Можно вызвать user_profile(valid=False) и получить профиль с неправильным email.
-    # Можно вызвать user_profile(seed=1) два раза и получить одинаковые профили.
-    # Пример вызова: user_profile(valid=False, seed=1) должен вернуть словарь с email без @.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.user_profile import user_profile
+    # from procedural_version.generators.age import age
+    #
+    # user_profile_result = user_profile(valid=False, seed=1)
+    # print(user_profile_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = user_profile()
+    # Вызов неправильного email: result = user_profile(valid=False)
+    # Вызов с seed: result = user_profile(seed=1)
+    # Пример результата: профиль должен быть словарем с данными пользователя.
     # Документация: docs/function_specifications.md, раздел user_profile.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
@@ -56,6 +73,7 @@ def user_profile(valid=True, seed=None):
     # 8. Сгенерировать дату регистрации.
     # 9. Выбрать subscription_plan из SUBSCRIPTION_PLANS.
     # 10. Собрать все значения в один словарь и вернуть его.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py user_profile
     # Если в конце написано OK, этот тест прошел.

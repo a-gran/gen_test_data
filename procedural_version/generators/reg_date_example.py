@@ -17,11 +17,28 @@ def reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
     # boundary="above_max" значит вернуть дату после диапазона: "2027-01-01".
     # boundary=None значит выбрать случайную дату от start_year до end_year.
     # seed - число для random: с одним и тем же seed random выбирает одну и ту же дату.
-    # Можно вызвать reg_date_example() и получить случайную дату от 2020 до 2026 года.
-    # Можно вызвать reg_date_example(boundary="min") и получить "2020-01-01".
-    # Можно вызвать reg_date_example(start_year=2022, end_year=2024) и выбрать дату в этих годах.
-    # Можно вызвать reg_date_example(start_year=2022, end_year=2024, boundary="max") и получить "2024-12-28".
-    # Пример вызова: reg_date_example(boundary="min") должен вернуть "2020-01-01".
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.reg_date_example import reg_date_example
+    # from procedural_version.generators.age import age
+    #
+    # reg_date_result = reg_date_example(boundary="min", seed=1)
+    # print(reg_date_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = reg_date_example()
+    # Вызов с boundary: result = reg_date_example(boundary="min")
+    # Вызов со своим диапазоном: result = reg_date_example(start_year=2022, end_year=2024)
+    # Вызов с seed: result = reg_date_example(start_year=2022, end_year=2024, seed=1)
+    # Пример результата: дата должна быть строкой в формате YYYY-MM-DD.
     # Документация: docs/function_specifications.md, раздел reg_date.
     # Шаги реализации:
     # 1. Проверить, что start_year не больше end_year.
@@ -32,6 +49,7 @@ def reg_date_example(start_year=2020, end_year=2026, boundary=None, seed=None):
     # 6. Создать random через create_random(seed).
     # 7. Выбрать случайные год, месяц и день.
     # 8. Вернуть дату строкой в формате YYYY-MM-DD.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py reg_date_example
     # Если в конце написано OK, этот тест прошел.

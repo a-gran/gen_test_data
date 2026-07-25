@@ -17,13 +17,28 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # boundary="above_max" значит вернуть число больше максимума, например 81.
     # boundary=None значит выбрать случайный возраст от min_age до max_age.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же возраст.
-    # Можно вызвать age() и получить случайный возраст от 18 до 80.
-    # Можно вызвать age(boundary="min") и получить стандартный минимум 18.
-    # Можно вызвать age(min_age=10, max_age=20) и получить случайный возраст от 10 до 20.
-    # Можно вызвать age(min_age=10, max_age=20, boundary="min") и получить 10.
-    # Можно вызвать age(seed=1) два раза и получить один и тот же возраст.
-    # Пример вызова: age(min_age=18, max_age=80, boundary="min") должен вернуть 18.
-    # Пример вызова: age(min_age=18, max_age=80, seed=1) должен вернуть число от 18 до 80.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.age import age
+    # from procedural_version.generators.city import city
+    #
+    # age_result = age(min_age=18, max_age=80, seed=1)
+    # print(age_result)
+    #
+    # city_result = city(starts_with="М", seed=1)
+    # print(city_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = age()
+    # Вызов с boundary: result = age(boundary="min")
+    # Вызов со своим диапазоном: result = age(min_age=10, max_age=20)
+    # Вызов с seed: result = age(min_age=18, max_age=80, seed=1)
+    # Пример результата: возраст должен быть числом от 18 до 80.
     # Документация: docs/function_specifications.md, раздел age.
     # Шаги реализации:
     # 1. Проверить, что min_age не больше max_age.
@@ -33,6 +48,7 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # 5. Если boundary равен "above_max", вернуть max_age + 1.
     # 6. Создать random через create_random(seed).
     # 7. Вернуть случайное целое число от min_age до max_age.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py age
     # Если в конце написано OK, этот тест прошел.

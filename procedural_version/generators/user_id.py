@@ -12,11 +12,28 @@ def user_id(length=6, only_digits=True, seed=None):
     # only_digits=True значит ID состоит только из цифр, например "123456".
     # only_digits=False значит можно использовать цифры и английские буквы.
     # seed - число для random: с одним и тем же seed random собирает один и тот же ID.
-    # Можно вызвать user_id() и получить ID из 6 цифр.
-    # Можно вызвать user_id(length=8) и получить ID из 8 цифр.
-    # Можно вызвать user_id(only_digits=False) и разрешить английские буквы и цифры.
-    # Можно вызвать user_id(length=8, only_digits=False, seed=1) и сочетать настройки.
-    # Пример вызова: user_id(length=8, only_digits=True, seed=1).
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.user_id import user_id
+    # from procedural_version.generators.age import age
+    #
+    # user_id_result = user_id(length=8, only_digits=True, seed=1)
+    # print(user_id_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = user_id()
+    # Вызов с длиной: result = user_id(length=8)
+    # Вызов с буквами и цифрами: result = user_id(only_digits=False)
+    # Вызов с seed: result = user_id(length=8, only_digits=True, seed=1)
+    # Пример результата: ID должен быть строкой длиной 8.
     # Документация: docs/function_specifications.md, раздел user_id.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
@@ -26,6 +43,7 @@ def user_id(length=6, only_digits=True, seed=None):
     # 5. Выбрать length случайных символов из подготовленного набора.
     # 6. Склеить выбранные символы в одну строку.
     # 7. Вернуть готовый ID.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py user_id
     # Если в конце написано OK, этот тест прошел.

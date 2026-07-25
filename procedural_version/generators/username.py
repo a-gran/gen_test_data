@@ -13,10 +13,27 @@ def username(length=10, seed=None):
     # length=12 значит username должен быть длиной ровно 12 символов.
     # Username можно собрать из маленьких английских букв, цифр и нижнего подчеркивания "_".
     # seed - число для random: с одним и тем же seed random собирает один и тот же username.
-    # Можно вызвать username() и получить username длиной 10 символов.
-    # Можно вызвать username(length=12) и получить username длиной 12 символов.
-    # Можно вызвать username(length=12, seed=1) два раза и получить одинаковый username.
-    # Пример вызова: username(length=12, seed=1) должен вернуть строку длиной 12.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.username import username
+    # from procedural_version.generators.age import age
+    #
+    # username_result = username(length=12, seed=1)
+    # print(username_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = username()
+    # Вызов с длиной: result = username(length=12)
+    # Вызов с seed: result = username(length=12, seed=1)
+    # Пример результата: username должен быть строкой длиной 12.
     # Документация: docs/function_specifications.md, раздел username.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
@@ -25,6 +42,7 @@ def username(length=10, seed=None):
     # 4. Выбрать length случайных символов.
     # 5. Склеить выбранные символы в одну строку.
     # 6. Вернуть username ровно нужной длины.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py username
     # Если в конце написано OK, этот тест прошел.

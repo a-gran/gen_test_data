@@ -11,15 +11,33 @@ def active_example(seed=None):
     # True значит пользователь активен.
     # False значит пользователь не активен.
     # seed - число для random: с одним и тем же seed random выбирает одно и то же True или False.
-    # Можно вызвать active_example() и получить True или False.
-    # Можно вызвать active_example(seed=1) два раза и получить один и тот же результат.
-    # Пример вызова: active_example(seed=1) должен вернуть булево значение.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.active_example import active_example
+    # from procedural_version.generators.age import age
+    #
+    # active_result = active_example(seed=1)
+    # print(active_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = active_example()
+    # Вызов с seed: result = active_example(seed=1)
+    # Пример результата: функция должна вернуть True или False.
     # Документация: docs/function_specifications.md, раздел active.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
     # 2. Подготовить список из двух значений: True и False.
     # 3. Выбрать одно случайное значение из этого списка.
     # 4. Вернуть выбранное булево значение.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py active_example
     # Если в конце написано OK, этот тест прошел.

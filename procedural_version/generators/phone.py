@@ -14,10 +14,27 @@ def phone(valid=True, seed=None):
     # Правильный number должен быть числом от 1000000 до 9999999.
     # valid=False значит телефон должен быть специально неправильным для негативного теста.
     # seed - число для random: с одним и тем же seed random собирает один и тот же телефон.
-    # Можно вызвать phone() и получить правильный телефонный словарь.
-    # Можно вызвать phone(valid=False) и получить специально неправильный телефон.
-    # Можно вызвать phone(seed=1) два раза и получить одинаковый телефон.
-    # Пример вызова: phone(valid=True, seed=1) должен вернуть словарь.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.phone import phone
+    # from procedural_version.generators.age import age
+    #
+    # phone_result = phone(valid=True, seed=1)
+    # print(phone_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = phone()
+    # Вызов неправильного телефона: result = phone(valid=False)
+    # Вызов с seed: result = phone(seed=1)
+    # Пример результата: телефон должен быть словарем.
     # Документация: docs/function_specifications.md, раздел phone.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
@@ -26,6 +43,7 @@ def phone(valid=True, seed=None):
     # 4. Если valid=True, вернуть словарь с country_code "+7".
     # 5. Если valid=False, специально собрать словарь с неправильными телефонными данными.
     # 6. Вернуть словарь с ключами country_code, operator_code и number.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py phone
     # Если в конце написано OK, этот тест прошел.

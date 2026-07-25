@@ -14,11 +14,28 @@ def password(length=12, use_digits=True, use_symbols=True, seed=None):
     # use_digits=True значит в пароле должна быть хотя бы одна цифра, например "5".
     # use_symbols=True значит в пароле должен быть хотя бы один спецсимвол, например "!".
     # seed - число для random: с одним и тем же seed random собирает один и тот же пароль.
-    # Можно вызвать password() и получить пароль длиной 12 с цифрой и спецсимволом.
-    # Можно вызвать password(length=16) и получить пароль длиной 16 символов.
-    # Можно вызвать password(use_digits=False) и не требовать цифру.
-    # Можно вызвать password(length=16, use_digits=True, use_symbols=True, seed=1) и сочетать настройки.
-    # Пример вызова: password(length=16, use_digits=True, use_symbols=True, seed=1).
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.password import password
+    # from procedural_version.generators.age import age
+    #
+    # password_result = password(length=16, use_digits=True, use_symbols=True, seed=1)
+    # print(password_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = password()
+    # Вызов с длиной: result = password(length=16)
+    # Вызов без цифр: result = password(use_digits=False)
+    # Вызов с seed: result = password(length=16, use_digits=True, use_symbols=True, seed=1)
+    # Пример результата: пароль должен быть строкой длиной 16.
     # Документация: docs/function_specifications.md, раздел password.
     # Шаги реализации:
     # 1. Проверить, что length больше 0.
@@ -29,6 +46,7 @@ def password(length=12, use_digits=True, use_symbols=True, seed=None):
     # 6. Дополнить пароль случайными символами до длины length.
     # 7. Перемешать символы, чтобы обязательные символы не всегда стояли на одном месте.
     # 8. Вернуть пароль строкой ровно из length символов.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py password
     # Если в конце написано OK, этот тест прошел.

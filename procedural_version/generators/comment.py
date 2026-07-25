@@ -14,10 +14,27 @@ def comment(length=100, seed=None):
     # length=1 значит вернуть строку из одного символа.
     # length=255 значит вернуть строку длиной ровно 255 символов.
     # seed - число для random: с одним и тем же seed random выбирает одну и ту же фразу.
-    # Можно вызвать comment() и получить комментарий длиной 100 символов.
-    # Можно вызвать comment(length=0) и получить пустую строку.
-    # Можно вызвать comment(length=255, seed=1) и получить комментарий длиной 255 символов.
-    # Пример вызова: len(comment(length=255, seed=1)) должен быть 255.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.comment import comment
+    # from procedural_version.generators.age import age
+    #
+    # comment_result = comment(length=255, seed=1)
+    # print(comment_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = comment()
+    # Вызов с пустой строкой: result = comment(length=0)
+    # Вызов с длиной и seed: result = comment(length=255, seed=1)
+    # Пример результата: len(result) должен быть 255.
     # Документация: docs/function_specifications.md, раздел comment.
     # Шаги реализации:
     # 1. Проверить, что length не меньше 0.
@@ -27,6 +44,7 @@ def comment(length=100, seed=None):
     # 5. Собрать длинную строку из выбранных фраз.
     # 6. Обрезать строку так, чтобы ее длина стала ровно length.
     # 7. Вернуть готовый комментарий.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py comment
     # Если в конце написано OK, этот тест прошел.

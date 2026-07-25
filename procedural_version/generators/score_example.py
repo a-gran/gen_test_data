@@ -17,11 +17,28 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # boundary="above_max" значит вернуть число больше максимума, например 101.
     # boundary=None значит выбрать случайный балл от min_score до max_score.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же балл.
-    # Можно вызвать score_example() и получить случайный балл от 1 до 100.
-    # Можно вызвать score_example(boundary="min") и получить 1.
-    # Можно вызвать score_example(min_score=10, max_score=20) и получить балл от 10 до 20.
-    # Можно вызвать score_example(min_score=10, max_score=20, boundary="max") и получить 20.
-    # Пример вызова: score_example(boundary="above_max") должен вернуть 101.
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.score_example import score_example
+    # from procedural_version.generators.age import age
+    #
+    # score_result = score_example(boundary="above_max", seed=1)
+    # print(score_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = score_example()
+    # Вызов с boundary: result = score_example(boundary="min")
+    # Вызов со своим диапазоном: result = score_example(min_score=10, max_score=20)
+    # Вызов с seed: result = score_example(min_score=10, max_score=20, seed=1)
+    # Пример результата: балл должен быть целым числом.
     # Документация: docs/function_specifications.md, раздел score.
     # Шаги реализации:
     # 1. Проверить, что min_score не больше max_score.
@@ -31,6 +48,7 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # 5. Если boundary равен "above_max", вернуть max_score + 1.
     # 6. Создать random через create_random(seed).
     # 7. Вернуть случайный балл от min_score до max_score.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py score_example
     # Если в конце написано OK, этот тест прошел.

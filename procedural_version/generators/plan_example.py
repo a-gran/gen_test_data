@@ -16,10 +16,27 @@ def plan_example(allowed_plans=None, seed=None):
     # allowed_plans=["free", "premium"] значит выбрать только "free" или "premium".
     # allowed_plans=[] значит выбирать не из чего, поэтому нужна ошибка ValueError.
     # seed - число для random: с одним и тем же seed random выбирает один и тот же план.
-    # Можно вызвать plan_example() и выбрать план из общего списка.
-    # Можно вызвать plan_example(allowed_plans=["free", "premium"]) и выбрать только из двух планов.
-    # Можно вызвать plan_example(allowed_plans=["free"], seed=1) и получить "free".
-    # Пример вызова: plan_example(allowed_plans=["free", "premium"], seed=1).
+    # Как вызвать функцию в своем коде:
+    # 1. Создай файл для проверки в корне проекта, рядом с check.py.
+    # 2. Например, создай файл try_generators.py.
+    # 3. В одном таком файле можно проверять сразу много функций.
+    # 4. В файле try_generators.py можно написать такой код:
+    # """
+    # from procedural_version.generators.plan_example import plan_example
+    # from procedural_version.generators.age import age
+    #
+    # plan_result = plan_example(allowed_plans=["free", "premium"], seed=1)
+    # print(plan_result)
+    #
+    # age_result = age(seed=1)
+    # print(age_result)
+    # """
+    # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
+    # 6. Запусти файл командой: python try_generators.py
+    # Вызов без параметров: result = plan_example()
+    # Вызов с разрешенными планами: result = plan_example(allowed_plans=["free", "premium"])
+    # Вызов с seed: result = plan_example(allowed_plans=["free"], seed=1)
+    # Пример результата: функция должна вернуть один план подписки.
     # Документация: docs/function_specifications.md, раздел plan.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
@@ -27,6 +44,7 @@ def plan_example(allowed_plans=None, seed=None):
     # 3. Если allowed_plans не передан, использовать общий список SUBSCRIPTION_PLANS.
     # 4. Проверить, что выбранный список планов не пустой.
     # 5. Вернуть случайный план из выбранного списка.
+    # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py plan_example
     # Если в конце написано OK, этот тест прошел.
