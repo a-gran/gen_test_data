@@ -21,6 +21,12 @@ def plan_example(allowed_plans=None, seed=None):
     # Можно вызвать plan_example(allowed_plans=["free"], seed=1) и получить "free".
     # Пример вызова: plan_example(allowed_plans=["free", "premium"], seed=1).
     # Документация: docs/function_specifications.md, раздел plan.
+    # Шаги реализации:
+    # 1. Создать random через create_random(seed).
+    # 2. Если allowed_plans передан, использовать его как список планов.
+    # 3. Если allowed_plans не передан, использовать общий список SUBSCRIPTION_PLANS.
+    # 4. Проверить, что выбранный список планов не пустой.
+    # 5. Вернуть случайный план из выбранного списка.
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py plan_example
     # Если в конце написано OK, этот тест прошел.

@@ -23,6 +23,14 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # Можно вызвать score_example(min_score=10, max_score=20, boundary="max") и получить 20.
     # Пример вызова: score_example(boundary="above_max") должен вернуть 101.
     # Документация: docs/function_specifications.md, раздел score.
+    # Шаги реализации:
+    # 1. Проверить, что min_score не больше max_score.
+    # 2. Если boundary равен "min", вернуть min_score.
+    # 3. Если boundary равен "max", вернуть max_score.
+    # 4. Если boundary равен "below_min", вернуть min_score - 1.
+    # 5. Если boundary равен "above_max", вернуть max_score + 1.
+    # 6. Создать random через create_random(seed).
+    # 7. Вернуть случайный балл от min_score до max_score.
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py score_example
     # Если в конце написано OK, этот тест прошел.
