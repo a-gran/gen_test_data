@@ -5,6 +5,7 @@
 # Импортируем функцию, которая создает random с нужным seed.
 from procedural_version.utils.random_utils import create_random
 
+
 # Объявляем функцию, которая должна вернуть возраст пользователя.
 def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Что делает функция: возвращает число-возраст.
@@ -56,3 +57,20 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Что вернуть: целое число.
     # Тесты: test_age_bounds, test_age_range.
     pass
+
+# Артем
+'''
+def generate_age(min_age=18, max_age=80, boundary=None, seed=None):
+    if min_age > max_age:
+        raise ValueError("min_age не может быть больше max_age")
+    if boundary == "min":
+        return min_age
+    elif boundary == "max":
+        return max_age
+    elif boundary == "below_min":
+        return min_age - 1
+    elif boundary == "above_max":
+        return max_age + 1
+    randomizer = create_random(seed)
+    return randomizer.randint(min_age, max_age)
+'''

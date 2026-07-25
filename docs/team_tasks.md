@@ -60,7 +60,7 @@ python check.py oop
 
 - `city(starts_with=None, seed=None)`
 - `phone(valid=True, seed=None)`
-- `email(valid=True, username_length=8, seed=None)`
+- `generate_email(valid=True, username_length=8, seed=None)`
 - `username(length=10, seed=None)`
 - `comment(length=100, seed=None)`
 - `password(length=12, use_digits=True, use_symbols=True, seed=None)`
@@ -72,8 +72,8 @@ python check.py oop
 Примеры требований:
 
 - `comment(length=255)` возвращает строку ровно 255 символов.
-- `email(valid=True)` возвращает строку со знаком `@`.
-- `email(valid=False)` возвращает намеренно неправильный email.
+- `generate_email(valid=True)` возвращает строку со знаком `@`.
+- `generate_email(valid=False)` возвращает намеренно неправильный email.
 - `password(length=16, use_digits=True, use_symbols=True)` возвращает пароль длиной 16 символов с цифрой и спецсимволом.
 - `tags(count=5, unique=True)` возвращает 5 уникальных тегов.
 - `user_profile(valid=False)` возвращает профиль с намеренно неправильным email.

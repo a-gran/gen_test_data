@@ -19,7 +19,7 @@ from procedural_version.generators.city import city as city_fn
 # Импортируем функцию генерации комментария.
 from procedural_version.generators.comment import comment as comment_fn
 # Импортируем функцию генерации email.
-from procedural_version.generators.email import email as email_fn
+from procedural_version.generators.generate_email import generate_email as email_fn
 # Импортируем функцию генерации имени.
 from procedural_version.generators.first_name import first_name as first_name_fn
 # Импортируем функцию генерации полного имени.

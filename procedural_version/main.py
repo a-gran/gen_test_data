@@ -1,5 +1,5 @@
 # Импортируем короткие учебные имена всех процедурных генераторов.
-from procedural_version.generators import active_example, age, birth_year, city, comment, email, full_name, password, phone, plan_example, reg_date_example, score_example, tags, user_id, user_profile, username
+from procedural_version.generators import active_example, age, birth_year, city, comment, generate_email, full_name, password, phone, plan_example, reg_date_example, score_example, tags, user_id, user_profile, username
 
 # Проверяем, что файл запущен напрямую, а не импортирован как модуль.
 if __name__ == "__main__":
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # Печатаем пример длинного комментария.
     print(comment(seed=1))
     # Печатаем пример адреса электронной почты.
-    print(email(seed=1))
+    print(generate_email(seed=1))
     # Печатаем пример номера телефона.
     print(phone(seed=1))
     # Печатаем пример учебного пароля.

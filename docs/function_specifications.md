@@ -26,7 +26,7 @@
 
 - `city(starts_with=None, seed=None)`
 - `phone(valid=True, seed=None)`
-- `email(valid=True, username_length=8, seed=None)`
+- `generate_email(valid=True, username_length=8, seed=None)`
 - `username(length=10, seed=None)`
 - `comment(length=100, seed=None)`
 - `password(length=12, use_digits=True, use_symbols=True, seed=None)`
@@ -49,9 +49,9 @@
 Все процедурные генераторы можно импортировать из `procedural_version.generators` по настоящим коротким именам:
 
 ```python
-from procedural_version.generators import email, password, reg_date_example
+from procedural_version.generators import generate_email, password, reg_date_example
 
-print(email(valid=True, seed=1))
+print(generate_email(valid=True, seed=1))
 print(password(length=12, seed=1))
 print(reg_date_example(seed=1))
 ```
@@ -63,9 +63,9 @@ print(reg_date_example(seed=1))
 Пример 1. Проверка формы регистрации на сайте:
 
 ```python
-from procedural_version.generators import email, password
+from procedural_version.generators import generate_email, password
 
-user_email = email(valid=True, username_length=8, seed=1)
+user_email = generate_email(valid=True, username_length=8, seed=1)
 user_password = password(length=12, use_digits=True, use_symbols=True, seed=1)
 
 print(user_email)
@@ -77,9 +77,9 @@ print(user_password)
 Пример 2. Проверка ошибки в форме:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-bad_email = email(valid=False, seed=1)
+bad_email = generate_email(valid=False, seed=1)
 print(bad_email)
 ```
 
@@ -274,7 +274,7 @@ city(starts_with="М", seed=1)
 phone(valid=False, seed=1)
 ```
 
-### `email(valid=True, username_length=8, seed=None)`
+### `generate_email(valid=True, username_length=8, seed=None)`
 
 Вход: `valid=True` - правильный email; `valid=False` - email с ошибкой; `username_length` - длина части email до `@`; `seed` - число для повторяемого random или `None`.
 Выход: строка email.
@@ -282,7 +282,7 @@ phone(valid=False, seed=1)
 Пример:
 
 ```python
-email(valid=True, username_length=8, seed=1)
+generate_email(valid=True, username_length=8, seed=1)
 ```
 
 ### `username(length=10, seed=None)`

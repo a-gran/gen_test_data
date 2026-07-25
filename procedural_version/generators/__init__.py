@@ -6,8 +6,8 @@ from procedural_version.generators.birth_year import birth_year
 from procedural_version.generators.city import city
 # Импортируем короткую функцию комментария из файла comment.py.
 from procedural_version.generators.comment import comment
-# Импортируем короткую функцию email из файла email.py.
-from procedural_version.generators.email import email
+# Импортируем короткую функцию generate_email из файла generate_email.py.
+from procedural_version.generators.generate_email import generate_email
 # Импортируем короткую функцию имени из файла first_name.py.
 from procedural_version.generators.first_name import first_name
 # Импортируем короткую функцию полного имени из файла full_name.py.
@@ -62,7 +62,7 @@ __all__ = [
     # Короткое имя для генерации телефона.
     "phone",
     # Короткое имя для генерации email.
-    "email",
+    "generate_email",
     # Короткое имя для генерации username.
     "username",
     # Короткое имя для генерации комментария.

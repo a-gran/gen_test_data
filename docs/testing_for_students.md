@@ -148,7 +148,7 @@ python check.py active_example
 Email, пароль, теги и профиль:
 
 ```bash
-python check.py email
+python check.py generate_email
 python check.py password
 python check.py tags
 python check.py user_profile

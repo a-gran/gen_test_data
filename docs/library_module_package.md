@@ -36,7 +36,7 @@ from procedural_version.generators import age
 Здесь `age.py` - это модуль. Обычно модуль хранит код на одну небольшую тему:
 
 - `age.py` отвечает за возраст;
-- `email.py` отвечает за email;
+- `generate_email.py` отвечает за email;
 - `phone.py` отвечает за телефон.
 
 ## 3. Пакет
@@ -51,7 +51,7 @@ procedural_version/generators/
 
 ```text
 age.py
-email.py
+generate_email.py
 phone.py
 comment.py
 ```
@@ -70,9 +70,9 @@ oop_version/
 Каждая версия содержит модули, пакеты, данные, вспомогательные функции и тесты. Пользователь библиотеки может не писать генератор с нуля, а импортировать готовую функцию или класс:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-result = email(valid=True, username_length=8, seed=1)
+result = generate_email(valid=True, username_length=8, seed=1)
 ```
 
 То есть библиотека - это не один файл, а набор файлов, которые вместе решают одну задачу.
@@ -137,7 +137,7 @@ age.py
 generators/
 ├── __init__.py
 ├── age.py
-├── email.py
+├── generate_email.py
 └── phone.py
 ```
 

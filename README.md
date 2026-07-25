@@ -17,7 +17,7 @@
 Проверить одну функцию:
 
 ```bash
-python check.py email
+python check.py generate_email
 ```
 
 Проверить все функции процедурной версии:

@@ -30,7 +30,7 @@ gen_test_data/
 │   │   ├── birth_year.py
 │   │   ├── city.py
 │   │   ├── comment.py
-│   │   ├── email.py
+│   │   ├── generate_email.py
 │   │   ├── first_name.py
 │   │   ├── full_name.py
 │   │   ├── active_example.py
@@ -74,7 +74,7 @@ gen_test_data/
 - `generators/comment.py` — `comment()`;
 - `generators/password.py` — `password()`;
 - `generators/phone.py` — `phone()`;
-- `generators/email.py` — `email()`;
+- `generators/generate_email.py` — `generate_email()`;
 - `generators/city.py` — `city()`;
 - `generators/score_example.py` — короткое имя `score_example()`, функция-образец;
 - `generators/active_example.py` — короткое имя `active_example()`, функция-образец;
@@ -109,7 +109,7 @@ gen_test_data/
 `ContactGenerator` отвечает за генерацию контактных данных.
 Методы:
 - `phone()`;
-- `email()`.
+- `generate_email()`.
 `TextGenerator` отвечает за генерацию текстовых данных.
 Методы:
 - `comment()`;
@@ -131,7 +131,7 @@ gen_test_data/
 | Комментарий | `comment()` | `text_generator.comment()` |
 | Пароль | `password()` | `text_generator.password()` |
 | Телефон | `phone()` | `contact_generator.phone()` |
-| Email | `email()` | `contact_generator.email()` |
+| Email | `generate_email()` | `contact_generator.generate_email()` |
 | Город | `city()` | `person_generator.city()` |
 | Балл | `score_example()` | `person_generator.score()` |
 | Активность | `active_example()` | `person_generator.active()` |

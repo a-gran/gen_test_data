@@ -12,8 +12,8 @@ from procedural_version.data.names_data import CITY_NAMES
 from procedural_version.data.names_data import SUBSCRIPTION_PLANS
 # Импортируем пример готовой функции даты регистрации.
 from procedural_version.generators.reg_date_example import reg_date_example
-# Импортируем функцию email.
-from procedural_version.generators.email import email
+# Импортируем функцию generate_email.
+from procedural_version.generators.generate_email import generate_email
 # Импортируем функцию пароля.
 from procedural_version.generators.password import password
 # Импортируем функцию тегов.

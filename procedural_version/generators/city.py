@@ -8,7 +8,7 @@ from procedural_version.data.names_data import CITY_NAMES
 from procedural_version.utils.random_utils import create_random
 
 # Объявляем функцию, которая должна вернуть город.
-def city(starts_with=None, seed=None):
+# def city(starts_with=None, seed=None):
     # Что делает функция: выбирает один город из CITY_NAMES.
     # starts_with=None значит можно выбрать любой город.
     # starts_with="М" значит можно выбрать только город, который начинается с буквы "М".
@@ -48,4 +48,22 @@ def city(starts_with=None, seed=None):
     # Что проверить в коде: если подходящих городов нет, нужно вызвать ValueError.
     # Что вернуть: строку с названием города.
     # Тесты: test_city_prefix, test_city_list.
-    pass
+    # pass
+
+
+# Давид
+def city(starts_with=None, seed=None):
+    # 1. Начать со всего списка CITY_NAMES.
+    c = CITY_NAMES
+    # 2. Если starts_with передан, оставить только города, которые начинаются с этого текста.
+    if starts_with is not None:
+        fc = [i for i in c if i.startswith(starts_with)]
+    else:
+        fc = c
+    # 3. Проверить, что после фильтрации список не пустой.
+    if not fc:
+        raise ValueError
+    # 4. Создать random через create_random(seed).
+    randomizer = create_random(seed)
+    # 5. Вернуть случайный город из подходящего списка.
+    return randomizer.choice(fc)

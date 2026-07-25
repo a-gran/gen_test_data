@@ -28,9 +28,9 @@
 Напиши в файл:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-test_email = email(valid=True, username_length=8, seed=1)
+test_email = generate_email(valid=True, username_length=8, seed=1)
 
 print(test_email)
 ```
@@ -50,13 +50,13 @@ py manual_check.py
 ## Что происходит в примере
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 ```
 
 Эта строка берет функцию `email` из проекта.
 
 ```python
-test_email = email(valid=True, username_length=8, seed=1)
+test_email = generate_email(valid=True, username_length=8, seed=1)
 ```
 
 Эта строка создает email.
@@ -87,12 +87,12 @@ Email:
 Пример:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 from procedural_version.generators import plan_example
 from procedural_version.generators import reg_date_example
 
 user = {
-    "email": email(valid=True, username_length=8, seed=1),
+    "email": generate_email(valid=True, username_length=8, seed=1),
     "plan": plan_example(seed=1),
     "registration_date": reg_date_example(seed=1),
 }
@@ -111,9 +111,9 @@ print(user)
 Например, правильный email содержит знак `@`.
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-good_email = email(valid=True, username_length=8, seed=1)
+good_email = generate_email(valid=True, username_length=8, seed=1)
 
 print(good_email)
 ```
@@ -121,9 +121,9 @@ print(good_email)
 А неправильный email можно создать так:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-bad_email = email(valid=False, username_length=8, seed=1)
+bad_email = generate_email(valid=False, username_length=8, seed=1)
 
 print(bad_email)
 ```
@@ -137,10 +137,10 @@ print(bad_email)
 Пример:
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 
-first_email = email(seed=1)
-second_email = email(seed=1)
+first_email = generate_email(seed=1)
+second_email = generate_email(seed=1)
 
 print(first_email)
 print(second_email)
@@ -155,14 +155,14 @@ print(second_email)
 Иногда нужно проверить не одного пользователя, а сразу несколько.
 
 ```python
-from procedural_version.generators import email
+from procedural_version.generators import generate_email
 from procedural_version.generators import plan_example
 
 users = []
 
 for number in range(1, 4):
     user = {
-        "email": email(seed=number),
+        "email": generate_email(seed=number),
         "plan": plan_example(seed=number),
     }
 
@@ -208,7 +208,7 @@ print(score_example(min_score=1, max_score=100, boundary="above_max"))
 - `plan_example()` - тариф пользователя;
 - `reg_date_example()` - дата регистрации.
 
-Функция `email()` тоже уже реализована.
+Функция `generate_email()` тоже уже реализована.
 
 Остальные функции пока оставлены для самостоятельной работы. Внутри них стоит `pass`.
 
@@ -219,7 +219,7 @@ print(score_example(min_score=1, max_score=100, boundary="above_max"))
 Проверить email:
 
 ```bash
-python check.py email
+python check.py generate_email
 ```
 
 Проверить готовый пример с баллами:

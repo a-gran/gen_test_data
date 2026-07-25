@@ -1,5 +1,5 @@
-# Файл нужен для функции email.
-# Функция email генерирует правильный или специально неправильный email.
+# Файл нужен для функции generate_email.
+# Функция generate_email генерирует правильный или специально неправильный email.
 # В тестировании ПО такую функцию можно использовать, чтобы проверять регистрацию, вход и валидацию email.
 
 # Импортируем домены, которые можно ставить после знака @.
@@ -9,8 +9,9 @@ from procedural_version.data.names_data import USERNAME_WORDS
 # Импортируем функцию, которая создает random с нужным seed.
 from procedural_version.utils.random_utils import create_random
 
+# Ноам
 # Объявляем функцию, которая должна вернуть email.
-def email(valid=True, username_length=8, seed=None):
+def generate_email(valid=True, username_length=8, seed=None):
     # Что делает функция: возвращает email строкой.
     # valid=True значит email должен быть правильным и содержать знак @.
     # valid=False значит email должен быть специально неправильным и без знака @.
@@ -22,10 +23,10 @@ def email(valid=True, username_length=8, seed=None):
     # 3. В одном таком файле можно проверять сразу много функций.
     # 4. В файле try_generators.py можно написать такой код:
     # """
-    # from procedural_version.generators.email import email
+    # from procedural_version.generators.generate_email import generate_email
     # from procedural_version.generators.age import age
     #
-    # email_result = email(valid=True, username_length=8, seed=1)
+    # email_result = generate_email(valid=True, username_length=8, seed=1)
     # print(email_result)
     #
     # age_result = age(seed=1)
@@ -33,12 +34,12 @@ def email(valid=True, username_length=8, seed=None):
     # """
     # 5. Открой терминал в корне проекта, где лежат check.py и try_generators.py.
     # 6. Запусти файл командой: python try_generators.py
-    # Вызов без параметров: result = email()
-    # Вызов неправильного email: result = email(valid=False)
-    # Вызов с длиной username: result = email(username_length=10)
-    # Вызов с seed: result = email(valid=True, username_length=8, seed=1)
+    # Вызов без параметров: result = generate_email()
+    # Вызов неправильного email: result = generate_email(valid=False)
+    # Вызов с длиной username: result = generate_email(username_length=10)
+    # Вызов с seed: result = generate_email(valid=True, username_length=8, seed=1)
     # Пример результата: правильный email должен содержать знак @.
-    # Документация: docs/function_specifications.md, раздел email.
+    # Документация: docs/function_specifications.md, раздел generate_email.
     # Шаги реализации:
     # 1. Проверить, что username_length больше 0.
     # 2. Создать random через create_random(seed).
@@ -48,7 +49,7 @@ def email(valid=True, username_length=8, seed=None):
     # 6. Если valid=False, вернуть email без знака @.
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
-    # Затем запусти: python check.py email
+    # Затем запусти: python check.py generate_email
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если username_length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку email.
@@ -71,3 +72,48 @@ def email(valid=True, username_length=8, seed=None):
         return f"{username}@{domain}"
     # Возвращаем специально неправильный email без знака @.
     return f"{username}{domain}"
+
+# Боря
+'''
+def generate_email(valid=True, username_length=8, seed=None):
+    # Что делает функция: возвращает строку email.
+    # valid=True значит email должен быть правильным и содержать знак @.
+    # valid=False значит email должен быть специально неправильным, например без @.
+    # username_length=8 значит часть до @ должна быть ровно 8 символов.
+    # seed - число для random: с одним и тем же seed random собирает один и тот же email.
+    if username_length <= 0:
+        return ""
+
+    randomizer = create_random(seed)
+
+    username_word = randomizer.choice(USERNAME_WORDS)
+
+    alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    username = username_word
+    if len(username) < username_length:
+        c = username_length -len(username)
+        for i in range(c):
+            username += randomizer.choice(alphabet)
+        elif len(username) > username_length:
+            username = username[:username_length]
+
+    domain = randomizer.choice(EMAIL_DOMAINS)
+    if valid:
+        return f'{username}@{domain}'
+    else:
+        return f'{username}{domain}'
+    # Можно вызвать generate_email() и получить правильный email с именем длиной 8 символов.
+    # Можно вызвать generate_email(valid=False) и получить специально неправильный email.
+    # Можно вызвать generate_email(username_length=12) и получить email с именем длиной 12 символов.
+    # Можно вызвать generate_email(valid=False, username_length=12, seed=1) и сочетать все настройки.
+    # Пример вызова: generate_email(valid=True, username_length=8, seed=1) должен вернуть строку с @.
+    # Пример вызова: generate_email(valid=False, username_length=8, seed=1) должен вернуть строку без @.
+    # Документация: docs/function_specifications.md, раздел generate_email.
+    # Открой терминал в папке проекта, где лежит файл check.py.
+    # Затем запусти: python check.py generate_email
+    # Если в конце написано OK, этот тест прошел.
+    # Что проверить в коде: если username_length меньше или равен 0, нужно вызвать ValueError.
+    # Что вернуть: строку.
+    # Тесты: test_email_validity, test_email_bad_len.
+    pass
+'''

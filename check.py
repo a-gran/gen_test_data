@@ -117,8 +117,8 @@ TESTS = {
         # Тест повторяемости города при одинаковом seed.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_city_seed",
     ],
-    # Проверки email.
-    "email": [
+    # Проверки generate_email.
+    "generate_email": [
         # Тест правильного и неправильного email.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_email_validity",
         # Тест ошибки при неправильной длине username.
