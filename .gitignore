@@ -65,3 +65,4 @@ client_secret*.json
 
 # block
 oop_version/
+downloads_projects/

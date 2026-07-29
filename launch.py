@@ -74,6 +74,11 @@ def save(function_name, value):
 # Для того, чтобы проверить, как генерируются и сохраняются данные реализованных функций, вместо функций примеров надо
 # поставить свои и запустить файл.
 
+
+
+
+
+
 # Вызываем example-функцию активности.
 active_result = active_example(seed=1)
 # Печатаем результат в терминал.
@@ -101,6 +106,8 @@ score_result = score_example(seed=1)
 print(score_result)
 # Сохраняем результат в будущий текстовый файл.
 save("score_example", score_result)
+
+
 
 
 
