@@ -55,7 +55,8 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_birth_year_bounds, test_birth_year_range.
-    # Проверяем, что нижняя граница не больше верхней.
+
+    ## Проверяем, что нижняя граница не больше верхней.
     if min_year > max_year:
         # Сообщаем ошибку, если диапазон написан наоборот.
         raise ValueError("min_year не должен быть больше max_year")
@@ -79,3 +80,23 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     randomizer = create_random(seed)
     # Возвращаем случайный год внутри диапазона.
     return randomizer.randint(min_year, max_year)
+
+
+
+    # Борис
+    # if min_year > max_year:
+    #     raise ValueError()
+    # if seed is not None:
+    #     random.seed(seed)
+    # if boundary == "min":
+    #     return min_year
+    # elif boundary == "max":
+    #     return max_year
+    # elif boundary == "b_min":
+    #     return min_year - 1
+    # elif boundary == "a_min":
+    #     return max_year + 1
+    # elif boundary is None:
+    #     return random.randint(min_year, max_year)
+    # else:
+    #     raise ValueError()

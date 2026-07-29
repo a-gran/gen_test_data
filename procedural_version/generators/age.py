@@ -7,7 +7,7 @@ from procedural_version.utils.random_utils import create_random
 
 
 # Объявляем функцию, которая должна вернуть возраст пользователя.
-# def age(min_age=18, max_age=80, boundary=None, seed=None):
+def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Что делает функция: возвращает число-возраст.
     # min_age - самый маленький возраст, например 18.
     # max_age - самый большой возраст, например 80.
@@ -56,44 +56,43 @@ from procedural_version.utils.random_utils import create_random
     # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_age_bounds, test_age_range.
+
     # Проверяем, что нижняя граница не больше верхней.
-    # if min_age > max_age:
-    #     # Сообщаем ошибку, если диапазон написан наоборот.
-    #     raise ValueError("min_age не должен быть больше max_age")
-    # # Возвращаем нижнюю границу.
-    # if boundary == "min":
-    #     # Возвращаем min_age.
-    #     return min_age
-    # # Возвращаем верхнюю границу.
-    # if boundary == "max":
-    #     # Возвращаем max_age.
-    #     return max_age
-    # # Возвращаем число ниже нижней границы.
-    # if boundary == "below_min":
-    #     # Возвращаем min_age минус 1.
-    #     return min_age - 1
-    # # Возвращаем число выше верхней границы.
-    # if boundary == "above_max":
-    #     # Возвращаем max_age плюс 1.
-    #     return max_age + 1
-    # # Создаем random с переданным seed.
-    # randomizer = create_random(seed)
-    # # Возвращаем случайный возраст внутри диапазона.
-    # return randomizer.randint(min_age, max_age)
-
-# Артем
-
-def generate_age(min_age=18, max_age=80, boundary=None, seed=None):
     if min_age > max_age:
-        raise ValueError("min_age не может быть больше max_age")
+        # Сообщаем ошибку, если диапазон написан наоборот.
+        raise ValueError("min_age не должен быть больше max_age")
+    # Возвращаем нижнюю границу.
     if boundary == "min":
+        # Возвращаем min_age.
         return min_age
-    elif boundary == "max":
+    # Возвращаем верхнюю границу.
+    if boundary == "max":
+        # Возвращаем max_age.
         return max_age
-    elif boundary == "below_min":
+    # Возвращаем число ниже нижней границы.
+    if boundary == "below_min":
+        # Возвращаем min_age минус 1.
         return min_age - 1
-    elif boundary == "above_max":
+    # Возвращаем число выше верхней границы.
+    if boundary == "above_max":
+        # Возвращаем max_age плюс 1.
         return max_age + 1
+    # Создаем random с переданным seed.
     randomizer = create_random(seed)
+    # Возвращаем случайный возраст внутри диапазона.
     return randomizer.randint(min_age, max_age)
+
+    # Артем
+    # if min_age > max_age:
+    #     raise ValueError("min_age не может быть больше max_age")
+    # if boundary == "min":
+    #     return min_age
+    # elif boundary == "max":
+    #     return max_age
+    # elif boundary == "below_min":
+    #     return min_age - 1
+    # elif boundary == "above_max":
+    #     return max_age + 1
+    # randomizer = create_random(seed)
+    # return randomizer.randint(min_age, max_age)
 
