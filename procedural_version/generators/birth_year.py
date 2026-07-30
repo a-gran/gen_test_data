@@ -57,46 +57,46 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Тесты: test_birth_year_bounds, test_birth_year_range.
 
     ## Проверяем, что нижняя граница не больше верхней.
-    if min_year > max_year:
-        # Сообщаем ошибку, если диапазон написан наоборот.
-        raise ValueError("min_year не должен быть больше max_year")
-    # Возвращаем нижнюю границу года.
-    if boundary == "min":
-        # Возвращаем min_year.
-        return min_year
-    # Возвращаем верхнюю границу года.
-    if boundary == "max":
-        # Возвращаем max_year.
-        return max_year
-    # Возвращаем год ниже нижней границы.
-    if boundary == "below_min":
-        # Возвращаем min_year минус 1.
-        return min_year - 1
-    # Возвращаем год выше верхней границы.
-    if boundary == "above_max":
-        # Возвращаем max_year плюс 1.
-        return max_year + 1
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Возвращаем случайный год внутри диапазона.
-    return randomizer.randint(min_year, max_year)
+    # if min_year > max_year:
+    #     # Сообщаем ошибку, если диапазон написан наоборот.
+    #     raise ValueError("min_year не должен быть больше max_year")
+    # # Возвращаем нижнюю границу года.
+    # if boundary == "min":
+    #     # Возвращаем min_year.
+    #     return min_year
+    # # Возвращаем верхнюю границу года.
+    # if boundary == "max":
+    #     # Возвращаем max_year.
+    #     return max_year
+    # # Возвращаем год ниже нижней границы.
+    # if boundary == "below_min":
+    #     # Возвращаем min_year минус 1.
+    #     return min_year - 1
+    # # Возвращаем год выше верхней границы.
+    # if boundary == "above_max":
+    #     # Возвращаем max_year плюс 1.
+    #     return max_year + 1
+    # # Создаем random с переданным seed.
+    # randomizer = create_random(seed)
+    # # Возвращаем случайный год внутри диапазона.
+    # return randomizer.randint(min_year, max_year)
 
 
 
     # Борис
-    # if min_year > max_year:
-    #     raise ValueError()
-    # if seed is not None:
-    #     random.seed(seed)
-    # if boundary == "min":
-    #     return min_year
-    # elif boundary == "max":
-    #     return max_year
-    # elif boundary == "b_min":
-    #     return min_year - 1
-    # elif boundary == "a_min":
-    #     return max_year + 1
-    # elif boundary is None:
-    #     return random.randint(min_year, max_year)
-    # else:
-    #     raise ValueError()
+    if min_year > max_year:
+        raise ValueError()
+    if seed is not None:
+        random.seed(seed)
+    if boundary == "min":
+        return min_year
+    elif boundary == "max":
+        return max_year
+    elif boundary == "b_min":
+        return min_year - 1
+    elif boundary == "a_min":
+        return max_year + 1
+    elif boundary is None:
+        return random.randint(min_year, max_year)
+    else:
+        raise ValueError()

@@ -1,4 +1,0 @@
-active_example: True
-plan_example: academy
-reg_date_example: 2021-10-28
-score_example: 18
