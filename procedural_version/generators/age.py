@@ -87,33 +87,33 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
 
 
     # Артем
-    # if min_age > max_age:
-    #     raise ValueError("min_age не может быть больше max_age")
-    # if boundary == "min":
-    #     return min_age
-    # elif boundary == "max":
-    #     return max_age
-    # elif boundary == "below_min":
-    #     return min_age - 1
-    # elif boundary == "above_max":
-    #     return max_age + 1
-    # randomizer = create_random(seed)
-    # return randomizer.randint(min_age, max_age)
+    if min_age > max_age:
+        raise ValueError("min_age не может быть больше max_age")
+    if boundary == "min":
+        return min_age
+    elif boundary == "max":
+        return max_age
+    elif boundary == "below_min":
+        return min_age - 1
+    elif boundary == "above_max":
+        return max_age + 1
+    randomizer = create_random(seed)
+    return randomizer.randint(min_age, max_age)
 
 
     # Илья
-    if min_age > max_age:
-        raise ValueError("min_age must not be greater than max_age")
+    # if min_age > max_age:
+    #     raise ValueError("min_age must not be greater than max_age")
 
-    if boundary == "min":
-        return min_age
-    if boundary == "max":
-        return max_age
-    if boundary == "below_min":
-        return min_age - 1
-    if boundary == "above_max":
-        return max_age + 1
+    # if boundary == "min":
+    #     return min_age
+    # if boundary == "max":
+    #     return max_age
+    # if boundary == "below_min":
+    #     return min_age - 1
+    # if boundary == "above_max":
+    #     return max_age + 1
 
-    randomizer = create_random(seed)
-    return randomizer.randint(min_age, max_age)
+    # randomizer = create_random(seed)
+    # return randomizer.randint(min_age, max_age)
 

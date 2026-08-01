@@ -1,0 +1,2 @@
+full_name: Глеб Быкова
+phone: {'country_code': '+7', 'operator_code': 930, 'number': 3188131}

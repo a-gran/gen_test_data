@@ -175,7 +175,7 @@ TESTS = {
     ],
     # Проверки профиля.
     "user_profile": [
-        # Тест богатого словаря профиля.
+        # Тест богатого текстового профиля.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_user_profile_fields",
         # Тест профиля с неправильным email.
         "procedural_version.tests.test_generators.ProceduralGeneratorsTest.test_user_profile_invalid_email",
@@ -280,8 +280,8 @@ HINTS = [
     ("_digits", "Проверь: при only_digits=True ID должен состоять только из цифр."),
     # Подсказка для ID из букв и цифр.
     ("_alnum", "Проверь: при only_digits=False ID может содержать английские буквы и цифры."),
-    # Подсказка для словаря профиля.
-    ("_fields", "Проверь: в словаре профиля должны быть все обязательные ключи."),
+    # Подсказка для строк профиля.
+    ("_fields", "Проверь: в тексте профиля должны быть все обязательные строки ключ: значение."),
     # Подсказка для неправильного email в профиле.
     ("_invalid_email", "Проверь: при valid=False email в профиле должен быть специально неправильным."),
     # Подсказка для простого полного имени.

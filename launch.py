@@ -58,14 +58,25 @@ from user_id import user_id
 # Импортируем функцию username.
 from username import username
 
+# Импортируем функцию профиля пользователя.
+from user_profile import user_profile
+
 # Сюда программа будет складывать строки для текстового файла.
 results = []
 
 
 # Объявляем функцию, которая сохраняет один результат в общий список.
 def save(function_name, value):
-    # Добавляем имя функции и ее результат, чтобы в файле было понятно, откуда данные.
-    results.append(f"{function_name}: {value}")
+    # Превращаем результат функции в текст, чтобы его можно было сохранить в файл.
+    value_text = str(value)
+    # Проверяем, есть ли внутри результата переносы строк.
+    if "\n" in value_text:
+        # Добавляем имя функции отдельной строкой, а ниже оставляем красивый многострочный результат.
+        results.append(f"{function_name}:\n{value_text}")
+    # Если результат помещается в одну строку, сохраняем его обычным коротким способом.
+    else:
+        # Добавляем имя функции и ее результат, чтобы в файле было понятно, откуда данные.
+        results.append(f"{function_name}: {value_text}")
 
 
 # Ниже идет ручная проверка функций.
@@ -79,33 +90,20 @@ def save(function_name, value):
 
 
 
-# Вызываем example-функцию активности.
-active_result = active_example(seed=1)
+# Вызываем example-функцию даты регистрации.
+full_name = full_name(seed=3)
 # Печатаем результат в терминал.
-print(active_result)
+print(full_name)
 # Сохраняем результат в будущий текстовый файл.
-save("active_example", active_result)
-
-# Вызываем example-функцию плана подписки.
-plan_result = plan_example(seed=1)
-# Печатаем результат в терминал.
-print(plan_result)
-# Сохраняем результат в будущий текстовый файл.
-save("plan_example", plan_result)
+save("full_name", full_name)
 
 # Вызываем example-функцию даты регистрации.
-reg_date_result = reg_date_example(seed=1)
+phone = phone(seed=3)
 # Печатаем результат в терминал.
-print(reg_date_result)
+print(phone)
 # Сохраняем результат в будущий текстовый файл.
-save("reg_date_example", reg_date_result)
+save("phone", phone)
 
-# Вызываем example-функцию учебного балла.
-score_result = score_example(seed=1)
-# Печатаем результат в терминал.
-print(score_result)
-# Сохраняем результат в будущий текстовый файл.
-save("score_example", score_result)
 
 
 

@@ -401,23 +401,25 @@ class ProceduralGeneratorsTest(unittest.TestCase):
         valid_phone = phone_fn(valid=True, seed=1)
         # Генерируем невалидный телефон.
         invalid_phone = phone_fn(valid=False, seed=1)
-        # Проверяем правильный код страны валидного телефона.
-        self.assertEqual(valid_phone["country_code"], "+7")
-        # Проверяем неправильный код страны невалидного телефона.
-        self.assertNotEqual(invalid_phone["country_code"], "+7")
-        # Проверяем длину основной части валидного телефона.
-        self.assertGreaterEqual(valid_phone["number"], 1000000)
-        # Проверяем короткую основную часть невалидного телефона.
-        self.assertLess(invalid_phone["number"], 1000000)
+        # Проверяем, что валидный телефон является строкой.
+        self.assertIsInstance(valid_phone, str)
+        # Проверяем, что валидный телефон начинается с российского кода страны.
+        self.assertTrue(valid_phone.startswith("+7"))
+        # Проверяем, что невалидный телефон не начинается с российского кода страны.
+        self.assertFalse(invalid_phone.startswith("+7"))
+        # Проверяем длину валидного телефона в формате +7 и 10 цифр.
+        self.assertEqual(len(valid_phone), 12)
 
     # Объявляем тест кода оператора телефона.
     def test_phone_code(self):
         # Генерируем валидный телефон.
         valid_phone = phone_fn(valid=True, seed=1)
+        # Достаем код оператора из строки телефона.
+        operator_code = int(valid_phone[2:5])
         # Проверяем, что код оператора не меньше 900.
-        self.assertGreaterEqual(valid_phone["operator_code"], 900)
+        self.assertGreaterEqual(operator_code, 900)
         # Проверяем, что код оператора не больше 999.
-        self.assertLessEqual(valid_phone["operator_code"], 999)
+        self.assertLessEqual(operator_code, 999)
 
     # Объявляем тест повторяемости телефона при одинаковом seed.
     def test_phone_seed(self):
@@ -600,16 +602,22 @@ class ProceduralGeneratorsTest(unittest.TestCase):
     def test_user_profile_fields(self):
         # Генерируем валидный профиль.
         profile = user_profile_fn(valid=True, seed=1)
-        # Проверяем, что профиль является словарем.
-        self.assertIsInstance(profile, dict)
+        # Проверяем, что профиль является строкой.
+        self.assertIsInstance(profile, str)
+        # Разбиваем профиль на строки.
+        profile_lines = profile.splitlines()
+        # Превращаем строки вида ключ: значение в словарь для удобной проверки.
+        profile_data = dict(line.split(": ", 1) for line in profile_lines)
         # Проверяем, что ID имеет длину 6 символов.
-        self.assertEqual(len(profile["user_id"]), 6)
+        self.assertEqual(len(profile_data["user_id"]), 6)
         # Проверяем, что email валидного профиля содержит знак собаки.
-        self.assertIn("@", profile["email"])
+        self.assertIn("@", profile_data["email"])
         # Проверяем, что пароль имеет длину 12 символов.
-        self.assertEqual(len(profile["password"]), 12)
+        self.assertEqual(len(profile_data["password"]), 12)
+        # Разбиваем строку тегов на отдельные теги.
+        profile_tags = profile_data["tags"].split(", ")
         # Проверяем, что в профиле ровно 3 тега.
-        self.assertEqual(len(profile["tags"]), 3)
+        self.assertEqual(len(profile_tags), 3)
         # Создаем список обязательных ключей профиля.
         required_keys = [
             "user_id",
@@ -628,18 +636,22 @@ class ProceduralGeneratorsTest(unittest.TestCase):
         # Проверяем каждый обязательный ключ.
         for key in required_keys:
             # Проверяем, что ключ есть в профиле.
-            self.assertIn(key, profile)
+            self.assertIn(key, profile_data)
         # Проверяем, что username имеет длину 10 символов.
-        self.assertEqual(len(profile["username"]), 10)
-        # Проверяем, что признак активности имеет тип bool.
-        self.assertIsInstance(profile["is_active"], bool)
+        self.assertEqual(len(profile_data["username"]), 10)
+        # Проверяем, что признак активности записан понятным текстом.
+        self.assertIn(profile_data["is_active"], ["True", "False"])
 
     # Объявляем тест невалидного профиля пользователя.
     def test_user_profile_invalid_email(self):
         # Генерируем профиль с невалидным email.
         profile = user_profile_fn(valid=False, seed=1)
+        # Разбиваем профиль на строки.
+        profile_lines = profile.splitlines()
+        # Превращаем строки вида ключ: значение в словарь для удобной проверки.
+        profile_data = dict(line.split(": ", 1) for line in profile_lines)
         # Проверяем, что email намеренно не содержит знак собаки.
-        self.assertNotIn("@", profile["email"])
+        self.assertNotIn("@", profile_data["email"])
 
     # Объявляем тест повторяемости профиля при одинаковом seed.
     def test_user_profile_seed(self):

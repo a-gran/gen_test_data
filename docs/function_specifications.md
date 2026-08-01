@@ -266,8 +266,8 @@ city(starts_with="М", seed=1)
 ### `phone(valid=True, seed=None)`
 
 Вход: `valid=True` - правильный телефон; `valid=False` - телефон с ошибкой; `seed` - число для повторяемого random или `None`.
-Выход: словарь с ключами `country_code`, `operator_code`, `number`.
-Проверить: при `valid=True` код страны равен `"+7"`, `operator_code` от `900` до `999`, `number` от `1000000` до `9999999`; при `valid=False` данные намеренно неправильные.
+Выход: строка с полным номером телефона.
+Проверить: при `valid=True` строка начинается с `"+7"`, код оператора от `900` до `999`, длина строки равна 12 символам; при `valid=False` телефон намеренно неправильный.
 Пример:
 
 ```python
@@ -332,8 +332,8 @@ tags(count=5, unique=True, seed=1)
 ### `user_profile(valid=True, seed=None)`
 
 Вход: `valid=True` - профиль с правильным email; `valid=False` - профиль с email-ошибкой; `seed` - число для повторяемого random или `None`.
-Выход: словарь профиля пользователя.
-Проверить: тип `dict`; ключи `user_id`, `first_name`, `last_name`, `age`, `city`, `is_active`, `username`, `email`, `password`, `tags`, `registration_date`, `subscription_plan`; длину `user_id` 6, `username` 10, `password` 12; 3 уникальных тега; правильный email при `valid=True`; неправильный email при `valid=False`.
+Выход: многострочная строка профиля пользователя, где каждая строка имеет вид `ключ: значение`.
+Проверить: тип `str`; строки `user_id`, `first_name`, `last_name`, `age`, `city`, `is_active`, `username`, `email`, `password`, `tags`, `registration_date`, `subscription_plan`; длину значения `user_id` 6, `username` 10, `password` 12; 3 тега в строке `tags`; правильный email при `valid=True`; неправильный email при `valid=False`.
 Пример:
 
 ```python

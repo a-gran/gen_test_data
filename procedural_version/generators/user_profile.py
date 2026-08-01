@@ -1,5 +1,5 @@
 # Файл нужен для функции user_profile.
-# Функция user_profile должна собирать полный словарь с данными пользователя.
+# Функция user_profile должна собирать полный профиль пользователя в виде красивого текста.
 # В тестировании ПО такую функцию можно использовать, чтобы быстро собирать полный набор тестовых данных пользователя.
 
 # Импортируем список имен.
@@ -29,12 +29,12 @@ from procedural_version.utils.random_utils import choose_item
 
 # Объявляем функцию, которая должна вернуть полный профиль пользователя.
 def user_profile(valid=True, seed=None):
-    # Что делает функция: собирает один большой словарь с данными пользователя.
+    # Что делает функция: собирает данные пользователя и возвращает их текстом в столбик.
     # valid=True значит email внутри профиля должен быть правильным и содержать @.
     # valid=False значит email внутри профиля должен быть специально неправильным.
     # seed - число для random: с одним и тем же seed random собирает один и тот же профиль.
-    # В словаре должны быть ключи: user_id, first_name, last_name, age, city, is_active.
-    # В словаре также должны быть ключи: username, email, password, tags, registration_date, subscription_plan.
+    # В тексте должны быть строки: user_id, first_name, last_name, age, city, is_active.
+    # В тексте также должны быть строки: username, email, password, tags, registration_date, subscription_plan.
     # user_id должен быть строкой длиной 6.
     # username должен быть строкой длиной 10.
     # password должен быть строкой длиной 12.
@@ -60,7 +60,7 @@ def user_profile(valid=True, seed=None):
     # Вызов без параметров: result = user_profile()
     # Вызов неправильного email: result = user_profile(valid=False)
     # Вызов с seed: result = user_profile(seed=1)
-    # Пример результата: профиль должен быть словарем с данными пользователя.
+    # Пример результата: профиль должен быть текстом, где каждая строка имеет вид ключ: значение.
     # Документация: docs/function_specifications.md, раздел user_profile.
     # Шаги реализации:
     # 1. Создать random через create_random(seed).
@@ -72,13 +72,13 @@ def user_profile(valid=True, seed=None):
     # 7. Сгенерировать 3 уникальных тега.
     # 8. Сгенерировать дату регистрации.
     # 9. Выбрать subscription_plan из SUBSCRIPTION_PLANS.
-    # 10. Собрать все значения в один словарь и вернуть его.
+    # 10. Собрать все значения в красивый многострочный текст и вернуть его.
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py user_profile
     # Или на Windows: py check.py user_profile
     # Если в конце написано OK, этот тест прошел.
-    # Что вернуть: словарь dict.
+    # Что вернуть: многострочную строку str.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.
     # Создаем random с переданным seed.
     randomizer = create_random(seed)
@@ -118,32 +118,34 @@ def user_profile(valid=True, seed=None):
     profile_registration_date = reg_date_example(seed=registration_date_seed)
     # Выбираем план подписки из учебного списка.
     profile_subscription_plan = choose_item(SUBSCRIPTION_PLANS, randomizer=randomizer)
-    # Собираем словарь профиля пользователя.
-    profile = {
+    # Собираем строки профиля пользователя в понятном порядке.
+    profile_lines = [
         # Записываем ID пользователя.
-        "user_id": profile_user_id,
+        f"user_id: {profile_user_id}",
         # Записываем имя пользователя.
-        "first_name": profile_first_name,
+        f"first_name: {profile_first_name}",
         # Записываем фамилию пользователя.
-        "last_name": profile_last_name,
+        f"last_name: {profile_last_name}",
         # Записываем возраст пользователя.
-        "age": profile_age,
+        f"age: {profile_age}",
         # Записываем город пользователя.
-        "city": profile_city,
+        f"city: {profile_city}",
         # Записываем признак активности пользователя.
-        "is_active": profile_is_active,
+        f"is_active: {profile_is_active}",
         # Записываем username пользователя.
-        "username": profile_username,
+        f"username: {profile_username}",
         # Записываем email пользователя.
-        "email": profile_email,
+        f"email: {profile_email}",
         # Записываем пароль пользователя.
-        "password": profile_password,
-        # Записываем теги пользователя.
-        "tags": profile_tags,
+        f"password: {profile_password}",
+        # Записываем теги пользователя через запятую.
+        f"tags: {', '.join(profile_tags)}",
         # Записываем дату регистрации пользователя.
-        "registration_date": profile_registration_date,
+        f"registration_date: {profile_registration_date}",
         # Записываем план подписки пользователя.
-        "subscription_plan": profile_subscription_plan,
-    }
-    # Возвращаем готовый профиль пользователя.
-    return profile
+        f"subscription_plan: {profile_subscription_plan}",
+    ]
+    # Склеиваем строки через перенос строки.
+    profile_text = "\n".join(profile_lines)
+    # Возвращаем готовый профиль пользователя красивым текстом.
+    return profile_text
