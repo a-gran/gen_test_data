@@ -368,8 +368,12 @@ def show_summary(result):
 def show_help():
     # Печатаем заголовок подсказки.
     print("Использование: python check.py <имя>")
+    # Печатаем вариант той же команды для Windows, где Python часто запускается через py.
+    print("На Windows можно так: py check.py <имя>")
     # Печатаем пример самой частой команды.
     print("Пример: python check.py city")
+    # Печатаем такой же пример для Windows.
+    print("Пример для Windows: py check.py city")
     # Печатаем пустую строку для читаемости.
     print()
     # Печатаем список доступных коротких имен.

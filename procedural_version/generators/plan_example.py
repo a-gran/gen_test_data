@@ -47,9 +47,11 @@ def plan_example(allowed_plans=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py plan_example
+    # Или на Windows: py check.py plan_example
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: строку с одним планом подписки.
     # Проверка тестами: python check.py plan_example
+    # Или на Windows: py check.py plan_example
     # Создаем random с переданным seed.
     randomizer = create_random(seed)
     # Выбираем список: переданный allowed_plans или общий SUBSCRIPTION_PLANS.

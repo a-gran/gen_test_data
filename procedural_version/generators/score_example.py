@@ -51,9 +51,11 @@ def score_example(min_score=1, max_score=100, boundary=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py score_example
+    # Или на Windows: py check.py score_example
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: целое число.
     # Проверка тестами: python check.py score_example
+    # Или на Windows: py check.py score_example
     # Проверяем, что нижняя граница не больше верхней.
     if min_score > max_score:
         # Сообщаем ошибку, если диапазон написан наоборот.

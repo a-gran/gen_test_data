@@ -46,6 +46,7 @@ def user_id(length=6, only_digits=True, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py user_id
+    # Или на Windows: py check.py user_id
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если length меньше или равен 0, нужно вызвать ValueError.
     # Что вернуть: строку.

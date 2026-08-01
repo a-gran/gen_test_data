@@ -48,25 +48,44 @@ def last_name(min_length=None, max_length=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py last_name
+    # Или на Windows: py check.py last_name
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если подходящих фамилий нет, нужно вызвать ValueError.
     # Что вернуть: строку с фамилией.
     # Тесты: test_last_name_max_len, test_last_name_min_len.
+
+
+    # Эталонное решение
     # Начинаем со всего списка фамилий.
-    filtered_last_names = LAST_NAMES
-    # Проверяем, передана ли минимальная длина.
+    # filtered_last_names = LAST_NAMES
+    # # Проверяем, передана ли минимальная длина.
+    # if min_length is not None:
+    #     # Оставляем только фамилии не короче минимальной длины.
+    #     filtered_last_names = [name for name in filtered_last_names if len(name) >= min_length]
+    # # Проверяем, передана ли максимальная длина.
+    # if max_length is not None:
+    #     # Оставляем только фамилии не длиннее максимальной длины.
+    #     filtered_last_names = [name for name in filtered_last_names if len(name) <= max_length]
+    # # Проверяем, что после фильтрации остались подходящие фамилии.
+    # if not filtered_last_names:
+    #     # Сообщаем ошибку, если подходящих фамилий нет.
+    #     raise ValueError("Нет фамилий, которые подходят под ограничения длины")
+    # # Создаем random с переданным seed.
+    # randomizer = create_random(seed)
+    # # Возвращаем случайную фамилию из подходящего списка.
+    # return randomizer.choice(filtered_last_names)
+
+
+    # Илья
+    last_names = LAST_NAMES
+
     if min_length is not None:
-        # Оставляем только фамилии не короче минимальной длины.
-        filtered_last_names = [name for name in filtered_last_names if len(name) >= min_length]
-    # Проверяем, передана ли максимальная длина.
+        last_names = [last_name for last_name in last_names if len(last_name) >= min_length]
     if max_length is not None:
-        # Оставляем только фамилии не длиннее максимальной длины.
-        filtered_last_names = [name for name in filtered_last_names if len(name) <= max_length]
-    # Проверяем, что после фильтрации остались подходящие фамилии.
-    if not filtered_last_names:
-        # Сообщаем ошибку, если подходящих фамилий нет.
-        raise ValueError("Нет фамилий, которые подходят под ограничения длины")
-    # Создаем random с переданным seed.
+        last_names = [last_name for last_name in last_names if len(last_name) <= max_length]
+
+    if not last_names:
+        raise ValueError("No last names match the requested length")
+
     randomizer = create_random(seed)
-    # Возвращаем случайную фамилию из подходящего списка.
-    return randomizer.choice(filtered_last_names)
+    return randomizer.choice(last_names)

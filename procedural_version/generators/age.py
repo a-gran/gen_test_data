@@ -52,35 +52,39 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py age
+    # Или на Windows: py check.py age
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если min_age больше max_age, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_age_bounds, test_age_range.
 
+
+    # Эталонное решение
     # Проверяем, что нижняя граница не больше верхней.
-    if min_age > max_age:
-        # Сообщаем ошибку, если диапазон написан наоборот.
-        raise ValueError("min_age не должен быть больше max_age")
-    # Возвращаем нижнюю границу.
-    if boundary == "min":
-        # Возвращаем min_age.
-        return min_age
-    # Возвращаем верхнюю границу.
-    if boundary == "max":
-        # Возвращаем max_age.
-        return max_age
-    # Возвращаем число ниже нижней границы.
-    if boundary == "below_min":
-        # Возвращаем min_age минус 1.
-        return min_age - 1
-    # Возвращаем число выше верхней границы.
-    if boundary == "above_max":
-        # Возвращаем max_age плюс 1.
-        return max_age + 1
-    # Создаем random с переданным seed.
-    randomizer = create_random(seed)
-    # Возвращаем случайный возраст внутри диапазона.
-    return randomizer.randint(min_age, max_age)
+    # if min_age > max_age:
+    #     # Сообщаем ошибку, если диапазон написан наоборот.
+    #     raise ValueError("min_age не должен быть больше max_age")
+    # # Возвращаем нижнюю границу.
+    # if boundary == "min":
+    #     # Возвращаем min_age.
+    #     return min_age
+    # # Возвращаем верхнюю границу.
+    # if boundary == "max":
+    #     # Возвращаем max_age.
+    #     return max_age
+    # # Возвращаем число ниже нижней границы.
+    # if boundary == "below_min":
+    #     # Возвращаем min_age минус 1.
+    #     return min_age - 1
+    # # Возвращаем число выше верхней границы.
+    # if boundary == "above_max":
+    #     # Возвращаем max_age плюс 1.
+    #     return max_age + 1
+    # # Создаем random с переданным seed.
+    # randomizer = create_random(seed)
+    # # Возвращаем случайный возраст внутри диапазона.
+    # return randomizer.randint(min_age, max_age)
+
 
     # Артем
     # if min_age > max_age:
@@ -95,4 +99,21 @@ def age(min_age=18, max_age=80, boundary=None, seed=None):
     #     return max_age + 1
     # randomizer = create_random(seed)
     # return randomizer.randint(min_age, max_age)
+
+
+    # Илья
+    if min_age > max_age:
+        raise ValueError("min_age must not be greater than max_age")
+
+    if boundary == "min":
+        return min_age
+    if boundary == "max":
+        return max_age
+    if boundary == "below_min":
+        return min_age - 1
+    if boundary == "above_max":
+        return max_age + 1
+
+    randomizer = create_random(seed)
+    return randomizer.randint(min_age, max_age)
 

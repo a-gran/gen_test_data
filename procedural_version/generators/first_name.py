@@ -48,10 +48,15 @@ def first_name(min_length=None, max_length=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py first_name
+    # Или на Windows: py check.py first_name
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если подходящих имен нет, нужно вызвать ValueError.
     # Что вернуть: строку с именем.
     # Тесты: test_first_name_min_len, test_first_name_max_len.
+
+
+    # Эталонное решение
+    # Илья
     # Начинаем со всего списка имен.
     filtered_names = FIRST_NAMES
     # Проверяем, передана ли минимальная длина.

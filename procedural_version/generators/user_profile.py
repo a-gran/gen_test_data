@@ -76,6 +76,7 @@ def user_profile(valid=True, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py user_profile
+    # Или на Windows: py check.py user_profile
     # Если в конце написано OK, этот тест прошел.
     # Что вернуть: словарь dict.
     # Тесты: test_user_profile_fields, test_user_profile_invalid_email.

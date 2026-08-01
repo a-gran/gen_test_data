@@ -49,21 +49,40 @@ def full_name(max_total_length=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py full_name
+    # Или на Windows: py check.py full_name
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: без ограничения в строке должен быть пробел между именем и фамилией.
     # Что вернуть: строку с именем, пробелом и фамилией.
     # Тесты: test_full_name_max_len, test_full_name_basic.
+
+
+    # Эталонно решение
     # Создаем random с переданным seed.
+    # randomizer = create_random(seed)
+    # # Собираем все пары имени и фамилии в формате "Имя Фамилия".
+    # all_full_names = [f"{first} {last}" for first in FIRST_NAMES for last in LAST_NAMES]
+    # # Проверяем, передано ли ограничение общей длины.
+    # if max_total_length is not None:
+    #     # Оставляем только полные имена, которые помещаются в ограничение.
+    #     all_full_names = [name for name in all_full_names if len(name) <= max_total_length]
+    #     # Проверяем, что после ограничения остались подходящие полные имена.
+    #     if not all_full_names:
+    #         # Сообщаем ошибку, если невозможно подобрать полное имя нужной длины.
+    #         raise ValueError("Нет полного имени, которое подходит под ограничение длины")
+    # # Возвращаем случайное полное имя из подходящего списка.
+    # return choose_item(all_full_names, randomizer=randomizer)
+
+
+    # Илья
+    if max_total_length is not None and max_total_length < 0:
+        raise ValueError("max_total_length must not be negative")
+
     randomizer = create_random(seed)
-    # Собираем все пары имени и фамилии в формате "Имя Фамилия".
-    all_full_names = [f"{first} {last}" for first in FIRST_NAMES for last in LAST_NAMES]
-    # Проверяем, передано ли ограничение общей длины.
+    first_name = randomizer.choice(FIRST_NAMES)
+    last_name = randomizer.choice(LAST_NAMES)
+    full_name = f"{first_name} {last_name}"
+
     if max_total_length is not None:
-        # Оставляем только полные имена, которые помещаются в ограничение.
-        all_full_names = [name for name in all_full_names if len(name) <= max_total_length]
-        # Проверяем, что после ограничения остались подходящие полные имена.
-        if not all_full_names:
-            # Сообщаем ошибку, если невозможно подобрать полное имя нужной длины.
-            raise ValueError("Нет полного имени, которое подходит под ограничение длины")
-    # Возвращаем случайное полное имя из подходящего списка.
-    return choose_item(all_full_names, randomizer=randomizer)
+        full_name = full_name[:max_total_length]
+
+    return full_name

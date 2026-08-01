@@ -109,12 +109,14 @@ print(age())
 
 ```bash
 python check.py all
+py check.py all
 ```
 
 ООП-версия целиком:
 
 ```bash
 python check.py oop
+py check.py oop
 ```
 
 Полный набор процедурных тестов будет проходить только после реализации функций, где сейчас стоит `pass`. ООП-тесты проверяют методы ООП напрямую.
@@ -125,46 +127,57 @@ ID точной длины:
 
 ```bash
 python check.py user_id
+py check.py user_id
 ```
 
 Возраст на минимуме, максимуме и за пределами диапазона:
 
 ```bash
 python check.py age
+py check.py age
 ```
 
 Функция-образец с баллом:
 
 ```bash
 python check.py score_example
+py check.py score_example
 ```
 
 Функция-образец с активностью:
 
 ```bash
 python check.py active_example
+py check.py active_example
 ```
 
 Email, пароль, теги и профиль:
 
 ```bash
 python check.py generate_email
+py check.py generate_email
 python check.py password
+py check.py password
 python check.py tags
+py check.py tags
 python check.py user_profile
+py check.py user_profile
 ```
 
 Функции-образцы с планом подписки и датой:
 
 ```bash
 python check.py plan_example
+py check.py plan_example
 python check.py reg_date_example
+py check.py reg_date_example
 ```
 
 ООП-профиль:
 
 ```bash
 python check.py oop
+py check.py oop
 ```
 
 ## Если тесты упали

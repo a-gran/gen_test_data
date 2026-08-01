@@ -220,24 +220,28 @@ print(score_example(min_score=1, max_score=100, boundary="above_max"))
 
 ```bash
 python check.py generate_email
+py check.py generate_email
 ```
 
 Проверить готовый пример с баллами:
 
 ```bash
 python check.py score_example
+py check.py score_example
 ```
 
 Проверить готовый пример с датой:
 
 ```bash
 python check.py reg_date_example
+py check.py reg_date_example
 ```
 
 Проверить все функции:
 
 ```bash
 python check.py all
+py check.py all
 ```
 
 Если функция еще не написана и внутри стоит `pass`, тесты будут падать. Это нормально.

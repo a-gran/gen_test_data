@@ -51,11 +51,14 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py birth_year
+    # Или на Windows: py check.py birth_year
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если min_year больше max_year, нужно вызвать ValueError.
     # Что вернуть: целое число.
     # Тесты: test_birth_year_bounds, test_birth_year_range.
 
+
+    # Эталонное решение
     ## Проверяем, что нижняя граница не больше верхней.
     # if min_year > max_year:
     #     # Сообщаем ошибку, если диапазон написан наоборот.
@@ -82,21 +85,37 @@ def birth_year(min_year=1950, max_year=2008, boundary=None, seed=None):
     # return randomizer.randint(min_year, max_year)
 
 
-
     # Борис
+    # if min_year > max_year:
+    #     raise ValueError()
+    # if seed is not None:
+    #     random.seed(seed)
+    # if boundary == "min":
+    #     return min_year
+    # elif boundary == "max":
+    #     return max_year
+    # elif boundary == "b_min":
+    #     return min_year - 1
+    # elif boundary == "a_min":
+    #     return max_year + 1
+    # elif boundary is None:
+    #     return random.randint(min_year, max_year)
+    # else:
+    #     raise ValueError()
+
+
+    # Илья
     if min_year > max_year:
-        raise ValueError()
-    if seed is not None:
-        random.seed(seed)
+        raise ValueError("min_year must not be greater than max_year")
+
     if boundary == "min":
         return min_year
-    elif boundary == "max":
+    if boundary == "max":
         return max_year
-    elif boundary == "b_min":
+    if boundary == "below_min":
         return min_year - 1
-    elif boundary == "a_min":
+    if boundary == "above_max":
         return max_year + 1
-    elif boundary is None:
-        return random.randint(min_year, max_year)
-    else:
-        raise ValueError()
+
+    randomizer = create_random(seed)
+    return randomizer.randint(min_year, max_year)

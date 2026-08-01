@@ -48,6 +48,7 @@ def tags(count=None, unique=True, seed=None):
     # Проверка с помощью автотестов:
     # Открой терминал в папке проекта, где лежит файл check.py.
     # Затем запусти: python check.py tags
+    # Или на Windows: py check.py tags
     # Если в конце написано OK, этот тест прошел.
     # Что проверить в коде: если count меньше 0, нужно вызвать ValueError.
     # Что вернуть: список строк.
