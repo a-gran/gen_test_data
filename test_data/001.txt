@@ -1,1 +1,15 @@
 full_name: Глеб Быкова
+phone: +79303188131
+user_profile:
+user_id: 487908
+first_name: Лидия
+last_name: Сидоров
+age: 58
+city: Сыктывкар
+is_active: True
+username: 9u_0vibgcr
+email: bootcamp@syntax.local
+password: o$rwkwl1bKfo
+tags: loop, success, names
+registration_date: 2022-07-09
+subscription_plan: full

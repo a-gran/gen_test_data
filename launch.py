@@ -104,6 +104,13 @@ print(phone)
 # Сохраняем результат в будущий текстовый файл.
 save("phone", phone)
 
+# Вызываем example-функцию даты регистрации.
+user_profile = user_profile(seed=3)
+# Печатаем результат в терминал.
+print(user_profile)
+# Сохраняем результат в будущий текстовый файл.
+save("user_profile", user_profile)
+
 
 
 
